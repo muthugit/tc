@@ -3,3 +3,4 @@ app.controller('commonCtrl', function($scope, $http) {
 		console.log(response.data);
 	});
 });
+
