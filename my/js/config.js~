@@ -1,4 +1,4 @@
-var APIUrl = "http://192.168.0.102:9991";
+var APIUrl = "http://192.168.1.211/:9991";
 
 var app = angular.module('cmsApp', [ 'ngRoute' ]);
 
@@ -14,9 +14,6 @@ app.config([ '$routeProvider', '$locationProvider',
 			.when("/login", {
 				templateUrl : "core/home/login.html",
 				controller : ""
-			}).when("/new-post", {
-				templateUrl : "core/newPost.html",
-				controller : "postController"
 			}).when("/media", {
 				templateUrl : "core/media.html",
 				controller : ""

@@ -1,13 +1,24 @@
 app.controller('userController', function($scope, $http, $location) {
 	$scope.checkUser = function() {
-		if (localStorage.getItem("userApiKey") == null)
+		console.log("Checking");
+		if (localStorage.getItem("userApiKey") == null) {
+			console.log("Failed");
 			$location.path('/login');
-		else
-			$location.path('/');
+			$(".generalFooter").show();
+			$(".userButtons").hide();
+		} else {
+			// $location.path('/');
+			var userObj = JSON.parse(localStorage.getItem("currentUser"));
+			$scope.userName = userObj.name;
+			console.log("=========>" + userObj.email);
+			$(".generalFooter").hide();
+			$(".userButtons").show();
+		}
 	};
 	$scope.reset = function() {
 		$scope.user = "";
 	};
+
 	$scope.saveUser = function() {
 		var url = APIUrl + '/newUser';
 		$http.post(url, $scope.user).success(function(data, status) {
@@ -28,14 +39,28 @@ app.controller('userController', function($scope, $http, $location) {
 		console.log($scope.login.email);
 		var loginUrl = APIUrl + "/login/" + $scope.login.email + "/"
 				+ $scope.login.password;
-		$http.get(loginUrl).then(function(response) {
-			if (response.data == "failed")
-				alert("User name password not matched");
-			else {
-				localStorage.setItem("userApiKey", response.data);
-				$scope.checkUser();
-			}
-		});
+		$http.get(loginUrl).then(
+				function(response) {
+					if (response.data == "failed")
+						alert("User name password not matched");
+					else {
+						console.log("User Data keys========> "
+								+ Object.keys(response.data));
+						localStorage.setItem("userApiKey",
+								response.data.objectId);
+						localStorage.setItem("currentUser", JSON
+								.stringify(response.data));
+						$location.path('/');
+						$scope.checkUser();
+					}
+				});
 	};
+
+	$scope.logout = function() {
+		localStorage.removeItem("userApiKey");
+		alert("Loggout");
+		$scope.checkUser();
+	};
+
 	$scope.checkUser();
 });
