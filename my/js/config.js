@@ -51,5 +51,5 @@ app.config([ '$routeProvider', '$locationProvider',
 				templateUrl : "core/404.html",
 				controller : ""
 			});
-			$locationProvider.html5Mode(true);
+			$locationProvider.html5Mode(false);
 		} ]);

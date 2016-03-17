@@ -3,28 +3,30 @@
 		<form id="newPost">
 			<div class="form-group">
 				<label class="control-label" for="postTitle">Post Title</label> <input
-					type="text" name="postTitle" class="form-control"
-					placeholder="Post title" value="">
+					type="text" ng-model="post.title" name="postTitle"
+					class="form-control" placeholder="Post title">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="postContent">Post Content</label>
 				<div id="summernote">
-					<p>Hello Summernote</p>
+					<p>Add your content</p>
 				</div>
 				<textarea style="display: none" class="form-control"
-					id="postContent" name="postContent" placeholder="Post Content" />
+					id="postContent" ng-model="post.content" name="postContent"
+					placeholder="Post Content" />
 			</div>
-
+			<input type="hidden" id="userApi" ng-model="post.userApi">
 		</form>
 	</div>
 	<div class="col-sm-3 well">
 		<button class="btn btn-link">Draft</button>
-		<button class="btn btn-primary">Publish</button>
+		<button ng-click="savePost()" onclick="getRichTextValue()"
+			class="btn btn-primary">Publish</button>
 		<hr>
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Tags</label> <input
-				type="text" name="postTitle" class="form-control"
-				placeholder="tags" value="">
+				type="text" name="postTitle" class="form-control" placeholder="tags"
+				value="">
 		</div>
 	</div>
 </div>
