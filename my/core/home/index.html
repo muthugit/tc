@@ -3,4 +3,11 @@
 		<h3>Message from Admin</h3>
 		<p>Welcome {{userName}}</p>
 	</div>
+	<div class="well">
+		<legend>My Articles</legend>
+		<div ng-repeat="myArticle in myArticles">
+			{{myArticle.title}} -- <span
+				ng-bind-html="myArticle.postDetail | unsafe"></span>
+		</div>
+	</div>
 </div>
