@@ -1,5 +1,3 @@
-var APIUrl = "http://192.168.0.102:9991";
-
 var app = angular.module('cmsApp', [ 'ngRoute' ]);
 
 app.config([ '$routeProvider', '$locationProvider',
