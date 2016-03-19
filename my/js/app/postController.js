@@ -5,7 +5,6 @@ app.controller('postController', function($scope, $http, $location) {
 	postScope.userApi = userApi;
 
 	$scope.open = function($link) {
-		console.log("Test");
 		$location.path('/' + $link);
 	};
 
@@ -24,3 +23,4 @@ app.controller('postController', function($scope, $http, $location) {
 		console.log($scope.post);
 	};
 });
+

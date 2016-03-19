@@ -15,11 +15,14 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/new-post", {
 				templateUrl : "core/newPost.html",
 				controller : "postController"
-			}).when("/media", {
-				templateUrl : "core/media.html",
+			}).when("/users", {
+				templateUrl : "core/admin/users.html",
 				controller : ""
 			}).when("/contents", {
-				templateUrl : "core/contents.html",
+				templateUrl : "core/admin/contents.html",
+				controller : "contentManagementController"
+			}).when("/media", {
+				templateUrl : "core/media.html",
 				controller : ""
 			}).when("/products", {
 				templateUrl : "core/products.html",

@@ -1,3 +1,8 @@
+<style>
+body {
+	background-color: white
+}
+</style>
 <div class="container" ng-app="cmsApp" ng-controller="postController">
 	<div class="col-sm-9">
 		<form id="newPost">
@@ -18,7 +23,7 @@
 			<!-- 			<input type="hidden" id="userApi" ng-model="post.userApi"> -->
 		</form>
 	</div>
-	<div class="col-sm-3 well">
+	<div class="col-sm-3 well" style="background-color: #F2F2F2">
 		<button class="btn btn-link">Draft</button>
 		<button ng-click="savePost()" onclick="getRichTextValue()"
 			class="btn btn-primary">Publish</button>

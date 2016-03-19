@@ -1,114 +1,85 @@
-app.filter('unsafe', function($sce) {
-	return function(val) {
-		return $sce.trustAsHtml(val);
-	};
-});
-app.filter('cut', function() {
-	return function(value, wordwise, max, tail) {
-		if (!value)
-			return '';
+app.controller('userController',
+		function($scope, $http, $location, cmsService) {
 
-		max = parseInt(max, 10);
-		if (!max)
-			return value;
-		if (value.length <= max)
-			return value;
+			$scope.reset = function() {
+				$scope.user = "";
+			};
 
-		value = value.substr(0, max);
-		if (wordwise) {
-			var lastspace = value.lastIndexOf(' ');
-			if (lastspace != -1) {
-				value = value.substr(0, lastspace);
-			}
-		}
-
-		return value + (tail || ' …');
-	};
-});
-
-app.controller('userController', function($scope, $http, $location) {
-	$scope.checkUser = function() {
-		console.log("Checking");
-		if (localStorage.getItem("userApiKey") == null) {
-			console.log("Failed");
-			$location.path('/login');
-			$(".generalFooter").show();
-			$(".userButtons").hide();
-		} else {
-			// $location.path('/');
-			var userObj = JSON.parse(localStorage.getItem("currentUser"));
-			$scope.userName = userObj.name;
-			console.log("=========>" + userObj.email);
-			$(".generalFooter").hide();
-			$(".userButtons").show();
-			$scope.fetchUserArticles();
-		}
-	};
-	$scope.reset = function() {
-		$scope.user = "";
-	};
-
-	$scope.saveUser = function() {
-		var url = APIUrl + '/newUser';
-		$http.post(url, $scope.user).success(function(data, status) {
-			if (data == "User exists") {
-				alert("User exists! Please try with another");
-				$scope.reset();
-			} else if (data == "User created") {
-				alert("Account created successfully");
-				$location.path('');
-			}
-			console.log(data);
-		}).error(function(err) {
-			console.log("Error" + err);
-		});
-	};
-
-	$scope.loginUser = function() {
-		console.log($scope.login.email);
-		var loginUrl = APIUrl + "/login/" + $scope.login.email + "/"
-				+ $scope.login.password;
-		$http.get(loginUrl).then(
-				function(response) {
-					if (response.data == "failed")
-						alert("User name password not matched");
-					else {
-						console.log("User Data keys========> "
-								+ Object.keys(response.data));
-						localStorage.setItem("userApiKey",
-								response.data.objectId);
-						localStorage.setItem("currentUser", JSON
-								.stringify(response.data));
-						$location.path('/');
-						$scope.checkUser();
+			$scope.saveUser = function() {
+				var url = APIUrl + '/newUser';
+				$http.post(url, $scope.user).success(function(data, status) {
+					if (data == "User exists") {
+						alert("User exists! Please try with another");
+						$scope.reset();
+					} else if (data == "User created") {
+						alert("Account created successfully");
+						$location.path('');
 					}
+					console.log(data);
+				}).error(function(err) {
+					console.log("Error" + err);
 				});
-	};
+			};
 
-	$scope.logout = function() {
-		localStorage.removeItem("userApiKey");
-		alert("Loggout");
-		$scope.checkUser();
-	};
+			$scope.loginUser = function() {
+				console.log($scope.login.email);
+				var loginUrl = APIUrl + "/login/" + $scope.login.email + "/"
+						+ $scope.login.password;
+				$http.get(loginUrl).then(
+						function(response) {
+							if (response.data == "failed")
+								alert("User name password not matched");
+							else {
+								console.log("User Data keys========> "
+										+ Object.keys(response.data));
+								localStorage.setItem("userApiKey",
+										response.data.objectId);
+								localStorage.setItem("currentUser", JSON
+										.stringify(response.data));
+								$location.path('/');
+								$scope.checkUser();
+							}
+						});
+			};
 
-	$scope.fetchUserArticles = function() {
-		console.log("Fetching");
-		var userApi = localStorage.getItem("userApiKey");
-		var fetchArticleUrl = APIUrl + "/fetch/" + userApi;
-		$scope.myArticles = [];
-		$http.get(fetchArticleUrl).then(function(response) {
-			$.each(response.data, function(i, l) {
-				console.log("Object===> " + l);
-				// $scope.myArticles.push({
-				// "title" : "22"
-				// });
-				$scope.myArticles.push(l);
-			});
-			// $scope.myArticles=response.data[2];
-			console.log(response.data);
+			$scope.logout = function() {
+				localStorage.removeItem("userApiKey");
+				alert("Logout successfully!");
+				$scope.checkUser();
+			};
+
+			$scope.fetchUserArticles = function() {
+				console.log("Fetching");
+				var userApi = localStorage.getItem("userApiKey");
+				var fetchArticleUrl = APIUrl + "/fetch/" + userApi;
+				$scope.myArticles = [];
+				$http.get(fetchArticleUrl).then(function(response) {
+					$.each(response.data, function(i, l) {
+						// console.log("Object===> " + l);
+						$scope.myArticles.push(l);
+					});
+					// console.log(response.data);
+				});
+			};
+
+			$scope.showAction = function(obj) {
+				$(".action-items").hide();
+				$("#action-" + obj.objectId).show();
+			};
+
+			$scope.hideAction = function() {
+				$(".action-items").hide();
+			};
+
+			$scope.checkUser = function() {
+				var isUserLoggedIn = cmsService.checkUser($scope);
+				console.log(isUserLoggedIn);
+				if (isUserLoggedIn == false) {
+					console.log("Not logged in");
+					$location.path('/login');
+				} else {
+					$scope.fetchUserArticles();
+				}
+			};
+			$scope.checkUser();
 		});
-	}
-
-	$scope.checkUser();
-
-});
