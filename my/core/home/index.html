@@ -1,13 +1,34 @@
 <div class="container" ng-app="cmsApp" ng-controller="userController">
-	<div class="well">
-		<h3>Message from Admin</h3>
-		<p>Welcome {{userName}}</p>
-	</div>
-	<div class="well">
-		<legend>My Articles</legend>
-		<div ng-repeat="myArticle in myArticles">
-			{{myArticle.title}} -- <span
-				ng-bind-html="myArticle.postDetail | unsafe"></span>
+	<div class="col-sm-12 well">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<h3>{{userName}}</h3>
+			<a class="btn btn-link">Edit Profile</a>
 		</div>
+		<div class="col-sm-2"></div>
 	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<legend>Latest</legend>
+			<div ng-repeat="myArticle in myArticles">
+
+				<small><b>{{myArticle.userApi}}</b> |
+					{{myArticle.updatedAt}}</small>
+				<h3>{{myArticle.title | unsafe}}</h3>
+				<!-- 				<div ng-bind-html="myArticle.postDetail | unsafe "></div> -->
+				<span class="action-items">
+					<button class="btn btn-link">
+						<i class="fa fa-pencil-square-o"></i>
+					</button>
+					<button class="btn btn-link">
+						<i class="fa fa-times"></i>
+					</button>
+				</span>
+				<hr>
+			</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>
 </div>
