@@ -5,34 +5,47 @@ body {
 </style>
 <div class="container" ng-app="cmsApp" ng-controller="postController">
 	<div class="col-sm-9">
-		<form id="newPost">
-			<div class="form-group">
-				<label class="control-label" for="postTitle">Post Title</label> <input
-					type="text" ng-model="post.title" name="postTitle"
-					class="form-control" placeholder="Post title">
+
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Post Title</label> <input
+				type="text" ng-model="post.title" name="postTitle"
+				class="form-control" placeholder="Post title">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Description</label> <input
+				type="text" ng-model="post.description" name="postTitle"
+				class="form-control" placeholder="Post title">
+		</div>
+
+		<div class="form-group">
+			<label class="control-label" for="postContent">Post Content</label>
+			<form method="post" id="idForm">
+				<label class="btn btn-primary" for="uploadFile"> <input
+					type="file" class="file" id="uploadFile" style="display: none"
+					name="thumbnail"> Upload Image
+				</label> <input type="hidden" id="imgText" name='imgText'>
+			</form>
+			<div id="summernote">
+				<p>Add your content</p>
 			</div>
-			<div class="form-group">
-				<label class="control-label" for="postTitle">Description</label> <input
-					type="text" ng-model="post.description" name="postTitle"
-					class="form-control" placeholder="Post title">
-			</div>
-			<div class="form-group">
-				<label class="control-label" for="postContent">Post Content</label>
-				<div id="summernote">
-					<p>Add your content</p>
-				</div>
-				<textarea style="display: none" class="form-control"
-					id="postContent" ng-model="post.content" name="postContent"
-					placeholder="Post Content" />
-			</div>
-			<!-- 			<input type="hidden" id="userApi" ng-model="post.userApi"> -->
-		</form>
+			<textarea style="display: none" class="form-control" id="postContent"
+				ng-model="post.content" name="postContent"
+				placeholder="Post Content"></textarea>
+		</div>
 	</div>
 	<div class="col-sm-3 well" style="background-color: #F2F2F2">
 		<div class="form-group">
-			<label class="control-label" for="postTitle">Post image URL</label> <input
-				type="text" ng-model="post.image" name="postTitle"
-				class="form-control" placeholder="Post Image URL">
+			<form method="post" id="featureImageForm">
+				<label class="btn btn-primary" for="uploadFeatureImage"> <input
+					type="file" class="file" id="uploadFeatureImage"
+					style="display: none" name="thumbnail"> Upload Image
+				</label>
+			</form>
+			<br> <img ng-src="{{post.featureImage}}"
+				id="img_uploadFeatureImage_src" style="max-width: 100px"> <input
+				type="text" ng-model="post.featureImage" id="img_uploadFeatureImage"
+				class="form-control" name="featureImage" placeholder="Post Image URL">
+			<hr>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Post video URL</label> <input
@@ -55,9 +68,11 @@ body {
 	function save() {
 		getRichTextValue();
 	}
+
 	$('#summernote')
 			.summernote(
 					{
+						height : 700,
 						fontNames : [ 'Roboto', 'Serif', 'Sans', 'Arial',
 								'Arial Black', 'Courier', 'Courier New',
 								'Comic Sans MS', 'Helvetica', 'Impact',
@@ -71,4 +86,55 @@ body {
 		var textareaValue = $('#summernote').summernote('code');
 		$("#postContent").val(textareaValue);
 	}
+
+	function sendFile(base64Content, url, editor, isSummerNote) {
+		var url = "http://192.168.0.102:9991/fileUpload"; // the script where you handle the form input.
+		// 		console.log("Form info: " + $("#idForm").serialize());
+		$.ajax({
+			type : "POST",
+			url : url,
+			data : $("#idForm").serialize(), // serializes the form's elements.
+			success : function(data) {
+				if (isSummerNote == true)
+					editor.summernote('insertImage', data);
+				else {
+					console.log("Editor: ");
+					$("#" + editor + "_src").attr('src', data);
+					$("#" + editor).val(data);
+				}
+			}
+		});
+
+		// 		e.preventDefault(); // avoid to execute the actual submit of the form.
+	}
+
+	function EL(id) {
+		return document.getElementById(id);
+	}
+
+	function readFile() {
+		console.log(this.id);
+		currentlyLoading = this.id;
+		if (this.files && this.files[0]) {
+			var FR = new FileReader();
+			FR.onload = function(e) {
+				EL("imgText").value = e.target.result;
+				url = "http://192.168.0.102:9991/fileUpload";
+				// 				console.log("Base64 CLIENT: " + e.target.result);
+				console.log("Currently loading: " + currentlyLoading);
+				if (currentlyLoading == "uploadFile") {
+					targetId = $("#summernote");
+					isSummerNote = true;
+				} else {
+					targetId = "img_" + currentlyLoading;
+					isSummerNote = false;
+				}
+				sendFile(e.target.result, url, targetId, isSummerNote);
+			};
+			FR.readAsDataURL(this.files[0]);
+		}
+	}
+
+	EL("uploadFile").addEventListener("change", readFile, false);
+	EL("uploadFeatureImage").addEventListener("change", readFile, false);
 </script>

@@ -11,6 +11,7 @@ app.controller('postController', function($scope, $http, $location) {
 	$scope.savePost = function() {
 		var textareaValue = $('#summernote').summernote('code');
 		postScope.postDetail = $.trim(textareaValue);
+		postScope.featureImageURL = $("#img_uploadFeatureImage").val();
 
 		var url = APIUrl + '/newPost';
 		$http.post(url, $scope.post).success(function(data, status) {
@@ -23,4 +24,3 @@ app.controller('postController', function($scope, $http, $location) {
 		console.log($scope.post);
 	};
 });
-
