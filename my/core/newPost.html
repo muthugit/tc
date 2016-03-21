@@ -44,7 +44,8 @@ body {
 			<br> <img ng-src="{{post.featureImage}}"
 				id="img_uploadFeatureImage_src" style="max-width: 100px"> <input
 				type="text" ng-model="post.featureImage" id="img_uploadFeatureImage"
-				class="form-control" name="featureImage" placeholder="Post Image URL">
+				class="form-control" name="featureImage"
+				placeholder="Post Image URL">
 			<hr>
 		</div>
 		<div class="form-group">
@@ -88,7 +89,7 @@ body {
 	}
 
 	function sendFile(base64Content, url, editor, isSummerNote) {
-		var url = "http://192.168.0.102:9991/fileUpload"; // the script where you handle the form input.
+		var url = APIUrl + "/fileUpload"; // the script where you handle the form input.
 		// 		console.log("Form info: " + $("#idForm").serialize());
 		$.ajax({
 			type : "POST",
@@ -119,7 +120,7 @@ body {
 			var FR = new FileReader();
 			FR.onload = function(e) {
 				EL("imgText").value = e.target.result;
-				url = "http://192.168.0.102:9991/fileUpload";
+				url = APIUrl + "/fileUpload";
 				// 				console.log("Base64 CLIENT: " + e.target.result);
 				console.log("Currently loading: " + currentlyLoading);
 				if (currentlyLoading == "uploadFile") {
