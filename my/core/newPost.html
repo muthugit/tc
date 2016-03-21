@@ -12,6 +12,11 @@ body {
 					class="form-control" placeholder="Post title">
 			</div>
 			<div class="form-group">
+				<label class="control-label" for="postTitle">Description</label> <input
+					type="text" ng-model="post.description" name="postTitle"
+					class="form-control" placeholder="Post title">
+			</div>
+			<div class="form-group">
 				<label class="control-label" for="postContent">Post Content</label>
 				<div id="summernote">
 					<p>Add your content</p>
@@ -24,15 +29,26 @@ body {
 		</form>
 	</div>
 	<div class="col-sm-3 well" style="background-color: #F2F2F2">
-		<button class="btn btn-link">Draft</button>
-		<button ng-click="savePost()" onclick="getRichTextValue()"
-			class="btn btn-primary">Publish</button>
-		<hr>
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Post image URL</label> <input
+				type="text" ng-model="post.image" name="postTitle"
+				class="form-control" placeholder="Post Image URL">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Post video URL</label> <input
+				type="text" ng-model="post.video" name="postTitle"
+				class="form-control" placeholder="Post video URL">
+		</div>
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Tags</label> <input
 				type="text" name="postTitle" class="form-control" placeholder="tags"
 				value="">
 		</div>
+		<button class="btn btn-link">Draft</button>
+		<button ng-click="savePost()" onclick="getRichTextValue()"
+			class="btn btn-primary">Publish</button>
+		<hr>
+
 	</div>
 </div>
 <script>
