@@ -1,6 +1,6 @@
 <style>
 .top-news-reel:HOVER {
-	background-color: grey;
+	background-color: #F1F1F1;
 }
 
 @media only screen and (max-width: 600px) {
@@ -12,177 +12,29 @@
 .text-img {
 	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
 }
-</style>
-<div class="container" ng-app="cmsApp" ng-controller="userController">
-	<!-- 	<div class="col-sm-12 well"> -->
-	<!-- 		<div class="col-sm-12"> -->
-	<!-- 			<marquee>Post id</marquee> -->
-	<!-- 		</div> -->
-	<!-- 	</div> -->
-	<div class="top-news col-sm-12" style="top: 3px;">
-		<div class="top-news-reel col-sm-3 well"
-			style="height: 150px; overflow: hidden;">
-			<h5>Title come here</h5>
-			Top news here dsfdsa fdsa fdsa fdsa fdsa fse fdsafd safdsa
-			fdsafdasfdsa888
-		</div>
-		<div class="top-news-reel col-sm-3 well" onclick="test()"
-			style="height: 150px; overflow: hidden;">
-			<h5>Title come here</h5>
-			Top news here dsfdsa fdsa fdsa fdsa fdsa fse fdsafd safdsa
-			fdsafdasfdsa888
-		</div>
-		<div class="top-news-reel col-sm-3 well"
-			style="height: 150px; overflow: hidden;">
-			<h5>Title come here</h5>
-			Top news here dsfdsa fdsa fdsa fdsa fdsa fse fdsafd safdsa
-			fdsafdasfdsa888
-		</div>
-		<div class="top-news-reel col-sm-3 well"
-			style="height: 150px; overflow: hidden;">
-			<h5>Title come here</h5>
-			Top news here dsfdsa fdsa fdsa fdsa fdsa fse fdsafd safdsa
-			fdsafdasfdsa888
-		</div>
 
-	</div>
+.home-category-list:HOVER {
+	background-color: #F1F1F1;
+}
+
+body {
+	background-color: white;
+}
+</style>
+<div class="container" ng-app="cmsApp"
+	ng-controller="homePageController">
+
+	<div ng-include="'core/home/topNews.html'"></div>
 
 	<div class="col-sm-9">
-		<div
-			style="background-color: white; color: white; background-size: auto; background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), center no-repeat url('http://assets.materialup.com/uploads/93882aa6-5a3f-4504-a760-2a8e67537060/07_single_2.jpg'); height: 600px"
-			class="well col-sm-9 " style="overflow:inherit; ">
-			<h3 style="color: white">Title</h3>
-			<p>Hidden iPad features that could improve your life. Hidden iPad
-				features that could improve your life. Hidden iPad features that
-				could improve your life. Hidden iPad features that could improve
-				your life. Hidden iPad features that could improve your life.</p>
-		</div>
-		<div
-			style="background-color: white; color: white;background-size: auto; background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), center no-repeat url('http://192.168.0.102/tc/images/bk.jpg'); height: 200px"
-			class="col-sm-3 ">
-			<p style="color: white  padding: 3px; ">Hidden iPad features that could improve
-				your life. Hidden iPad features that could improve your life.</p>
-		</div>
-		<div
-			style="background-color: white; color: white; background-size: auto; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), center no-repeat url('http://192.168.0.102/tc/images/bk.jpg'); height: 200px"
-			class="col-sm-3 " style="overflow:inherit; ">
-			<h3 style="color: white">Title</h3>
-		</div>
-		<div
-			style="background-color: white; color: white; background-size: auto; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), center no-repeat url('http://192.168.0.102/tc/images/bk.jpg'); height: 200px"
-			class="col-sm-3 " style="overflow:inherit; ">
-			<h3 style="color: white">Title</h3>
-		</div>
-
+		<div ng-include="'core/home/bigPicture.html'"></div>
 	</div>
-	<div class="col-sm-3" style="background-color:; height: 600px">
-		<div class=""
-			style="background-color: white; padding: 10px; height: 300px; overflow: scroll;">
-			<legend>Top Stories</legend>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-		</div>
-		<div class=""
-			style="background-color: white; padding: 10px; height: 300px; overflow: scroll;">
-			<legend>Authors</legend>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-			<p>
-				<a href="/" class="">Hidden iPad features that could improve
-					your life</a><br>
-			</p>
-			<hr>
-		</div>
+	<div class="col-sm-3" style="height: 600px">
+		<div ng-include="'core/home/topStories.html'"></div>
+		<div ng-include="'core/home/authors.html'"></div>
 	</div>
 
-	<div class="col-sm-12">
-		<div class="col-sm-3">
-			<div class="well">
-				<legend>Authors</legend>
-				<a href="/" class="btn btn-link btn-lg btn-block">Author 1</a><br>
-				<a href="/" class="btn btn-link btn-lg btn-block">Author 1</a><br>
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<div class="well col-sm-12">
-				<small><img style="max-height: 30px"
-					src="https://a.disquscdn.com/uploads/channels/61015/avatar.png?1455588196">
-					<b>Author Name</b></small>
-				<hr>
-				<div class="col-sm-10">
-					<h4>Title</h4>
-					An online poll of 1,005 Canadians conducted in August 2015 by Ipsos
-					Reid for CBAN found 88 per cent of respondents agreed the Canadian
-					government should mandate labelling of genetically modified foods.
-				</div>
-				<div class="col-sm-2">
-					<img class="" style="max-height: 100px"
-						src="https://lh3.googleusercontent.com/-iUhi8irT2d8/VvMTWvg76KI/AAAAAAAAGKI/nrmdlNId6ZQ/w212-h213-p/16%2B-%2B2">
-				</div>
-			</div>
-			<div class="well col-sm-12">
-				<small><img style="max-height: 30px"
-					src="https://a.disquscdn.com/uploads/channels/61015/avatar.png?1455588196">
-					<b>Author Name</b></small>
-				<hr>
-				<div class="col-sm-10">
-					<h4>Title</h4>
-					An online poll of 1,005 Canadians conducted in August 2015 by Ipsos
-					Reid for CBAN found 88 per cent of respondents agreed the Canadian
-					government should mandate labelling of genetically modified foods.
-				</div>
-				<div class="col-sm-2">
-					<img class="" style="max-height: 100px"
-						src="https://lh3.googleusercontent.com/-iUhi8irT2d8/VvMTWvg76KI/AAAAAAAAGKI/nrmdlNId6ZQ/w212-h213-p/16%2B-%2B2">
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="well">Right side bar</div>
-		</div>
-	</div>
-</div>
+	<div ng-include="'core/home/categoryHorizontal.html'"></div>
 </div>
 
 <script>

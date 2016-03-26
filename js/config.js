@@ -6,7 +6,7 @@ app.config([ '$routeProvider', '$locationProvider',
 			// Home
 			.when("/", {
 				templateUrl : "core/home/index.html",
-				controller : "userController"
+				controller : "homePageController"
 			})
 
 			// else 404
