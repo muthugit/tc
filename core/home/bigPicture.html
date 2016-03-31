@@ -1,12 +1,13 @@
 <div ng-repeat="bigPicContent1 in bigPic1"
 	style="background-color: white; color: white; background-size: auto; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), center no-repeat url({{bigPicContent1.featureImageURL}}); height: 600px"
 	class="well col-sm-9 " style="overflow:inherit; ">
-	<h3 style="color: white">{{bigPicContent1.title}}</h3>
+	<a href="#/p/{{bigPicContent1.objectId}}"><h3 style="color: white">{{bigPicContent1.title}}</h3></a>
 	<p>{{bigPicContent1.description}}</p>
 	<small>By: {{bigPicContent1.userItem.name}}</small>
 </div>
 <div ng-repeat="bigPicContent2 in bigPic2"
 	style="background-color: white; color: white; background-size: auto; background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), center no-repeat url({{bigPicContent2.featureImageURL}}); height: 200px"
 	class="col-sm-3 ">
-	<p style="color: white padding: 3px;">{{bigPicContent2.title}}</p>
+	<a href="#/p/{{bigPicContent2.objectId}}"><p
+			style="color: white; padding: 3px;">{{bigPicContent2.title}}</p></a>
 </div>

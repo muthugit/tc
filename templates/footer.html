@@ -46,40 +46,11 @@
 </style>
 <div class="footer-top">This is hidden footer</div>
 <div class="footer">
-	<div class="userButtons">
-		<button class="btn btn-link footer-btn" ng-controller="postController"
-			ng-click="open('');">
-			<i class="fa fa-tachometer"></i> <span class="hidden-xs">
-				Dashboard</span>
-		</button>
-		<button class="btn btn-link footer-btn" ng-controller="postController"
-			ng-click="open('new-post');">
-			<i class="fa fa-pencil-square-o"></i> <span class="hidden-xs">
-				Write</span>
-		</button>
-		<button class="btn btn-link pull-right footer-btn" ng-app="cmsApp"
-			ng-click="logout()" ng-controller="userController">
-			<i class="fa fa-sign-out"></i> <span class="hidden-xs"> Logout</span>
-		</button>
-		<span class="admin-area"> <a class="btn btn-link footer-btn"
-			ng-app="cmsApp" ng-click="" href="#/users"
-			ng-controller="userController"> <i class="fa fa-users"></i> <span
-				class="hidden-xs"> Users</span>
-		</a> <a class="btn btn-link footer-btn" ng-app="cmsApp" ng-click=""
-			href="#/contents" ng-controller="userController"> <i class="fa fa-rss"></i> <span class="hidden-xs"> Contents</span>
-		</a>
-			<button class="btn btn-link footer-btn" ng-app="cmsApp"
-				ng-click="categories()" ng-controller="userController">
-				<i class="fa fa-bars"></i> <span class="hidden-xs">
-					Categories</span>
-			</button>
-			<button class="btn btn-link footer-btn" ng-app="cmsApp"
-				ng-click="themeSettings()" ng-controller="userController">
-				<i class="fa fa-cogs"></i> <span class="hidden-xs"> Theme
-					Settings</span>
-			</button>
-		</span>
-	</div>
+	<button class="btn btn-link footer-btn" ng-controller="postController"
+		ng-click="open('');">
+		<i class="fa fa-tachometer"></i> <span class="hidden-xs">
+			Category 1</span>
+	</button>
 	<div class="generalFooter">
 		<center>LittleBit</center>
 	</div>

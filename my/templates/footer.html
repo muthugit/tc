@@ -66,10 +66,11 @@
 			ng-controller="userController"> <i class="fa fa-users"></i> <span
 				class="hidden-xs"> Users</span>
 		</a> <a class="btn btn-link footer-btn" ng-app="cmsApp" ng-click=""
-			href="#/contents" ng-controller="userController"> <i class="fa fa-rss"></i> <span class="hidden-xs"> Contents</span>
+			href="#/contents" ng-controller="userController"> <i
+				class="fa fa-rss"></i> <span class="hidden-xs"> Contents</span>
 		</a>
 			<button class="btn btn-link footer-btn" ng-app="cmsApp"
-				ng-click="categories()" ng-controller="userController">
+				ng-click="open('categories')" ng-controller="postController">
 				<i class="fa fa-bars"></i> <span class="hidden-xs">
 					Categories</span>
 			</button>

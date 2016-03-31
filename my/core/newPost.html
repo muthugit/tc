@@ -53,6 +53,14 @@ body {
 				type="text" ng-model="post.video" name="postTitle"
 				class="form-control" placeholder="Post video URL">
 		</div>
+
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Categories</label> <select
+				name="mySelect" id="mySelect"
+				ng-options="option.name for option in data.availableOptions track by option.id"
+				ng-model="data.selectedOption"></select>
+		</div>
+
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Tags</label> <input
 				type="text" name="postTitle" class="form-control" placeholder="tags"

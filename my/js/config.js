@@ -24,8 +24,8 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/media", {
 				templateUrl : "core/media.html",
 				controller : ""
-			}).when("/products", {
-				templateUrl : "core/products.html",
+			}).when("/categories", {
+				templateUrl : "core/admin/categories.html",
 				controller : ""
 			}).when("/contact", {
 				templateUrl : "core/contact.html",

@@ -6,18 +6,7 @@ app.controller('contentManagementController', function($scope, $http,
 		$scope.allContents = [];
 		$http.get(fetchContentsUrl).then(function(response) {
 			$.each(response.data, function(i, l) {
-				var fetchUserInfoUrl = APIUrl + "/getUserInfo/" + l['userApi'];
-				$http.get(fetchUserInfoUrl).then(function(userResponse) {
-					var resultJSON = JSON.stringify(userResponse.data);
-					var result = $.parseJSON(resultJSON);
-					$.each(result, function(k, v) {
-						console.log(k + ' is ' + v);
-						l[k] = v;
-					});
-					$scope.allContents.push(l);
-					
-				});
-
+				$scope.allContents.push(l);
 			});
 		});
 	};

@@ -14,7 +14,7 @@
 			<div ng-repeat="myArticle in myArticles">
 				<div class="cmsArticle well" ng-mouseover="showAction(myArticle)"
 					ng-mouseleave="hideAction()" id="{{myArticle.title}}" style="">
-					<small><b>{{myArticle.userApi}}</b> |
+					<small><b>{{myArticle.userItem.name}}</b> |
 						{{myArticle.updatedAt}}</small>
 					<h4>{{myArticle.title | unsafe}}</h4>
 					<div class="post-footer" style="height: 30px; vertical-align: top;">

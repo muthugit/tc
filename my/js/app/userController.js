@@ -51,14 +51,14 @@ app.controller('userController',
 			$scope.fetchUserArticles = function() {
 				console.log("Fetching");
 				var userApi = localStorage.getItem("userApiKey");
-				var fetchArticleUrl = APIUrl + "/fetch/" + userApi;
+				var fetchArticleUrl = APIUrl + "/getSiteContents/any/1/1/100/"
+						+ userApi;
+				console.log(fetchArticleUrl);
 				$scope.myArticles = [];
 				$http.get(fetchArticleUrl).then(function(response) {
 					$.each(response.data, function(i, l) {
-						// console.log("Object===> " + l);
 						$scope.myArticles.push(l);
 					});
-					// console.log(response.data);
 				});
 			};
 

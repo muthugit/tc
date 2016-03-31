@@ -2,7 +2,7 @@
 	<div ng-repeat="topNewsContent in topNews"
 		class="top-news-reel col-sm-3 well"
 		style="height: 150px; overflow: hidden;">
-		<h5>{{topNewsContent.title}}</h5>
+		<a href="#/p/{{topNewsContent.objectId}}"><h5>{{topNewsContent.title}}</h5></a>
 		{{topNewsContent.description}}
 	</div>
 </div>

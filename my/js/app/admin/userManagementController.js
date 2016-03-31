@@ -12,6 +12,5 @@ app.controller('userManagementController', function($scope, $http, $location,
 			console.log(response.data);
 		});
 	};
-
 	$scope.listUsers();
 });

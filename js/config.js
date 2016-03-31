@@ -1,4 +1,4 @@
-var app = angular.module('cmsApp', [ 'ngRoute' ]);
+var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize' ]);
 
 app.config([ '$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {
@@ -6,6 +6,9 @@ app.config([ '$routeProvider', '$locationProvider',
 			// Home
 			.when("/", {
 				templateUrl : "core/home/index.html",
+				controller : "homePageController"
+			}).when("/p/:postId/", {
+				templateUrl : "core/singlePost.html",
 				controller : "homePageController"
 			})
 
@@ -16,3 +19,16 @@ app.config([ '$routeProvider', '$locationProvider',
 			});
 			$locationProvider.html5Mode(false);
 		} ]);
+
+app.filter('rawHtml', [ '$sce', function($sce) {
+	return function(val) {
+		return $sce.trustAsHtml(val);
+	};
+} ]);
+
+app.filter('htmlToPlaintext', function() {
+	return function(text) {
+		console.log(text);
+		return text ? String(text).replace(/<\/?[^>]+>/gi, '') : '';
+	};
+});
