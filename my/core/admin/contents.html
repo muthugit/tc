@@ -18,10 +18,13 @@
 			<div class="bs-component col-lg-6"">
 				<div class="alert alert-dismissible alert-things">
 					<h5>{{content.title}}</h5>
-					<br>{{content.userItem.email}} <br>{{content.userItem.name}}<br><span id="staus_{{content.objectId}}">{{content.status}}</span>
+					<br>{{content.userItem.email}} <br>{{content.userItem.name}}<br>
+					<span id="staus_{{content.objectId}}">{{content.status}}</span>
 					<hr>
 					<btn class="btn btn-link btn-xs"
-						ng-click="approveIt(content.objectId,'Approved')">Approve</btn>
+						ng-click="changeStatus($index,content.objectId,'Approved')">Approve</btn>
+					<btn class="btn btn-link btn-xs"
+						ng-click="changeStatus($index,content.objectId,'Pending')">Dis-Approve</btn>
 				</div>
 			</div>
 		</div>

@@ -11,13 +11,13 @@ app.controller('contentManagementController', function($scope, $http,
 		});
 	};
 
-	$scope.approveIt = function(contentId, toStatus) {
+	$scope.changeStatus = function(index, contentId, toStatus) {
 		var userApi = localStorage.getItem("userApiKey");
 		var approveUrl = APIUrl + "/approveContent/" + userApi + "/"
 				+ contentId + "/" + toStatus;
 		$http.get(approveUrl).then(function(response) {
-			angular.element("#status_" + contentId).html(response.data);
-			console.log("#status_" + contentId + "===>" + response.data);
+			id = Number(index);
+			$scope.allContents[id].status = response.data;
 		});
 	};
 
