@@ -10,5 +10,16 @@ app.controller('contentManagementController', function($scope, $http,
 			});
 		});
 	};
+
+	$scope.approveIt = function(contentId, toStatus) {
+		var userApi = localStorage.getItem("userApiKey");
+		var approveUrl = APIUrl + "/approveContent/" + userApi + "/"
+				+ contentId + "/" + toStatus;
+		$http.get(approveUrl).then(function(response) {
+			angular.element("#status_" + contentId).html(response.data);
+			console.log("#status_" + contentId + "===>" + response.data);
+		});
+	};
+
 	$scope.listContents();
 });
