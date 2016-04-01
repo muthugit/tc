@@ -3,7 +3,7 @@ app.controller('postController', function($scope, $http, $location) {
 	$scope.post = {};
 	var postScope = $scope.post;
 	postScope.userApi = userApi;
-	
+
 	$scope.open = function($link) {
 		$location.path('/' + $link);
 	};
@@ -16,6 +16,8 @@ app.controller('postController', function($scope, $http, $location) {
 		var url = APIUrl + '/newPost';
 		$http.post(url, $scope.post).success(function(data, status) {
 			console.log("Post insert data ==> " + data);
+			alert("Your content has been created successfully.");
+			$location.path('/');
 		}).error(function(err) {
 			console.log("Error" + err);
 		});
