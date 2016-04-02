@@ -1,6 +1,8 @@
 <div class="container" ng-app="cmsApp"
 	ng-controller="homePageController">
-	<img src="{{singleContent[0].featureImageURL}}" width="100%" />
+	<div style="height: 300px; overflow: hidden;">
+		<img src="{{singleContent[0].featureImageURL}}" width="100%" />
+	</div>
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8">
 		<h3>{{singleContent[0].title}}</h3>
