@@ -4,43 +4,20 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 	var postId = $routeParams.postId;
 
 	$scope.fetchArticles = function(area, category, page, from, max, userApi) {
-		var fetchArticleUrl = APIUrl + "/getSiteContents/" + category + "/"
-				+ page + "/" + from + "/" + max + "/" + userApi;
-		$scope[area] = [];
-		$http.get(fetchArticleUrl).then(function(response) {
-			$.each(response.data, function(i, l) {
-				$scope[area].push(l);
-			});
-		});
+		cmsService.fetchArticles($scope, area, category, page, from, max,
+				userApi);
 	};
 
 	$scope.fetchUsers = function(area, category, page, from, max) {
-		var fetchArticleUrl = APIUrl + "/getSiteUsers/" + category + "/" + page
-				+ "/" + from + "/" + max;
-		$scope[area] = [];
-		$http.get(fetchArticleUrl).then(function(response) {
-			$.each(response.data, function(i, l) {
-				$scope[area].push(l);
-			});
-		});
+		cmsService.fetchUsers($scope, area, category, page, from, max);
 	};
 
 	$scope.showContent = function(postId, area) {
-		var fetchArticleUrl = APIUrl + "/fetchSingleContent/" + postId;
-		console.log("Area: " + postId);
-		console.log(fetchArticleUrl);
-		$scope[area] = [];
-		$http.get(fetchArticleUrl).then(function(response) {
-			$scope[area].push(response.data);
-			console.log(response.data);
-			jQuery("time.timeago").timeago();
-		});
+		cmsService.showContent($scope, postId, area);
 	};
 
 	if (postId != undefined)
 		$scope.showContent(postId, "singleContent");
-
-	jQuery("time.timeago").timeago();
 
 	$scope.fetchArticles("topNews", "any", 1, 1, 4, "all");
 	$scope.fetchArticles("bigPic1", "any", 1, 1, 1, "all");
@@ -52,6 +29,3 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 
 });
 
-jQuery(document).ready(function() {
-	jQuery("time.timeago").timeago();
-});

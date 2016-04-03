@@ -1,21 +1,49 @@
-app.service('cmsService', function() {
-	this.checkUser = function($scope) {
-		console.log("Checking");
-		if (localStorage.getItem("userApiKey") == null) {
-			console.log("Failed");
-			return false;
-			$(".generalFooter").show();
-			$(".userButtons").hide();
-		} else {
-			var userObj = JSON.parse(localStorage.getItem("currentUser"));
-			$scope.userName = userObj.name;
-			console.log("=========>" + userObj.email);
-			$(".generalFooter").hide();
-			$(".userButtons").show();
-			return true;
-			
-		}
+app.service('cmsService', function($http) {
+
+	this.fetchArticles = function($scope, area, category, page, from, max,
+			userApi) {
+		var fetchArticleUrl = APIUrl + "/getSiteContents/" + category + "/"
+				+ page + "/" + from + "/" + max + "/" + userApi;
+		$scope[area] = [];
+		$http.get(fetchArticleUrl).then(function(response) {
+			$.each(response.data, function(i, l) {
+				$scope[area].push(l);
+			});
+		});
 	};
+
+	this.fetchUsers = function($scope, area, category, page, from, max) {
+		var fetchArticleUrl = APIUrl + "/getSiteUsers/" + category + "/" + page
+				+ "/" + from + "/" + max;
+		$scope[area] = [];
+		$http.get(fetchArticleUrl).then(function(response) {
+			$.each(response.data, function(i, l) {
+				$scope[area].push(l);
+			});
+		});
+	};
+
+	this.authorInfo = function($scope, authorId, area) {
+		var fetchArticleUrl = APIUrl + "/getUserInfo/" + authorId;
+		console.log(fetchArticleUrl);
+		$scope[area] = [];
+		$http.get(fetchArticleUrl).then(function(response) {
+			$scope[area].push(response.data);
+		});
+	};
+
+	this.showContent = function($scope, postId, area) {
+		var fetchArticleUrl = APIUrl + "/fetchSingleContent/" + postId;
+		console.log("Area: " + postId);
+		console.log(fetchArticleUrl);
+		$scope[area] = [];
+		$http.get(fetchArticleUrl).then(function(response) {
+			$scope[area].push(response.data);
+			console.log(response.data);
+			jQuery("time.timeago").timeago();
+		});
+	};
+
 });
 
 app.filter('unsafe', function($sce) {

@@ -1,0 +1,33 @@
+<div class="container" ng-app="cmsApp" ng-controller="userController">
+	<div class="col-sm-12 well">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<h3 style="color: grey">{{author[0].name}}</h3>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<legend>Latest</legend>
+			<div ng-repeat="myArticle in myArticles">
+				<div class="cmsArticle well" ng-mouseover="showAction(myArticle)"
+					ng-mouseleave="hideAction()" id="{{myArticle.title}}" style="">
+					<small><b>{{myArticle.userItem.name}}</b> | <span
+						am-time-ago="myArticle.createdAt"></span> <a
+						href="#/p/{{myArticle.objectId}}"><h4>{{myArticle.title |
+								unsafe}}</h4></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>
+</div>
+
+<script>
+	function showAction(actionId) {
+		$(".action-items").hide();
+		$("#" + actionId).show();
+	}
+</script>

@@ -3,7 +3,8 @@
 	class="well col-sm-9 " style="overflow:inherit; ">
 	<a href="#/p/{{bigPicContent1.objectId}}"><h3 style="color: white">{{bigPicContent1.title}}</h3></a>
 	<p>{{bigPicContent1.description}}</p>
-	<small>By: {{bigPicContent1.userItem.name}}</small>
+	<small>By: <a style="color: white"
+		href="#/author/{{bigPicContent1.userItem.objectId}}">{{bigPicContent1.userItem.name}}</a></small>
 </div>
 <div ng-repeat="bigPicContent2 in bigPic2"
 	style="background-color: white; color: white; background-size: auto; background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), center no-repeat url({{bigPicContent2.featureImageURL}}); height: 200px"

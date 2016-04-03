@@ -15,6 +15,9 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/p/:postId/", {
 				templateUrl : "core/singlePost.html",
 				controller : "homePageController"
+			}).when("/author/:authorId/", {
+				templateUrl : "core/authorHome.html",
+				controller : "userController"
 			})
 
 			// else 404

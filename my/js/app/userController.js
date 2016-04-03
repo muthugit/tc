@@ -75,7 +75,6 @@ app.controller('userController',
 				var isUserLoggedIn = cmsService.checkUser($scope);
 				console.log(isUserLoggedIn);
 				if (isUserLoggedIn == false) {
-					console.log("Not logged in");
 					$location.path('/login');
 				} else {
 					$scope.fetchUserArticles();
