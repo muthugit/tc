@@ -1,7 +1,7 @@
 <div class=""
 	style="border-color: #F1F1F1; border-style: solid; background-color: white; padding: 10px; height: 300px; overflow: hidden;">
 	<legend style="background-color: white">Top Stories</legend>
-	<marquee direction="up" style="height: 260px; margin-top: -00px">
+	<marquee onmouseover="this.stop()" onmouseout="this.start();" direction="up" style="height: 260px; margin-top: -00px">
 		<div ng-repeat="recentStory in recentStories">
 			<p>
 				<a href="/" class="">{{recentStory.title}}</a><br>

@@ -1,7 +1,8 @@
 <div class=""
 	style="background-color: #F1F1F1; padding: 10px; height: 300px; overflow: hidden;">
 	<legend>Authors</legend>
-	<marquee direction="down" style="height: 260px; margin-top: -00px">
+	<marquee onmouseover="this.stop()" onmouseout="this.start();"
+		direction="down" style="height: 260px; margin-top: -00px">
 		<div ng-repeat="author in authors">
 			<p>
 				<a href="#/author/{{author.objectId}}" class="">{{author.name}}</a><br>
