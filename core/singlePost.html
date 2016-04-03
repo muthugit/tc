@@ -5,12 +5,16 @@ body {
 </style>
 <div class="container" ng-app="cmsApp"
 	ng-controller="homePageController">
-	<div style="height: 40vh; overflow: hidden;">
-		<img style="vertical-align: middle; top: -100px; position: relative;"
-			src="{{singleContent[0].featureImageURL}}" width="100%" />
+	<div ng-if="singleContent[0].featureImageURL !== ''">
+		<div style="height: 40vh; overflow: hidden;">
+			<img style="vertical-align: middle; top: -100px; position: relative;"
+				src="{{singleContent[0].featureImageURL}}" width="100%" />
+		</div>
 	</div>
 	<div class="col-sm-2"></div>
-	<div class="col-sm-8">
+	<div class="col-sm-8" style="padding-top: 3%">
+		By: {{singleContent[0].userItem.name}} | <span
+			am-time-ago="singleContent[0].createdAt"></span>
 		<h3>{{singleContent[0].title}}</h3>
 		<p ng-bind-html=singleContent[0].postDetail></p>
 	</div>

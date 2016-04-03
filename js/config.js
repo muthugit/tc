@@ -1,4 +1,9 @@
-var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize' ]);
+var app = angular
+		.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment' ]);
+
+/*
+ * Angular Moment for showing time now
+ */
 
 app.config([ '$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {
@@ -31,4 +36,14 @@ app.filter('htmlToPlaintext', function() {
 		console.log(text);
 		return text ? String(text).replace(/<\/?[^>]+>/gi, '') : '';
 	};
+});
+
+app.filter('fromNow', function() {
+	return function(date) {
+		return moment(date).fromNow();
+	}
+});
+
+app.run(function(amMoment) {
+	amMoment.changeLocale('de');
 });

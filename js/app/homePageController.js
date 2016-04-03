@@ -33,10 +33,14 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 		$http.get(fetchArticleUrl).then(function(response) {
 			$scope[area].push(response.data);
 			console.log(response.data);
+			jQuery("time.timeago").timeago();
 		});
 	};
+
 	if (postId != undefined)
 		$scope.showContent(postId, "singleContent");
+
+	jQuery("time.timeago").timeago();
 
 	$scope.fetchArticles("topNews", "any", 1, 1, 4, "all");
 	$scope.fetchArticles("bigPic1", "any", 1, 1, 1, "all");
@@ -46,4 +50,8 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 
 	$scope.fetchUsers("authors", "any", 1, 1, 20);
 
+});
+
+jQuery(document).ready(function() {
+	jQuery("time.timeago").timeago();
 });
