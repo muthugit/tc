@@ -27,24 +27,12 @@ app.controller('postController', function($scope, $http, $location) {
 	};
 
 	$scope.categoryInDropDown = function() {
-		$scope.data = {
-			availableOptions : [ {
-				id : '1',
-				name : 'Option A'
-			}, {
-				id : '2',
-				name : 'Option B'
-			}, {
-				id : '3',
-				name : 'Option C'
-			} ],
-			selectedOption : {
-				id : '3',
-				name : 'Option C'
-			}
-		// This sets the default value of the select in the ui
-		};
-	}
+		var fetchCategoryUrl = APIUrl + "/getGenericContents/category";
+		$http.get(fetchCategoryUrl).then(function(response) {
+			console.log(response.data);
+			$scope.categories = (response.data);
+		});
+	};
 
 	$scope.updateCategory = function() {
 		$scope.category = {};

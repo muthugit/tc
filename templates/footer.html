@@ -45,11 +45,11 @@
 /* } */
 </style>
 <div class="footer-top">This is hidden footer</div>
-<div class="footer">
-	<button class="btn btn-link footer-btn" ng-controller="postController"
-		ng-click="open('');">
-		<i class="fa fa-tachometer"></i> <span class="hidden-xs">
-			Category 1</span>
-	</button>
+<div class="footer" ng-controller="postController">
+	<center>
+		<span ng-repeat="category in categories">
+			<button class="btn btn-link footer-btn">{{category.title}}</button>
+		</span>
+	</center>
 </div>
 

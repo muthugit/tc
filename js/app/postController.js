@@ -1,10 +1,9 @@
-app.controller('postController', [ '$scope', '$routeParams',
-		function($scope, $routeParams,$location, cmsService) {
+app.controller('postController',
+		function($scope, $http, $routeParams, $location, cmsService) {
 			var userApi = localStorage.getItem("userApiKey");
 			$scope.post = {};
 			var postScope = $scope.post;
 			postScope.userApi = userApi;
-			var postId = $routeParams.postId;
 
 			$scope.open = function($link) {
 				$location.path('/' + $link);
@@ -26,5 +25,14 @@ app.controller('postController', [ '$scope', '$routeParams',
 				console.log($scope.post);
 			};
 
-			
-		} ]);
+			$scope.showCategory = function() {
+				var fetchCategoryUrl = APIUrl + "/getGenericContents/category";
+				$http.get(fetchCategoryUrl).then(function(response) {
+					console.log(response.data);
+					$scope.categories = (response.data);
+				});
+			};
+
+			$scope.showCategory();
+
+		});

@@ -14,7 +14,7 @@ body {
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8" style="padding-top: 3%">
 		<a href="#/author/{{singleContent[0].userItem.objectId}}">{{singleContent[0].userItem.name}}</a> | <span
-			am-time-ago="singleContent[0].createdAt"></span>
+			am-time-ago="singleContent[0].createdAt"></span> | Category: {{singleContent[0].categoryItemData.title}}
 		<h3>{{singleContent[0].title}}</h3>
 		<p ng-bind-html=singleContent[0].postDetail></p>
 	</div>

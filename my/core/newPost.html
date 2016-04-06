@@ -56,9 +56,9 @@ body {
 
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Categories</label> <select
-				name="mySelect" id="mySelect"
-				ng-options="option.name for option in data.availableOptions track by option.id"
-				ng-model="data.selectedOption"></select>
+				ng-model="post.categoryItem">
+				<option ng-repeat="x in categories" value="{{x.objectId}}">{{x.title}}</option>
+			</select>
 		</div>
 
 		<div class="form-group">

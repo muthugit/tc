@@ -1,8 +1,8 @@
 <div class="top-news col-sm-12" style="top: 3px;">
 	<div ng-repeat="topNewsContent in topNews"
 		class="top-news-reel col-sm-3 well"
-		style="height: 150px; overflow: hidden;">
-		<a href="#/p/{{topNewsContent.objectId}}"><h5>{{topNewsContent.title}}</h5></a>
-		{{topNewsContent.description}}
+		style="height: 120px; overflow: hidden;">
+		<a href="#/p/{{topNewsContent.objectId}}">{{topNewsContent.title}}</a><br>
+		{{topNewsContent.userItem.name}}
 	</div>
 </div>

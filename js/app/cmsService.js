@@ -7,6 +7,7 @@ app.service('cmsService', function($http) {
 		$scope[area] = [];
 		$http.get(fetchArticleUrl).then(function(response) {
 			$.each(response.data, function(i, l) {
+				console.log(response.data);
 				$scope[area].push(l);
 			});
 		});
