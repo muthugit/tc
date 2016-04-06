@@ -1,6 +1,7 @@
 app.controller('postController', function($scope, $http, $location) {
 	var userApi = localStorage.getItem("userApiKey");
 	$scope.post = {};
+	$scope.category = {};
 	var postScope = $scope.post;
 	postScope.userApi = userApi;
 
@@ -35,7 +36,7 @@ app.controller('postController', function($scope, $http, $location) {
 	};
 
 	$scope.updateCategory = function() {
-		$scope.category = {};
+		
 		var categoryScope = $scope.category;
 		categoryScope.userApi = userApi;
 		categoryScope.repository = "category";
