@@ -226,7 +226,11 @@ html,body {
 }
 
 .container {
-	padding-top: 65px;
+	padding-top: 0px;
+}
+
+.firstContainer {
+	padding-top: 63px;
 }
 
 .topMenu {
@@ -664,4 +668,18 @@ html,body {
 	padding: 0 20px;
 	margin-bottom: 17px;
 }
+}
+
+@media screen and (max-width: 767px) {
+	.table-responsive {
+		border: 0;
+	}
+}
+
+.table{
+	margin-bottom: 0;
+}
+
+.tcMenuLinks {
+	background-color: #e5e5e5;
 }
