@@ -18,6 +18,9 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/author/:authorId/", {
 				templateUrl : "core/authorHome.html",
 				controller : "userController"
+			}).when("/c/:categoryId/", {
+				templateUrl : "core/category.html",
+				controller : ""
 			})
 
 			// else 404

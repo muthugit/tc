@@ -289,7 +289,7 @@ html,body {
 }
 
 .navbar-fixed-top {
-	background-color: white;
+	background-color: #2856b6;
 	opacity: 0.8;
 	/* 	border-bottom: thin solid #F2F2F2; */
 }
@@ -305,7 +305,8 @@ html,body {
 }
 
 .navbar-brand {
-	color: #2856b6;
+	padding: 10.5px 15px;
+	color: white;
 }
 
 .header-ads {

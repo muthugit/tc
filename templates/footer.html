@@ -2,11 +2,11 @@
 .footer {
 	position: fixed;
 	left: 0px;
-	bottom: 0px;
-	height: 60px;
+	bottom: -18px;
+	height: 70px;
 	width: 100%;
-	background: #2856b6;
-	color: white;
+	background: transparent;
+	color: #2856b6;
 	/* 	text-align: center; */
 	padding-top: 5px;
 }
@@ -17,12 +17,12 @@
 }
 
 .footer .btn-link {
-	color: white;
+	color: #2856b6;
 }
 
 .footer .btn-link:FOCUS {
 	background-color: #2856b6;
-	color: white;
+	color: #2856b6;
 }
 
 .footer .btn-link:HOVER {
@@ -35,6 +35,16 @@
 	visibility: hidden;
 }
 
+.footerLinks {
+	background-color: #e5e5e5;
+}
+
+@media screen and (max-width: 767px) {
+	.table-responsive {
+		border: 0;
+	}
+}
+
 /* /* IE 6 */
 /* * html .footer { */
 /* 	position: absolute; */
@@ -45,11 +55,15 @@
 /* } */
 </style>
 <div class="footer-top">This is hidden footer</div>
-<div class="footer" ng-controller="postController">
+<div class="footer table-responsive" style="overflow-y: hidden;"
+	ng-controller="postController">
 	<center>
-		<span ng-repeat="category in categories">
-			<button class="btn btn-link footer-btn">{{category.title}}</button>
-		</span>
+		<table style="border: 0" class="table footerLinks">
+			<tr>
+				<td width="300px" ng-repeat="category in categories"><a
+					href="#/c/{{category.objectId}}" class="btn btn-link footer-btn">{{category.title}}</a>
+				</td>
+			</tr>
+		</table>
 	</center>
 </div>
-
