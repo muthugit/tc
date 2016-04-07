@@ -188,10 +188,9 @@ body {
 	/* 	background-color: #f0f0f0; */
 	/* 	background-color: #FAFAFA; */
 	background-color: #F2F2F2;
-	
 }
 
-.well{
+.well {
 	background-color: white;
 }
 
@@ -668,18 +667,22 @@ html,body {
 	padding: 0 20px;
 	margin-bottom: 17px;
 }
-}
 
+}
 @media screen and (max-width: 767px) {
 	.table-responsive {
 		border: 0;
 	}
 }
 
-.table{
+.table {
 	margin-bottom: 0;
 }
 
 .tcMenuLinks {
 	background-color: #e5e5e5;
+}
+
+img {
+	max-width: 100%;
 }
