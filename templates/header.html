@@ -3,6 +3,42 @@
 	background-color: white;
 }
 
+.tcMenuLinks {
+	background-color: white;
+	color: white;
+	border: 2px solid black;
+}
+
+.tblBtn:HOVER {
+	background-color: #2856b6;
+}
+
+.tblBtn {
+	border-bottom: 1px solid #2856b6;
+	line-height: 10px;
+}
+
+.footer-btn {
+	width: 100%
+}
+
+.footer-btn:HOVER {
+	background-color: #2856b6;
+	color: white;
+}
+
+.nav>li>a {
+	color: white;
+}
+
+.nav>li>a:FOCUS {
+	color: red;
+}
+
+.nav>li>a:HOVER {
+	background-color: transparent;
+	color: red;
+}
 </style>
 <nav class="navbar navbar-fixed-top is-visible">
 	<div class="container-fluid">
@@ -16,12 +52,15 @@
 			</button>
 			<a class="navbar-brand" href="#"><b><img src="logo.png"
 					style="height: 40px"></b></a>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a style="" href="#/creators">Creators</a></li>
+			</ul>
 		</div>
 		<div class="navbar-collapse collapse"
 			id="bs-example-navbar-collapse-1" aria-expanded="false"
 			style="height: 1px;">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a style="color:white" href="my/">Login</a></li>
+				<li><a style="" href="my/">Login</a></li>
 			</ul>
 		</div>
 	</div>
@@ -32,9 +71,11 @@
 		<center>
 			<table style="border: 0" class="table tcMenuLinks">
 				<tr>
-					<td width="300px" ng-repeat="category in categories"><a
-						href="#/c/{{category.objectId}}" class="btn btn-link footer-btn">{{category.title}}</a>
-					</td>
+					<td class="tblBtn" style='' width="300px"
+						ng-repeat="category in categories"><center>
+							<a href="#/c/{{category.objectId}}"
+								class="btn btn-link footer-btn">{{category.title}}</a>
+						</center></td>
 				</tr>
 			</table>
 		</center>
