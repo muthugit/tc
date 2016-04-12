@@ -72,8 +72,11 @@
 		<center>
 			<table style="border: 0" class="table tcMenuLinks">
 				<tr>
-					<td class="tblBtn" width="300px"
-						ng-repeat="category in categories"><center>
+					<td class="tblBtn" width="300px"><center>
+							<a style='font-size: 13px' href="#/"
+								class="btn btn-link footer-btn"><b>Home</b></a>
+						</center></td>
+					<td class="tblBtn" width="300px" ng-repeat="category in categories"><center>
 							<a style='font-size: 13px' href="#/c/{{category.objectId}}"
 								class="btn btn-link footer-btn"><b>{{category.title}}</b></a>
 						</center></td>
