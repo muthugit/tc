@@ -1,10 +1,12 @@
 <div class="container">
 	<div class="col-sm-12" ng-repeat="postContent in contentList">
 		<div class="cmsArticle well" id="{{postContent.title}}" style="">
-			<small><b> <a href="#/author/{{postContent.userItem.objectId}}">{{postContent.userItem.name}}</a></b>
+			<small><b> <a
+					href="#/author/{{postContent.userItem.objectId}}">{{postContent.userItem.name}}</a></b>
 				| <span am-time-ago="postContent.createdAt"></span> <a
 				href="#/p/{{postContent.objectId}}"><h4>{{postContent.title
 						| unsafe}}</h4></a>
+				<p>{{postContent.description}}</p>
 		</div>
 	</div>
 </div>
