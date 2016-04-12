@@ -1,7 +1,8 @@
-app.controller('homePageController', function($scope, $routeParams, $http,
+app.controller('commonController', function($scope, $routeParams, $http,
 		$location, cmsService) {
 
 	var postId = $routeParams.postId;
+	var categoryId = $routeParams.categoryId;
 
 	$scope.fetchArticles = function(area, category, page, from, max, userApi) {
 		cmsService.fetchArticles($scope, area, category, page, from, max,
@@ -16,8 +17,17 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 		cmsService.showContent($scope, postId, area);
 	};
 
+	$scope.showContentList = function(categoryId, area) {
+		cmsService.showContentList($scope, categoryId, area);
+	};
+
 	if (postId != undefined)
 		$scope.showContent(postId, "singleContent");
+
+	if (categoryId != undefined) {
+		console.log("Showing category: " + categoryId);
+		$scope.showContentList(categoryId, "contentList");
+	}
 
 	$scope.fetchArticles("topNews", "any", 1, 1, 4, "all");
 	$scope.fetchArticles("bigPic1", "any", 1, 1, 1, "all");
@@ -28,6 +38,3 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 	$scope.fetchUsers("authors", "any", 1, 1, 20);
 
 });
-
-
-

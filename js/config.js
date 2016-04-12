@@ -11,16 +11,16 @@ app.config([ '$routeProvider', '$locationProvider',
 			// Home
 			.when("/", {
 				templateUrl : "core/home/index.html",
-				controller : "homePageController"
+				controller : "commonController"
 			}).when("/p/:postId/", {
 				templateUrl : "core/singlePost.html",
-				controller : "homePageController"
+				controller : "commonController"
 			}).when("/author/:authorId/", {
 				templateUrl : "core/authorHome.html",
 				controller : "userController"
 			}).when("/c/:categoryId/", {
 				templateUrl : "core/category.html",
-				controller : ""
+				controller : "commonController"
 			})
 
 			// else 404

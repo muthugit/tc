@@ -45,6 +45,19 @@ app.service('cmsService', function($http) {
 		});
 	};
 
+	this.showContentList = function($scope, categoryId, area) {
+		var fetchArticleUrl = APIUrl + "/fetchContentList/" + categoryId;
+		console.log(fetchArticleUrl);
+		$scope[area] = [];
+		$http.get(fetchArticleUrl).then(function(response) {
+			$.each(response.data, function(i, l) {
+				$scope[area].push(l);
+				console.log(response.data);
+				jQuery("time.timeago").timeago();
+			});
+		});
+	};
+
 });
 
 app.filter('unsafe', function($sce) {

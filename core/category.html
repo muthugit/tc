@@ -1,3 +1,10 @@
 <div class="container">
-	<div class="col-sm-7 well">This is category</div>
+	<div class="col-sm-12" ng-repeat="postContent in contentList">
+		<div class="cmsArticle well" id="{{postContent.title}}" style="">
+			<small><b>{{postContent.userItem.name}}</b> | <span
+				am-time-ago="postContent.createdAt"></span> <a
+				href="#/p/{{postContent.objectId}}"><h4>{{postContent.title
+						| unsafe}}</h4></a>
+		</div>
+	</div>
 </div>
