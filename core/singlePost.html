@@ -3,8 +3,7 @@ body {
 	background-color: white;
 }
 </style>
-<div class="container" ng-app="cmsApp"
-	ng-controller="commonController">
+<div class="container" ng-app="cmsApp" ng-controller="commonController">
 	<div class="col-sm-3">
 		<h4>{{singleContent[0].title}}</h4>
 		<a href="#/author/{{singleContent[0].userItem.objectId}}">{{singleContent[0].userItem.name}}</a>
@@ -19,10 +18,7 @@ body {
 		<p ng-bind-html=singleContent[0].postDetail></p>
 	</div>
 	<div class="col-sm-3">
-		ADS <img src="ads/01.jpg" class=""><hr> <img
-			src="ads/02.jpg" class=""><hr> <img src="ads/03.jpg"
-			class=""><hr> <img src="ads/04.jpg" class="">
-
+		<div ng-include="'core/rightSidePanel.html'"></div>
 	</div>
 </div>
 
