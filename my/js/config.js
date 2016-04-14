@@ -12,6 +12,9 @@ app.config([ '$routeProvider', '$locationProvider',
 			.when("/login", {
 				templateUrl : "core/home/login.html",
 				controller : ""
+			}).when("/profile", {
+				templateUrl : "core/profile.html",
+				controller : ""
 			}).when("/new-post", {
 				templateUrl : "core/newPost.html",
 				controller : "postController"

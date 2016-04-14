@@ -1,3 +1,11 @@
+.circleImage {
+	background-repeat: no-repeat;
+	background-position: 50%;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
 p {
 	line-height: 30px;
 	font-size: 18px;
@@ -188,10 +196,9 @@ body {
 	/* 	background-color: #f0f0f0; */
 	/* 	background-color: #FAFAFA; */
 	background-color: #F2F2F2;
-	
 }
 
-.well{
+.well {
 	background-color: white;
 }
 
@@ -663,4 +670,5 @@ html,body {
 	padding: 0 20px;
 	margin-bottom: 17px;
 }
+
 }

@@ -8,7 +8,9 @@ body {
 		<h4>{{singleContent[0].title}}</h4>
 		<a href="#/author/{{singleContent[0].userItem.objectId}}">{{singleContent[0].userItem.name}}</a>
 		<br> <span am-time-ago="singleContent[0].createdAt"></span> <br>
-		Category: {{singleContent[0].categoryItemData.title}}
+		Category: {{singleContent[0].categoryItemData.title}}<br>
+		<div class="circleImage"
+						style='background-size: cover; background-image: url({{singleContent[0].userItem.profilePic}})'></div>
 	</div>
 	<div class="col-sm-6">
 		<div ng-if="singleContent[0].featureImageURL !== ''">

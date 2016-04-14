@@ -8,7 +8,7 @@ app.service('cmsService', function() {
 			$(".userButtons").hide();
 		} else {
 			var userObj = JSON.parse(localStorage.getItem("currentUser"));
-			$scope.userName = userObj.name;
+			$scope.profile = userObj;
 			console.log("=========>" + userObj.email);
 			$(".generalFooter").hide();
 			$(".userButtons").show();
