@@ -6,11 +6,12 @@
 	<div class="col-sm-8">
 		<div class="cmsArticle well" ng-repeat="postContent in contentList"
 			id="{{postContent.title}}" style="">
-			<small><b> <a
+			<small><b><div class="circleImage pull-right"
+						style='background-size: cover; background-image: url({{postContent.userItem.profilePic}})'></div>
+					<a
 					href="#/author/{{postContent.userItem.objectId}}">{{postContent.userItem.name}}</a></b>
 				| <span am-time-ago="postContent.createdAt"></span>
-				<div class="circleImage"
-						style='background-size: cover; background-image: url({{postContent.userItem.profilePic}})'></div>
+				
 <!-- 				<img src="{{postContent.userItem.profilePic}}"> -->
 				 <a
 				href="#/p/{{postContent.objectId}}"><h4>{{postContent.title
