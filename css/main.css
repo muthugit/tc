@@ -187,7 +187,10 @@ p {
 body {
 	/* 	background-color: #f0f0f0; */
 	/* 	background-color: #FAFAFA; */
-	background-color: #F2F2F2;
+	/* 	background-color: #F2F2F2; */
+	background-color: white;
+	line-height: 1.2;
+	
 }
 
 .well {
@@ -293,7 +296,7 @@ html,body {
 
 .navbar-fixed-top {
 	background-color: #2856b6;
-/* 	opacity: 0.8; */
+	/* 	opacity: 0.8; */
 	/* 	border-bottom: thin solid #F2F2F2; */
 }
 
@@ -691,7 +694,7 @@ p {
 	font-size: 14px;
 	text-align: left;
 	line-height: 1.5;
-	color:black;
+	color: black;
 }
 
 .circleImage {

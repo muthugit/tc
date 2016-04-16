@@ -39,6 +39,13 @@
 	background-color: transparent;
 	color: red;
 }
+
+@media only screen and (max-width: 767px) {
+	.table-responsive {
+		width: 100%;
+		margin-bottom: 0px;
+	}
+}
 </style>
 <nav class="navbar navbar-fixed-top is-visible">
 	<div class="container-fluid">
@@ -84,4 +91,12 @@
 			</table>
 		</center>
 	</div>
+</div>
+<div class="container col-sm-12" ng-controller="commonController">
+	<marquee onmouseover="this.stop()" onmouseout="this.start();"
+		style="padding-top: 15px; background-color: #F2F2F2; height: 50px">
+		Latest: <span ng-repeat="recentStory in recentStories"> <a href="/"
+			style="top: 40px;" class="">{{recentStory.title}}</a> |
+		</span>
+	</marquee>
 </div>
