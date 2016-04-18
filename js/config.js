@@ -1,5 +1,5 @@
-var app = angular
-		.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment' ]);
+var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment',
+		'infinite-scroll' ]);
 
 /*
  * Angular Moment for showing time now

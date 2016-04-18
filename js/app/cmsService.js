@@ -4,7 +4,8 @@ app.service('cmsService', function($http) {
 			userApi) {
 		var fetchArticleUrl = APIUrl + "/getSiteContents/" + category + "/"
 				+ page + "/" + from + "/" + max + "/" + userApi;
-		$scope[area] = [];
+		if ($scope[area] == null)
+			$scope[area] = [];
 		$http.get(fetchArticleUrl).then(function(response) {
 			$.each(response.data, function(i, l) {
 				console.log(response.data);
