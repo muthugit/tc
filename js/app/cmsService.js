@@ -1,4 +1,4 @@
-app.service('cmsService', function($http) {
+app.service('cmsService', function($http, $rootScope, $window) {
 
 	this.fetchArticles = function($scope, area, category, page, from, max,
 			userApi) {
@@ -12,6 +12,12 @@ app.service('cmsService', function($http) {
 				$scope[area].push(l);
 			});
 		});
+	};
+
+	this.setTitle = function(title) {
+		console.log("Changing Category: =============? " + title);
+		// $rootScope.header = title+siteName;
+		$window.document.title = title + siteName;
 	};
 
 	this.fetchUsers = function($scope, area, category, page, from, max) {

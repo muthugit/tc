@@ -26,10 +26,13 @@ app.controller('postController', function($scope, $http, $routeParams,
 	};
 
 	$scope.showCategory = function() {
+
 		var fetchCategoryUrl = APIUrl + "/getGenericContents/category";
 		$http.get(fetchCategoryUrl).then(function(response) {
+			
 			console.log(response.data);
 			$scope.categories = (response.data);
+
 		});
 	};
 

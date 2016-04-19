@@ -13,8 +13,13 @@ app.service('cmsService', function() {
 			$(".generalFooter").hide();
 			$(".userButtons").show();
 			return true;
-			
+
 		}
+	};
+
+	this.setTitle = function(title) {
+		console.log("TTTTTTT=>"+title);
+		$document[0].title = title;
 	};
 });
 

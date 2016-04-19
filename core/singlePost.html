@@ -2,19 +2,34 @@
 body {
 	background-color: white;
 }
+
+.storyBg {
+	margin-top: -15px;
+	padding: 0px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background-size: cover;
+	background-position: 50%;
+	position: relative;
+	height: 350px;
+}
 </style>
-<div class="container" ng-app="cmsApp" ng-controller="commonController">
-	<div class="col-sm-3">
-		<h4>{{singleContent[0].title}}</h4>
-		<a href="#/author/{{singleContent[0].userItem.objectId}}">{{singleContent[0].userItem.name}}</a>
-		<br> <span am-time-ago="singleContent[0].createdAt"></span> <br>
-		Category: {{singleContent[0].categoryItemData.title}}<br>
-		<div class="circleImage"
-						style='background-size: cover; background-image: url({{singleContent[0].userItem.profilePic}})'></div>
-	</div>
-	<div class="col-sm-6">
-		<div ng-if="singleContent[0].featureImageURL !== ''">
-			<img src="{{singleContent[0].featureImageURL}}" width="100%" />
+<div class="container" style="padding-left: 3%; padding-right: 3%"
+	ng-app="cmsApp" ng-controller="commonController">
+	<div class="col-sm-9">
+		<h3 style="font-weight: 800;">{{singleContent[0].title}}</h3>
+		<div class="" style="padding-bottom:30px">
+			<div class="circleImage col-sm-3"
+				style='background-size: cover; background-image: url({{singleContent[0].userItem.profilePic}})'></div>
+			<div style='padding-top:10px' class="col-sm-9">
+				<a href="#/author/{{singleContent[0].userItem.objectId}}">{{singleContent[0].userItem.name}}</a>
+				<span am-time-ago="singleContent[0].createdAt"></span> in
+				{{singleContent[0].categoryItemData.title}}<br>
+			</div>
+		</div>
+		<div style="padding-top: 30px"
+			ng-if="singleContent[0].featureImageURL !== ''">
+			<img src="{{singleContent[0].featureImageURL}}" max-width="100%" />
 		</div>
 		<hr>
 		<p ng-bind-html=singleContent[0].postDetail></p>

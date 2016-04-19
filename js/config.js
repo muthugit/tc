@@ -11,7 +11,7 @@ app.config([ '$routeProvider', '$locationProvider',
 			// Home
 			.when("/", {
 				templateUrl : "core/home/index.html",
-				controller : "commonController"
+				controller : "commonController",
 			}).when("/p/:postId/", {
 				templateUrl : "core/singlePost.html",
 				controller : "commonController"

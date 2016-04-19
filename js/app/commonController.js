@@ -21,17 +21,20 @@ app.controller('commonController', function($scope, $routeParams, $http,
 		cmsService.showContentList($scope, categoryId, area);
 	};
 
-	if (postId != undefined)
+	if (postId != undefined) {
 		$scope.showContent(postId, "singleContent");
+		cmsService.setTitle("Post");
+	}
 
 	if (categoryId != undefined) {
 		console.log("Showing category: " + categoryId);
 		$scope.showContentList(categoryId, "contentList");
+		cmsService.setTitle("Category");
 	}
 
 	$scope.fetchArticles("bigPic1", "any", 1, 1, 1, "all");
 	$scope.fetchArticles("topNews", "any", 1, 1, 4, "all");
-	
+
 	$scope.fetchArticles("bigPic2", "any", 1, 3, 2, "all");
 	$scope.fetchArticles("categoryList1", "any", 1, 1, 4, "all");
 	$scope.fetchArticles("recentStories", "any", 1, 1, 20, "all");
@@ -46,5 +49,4 @@ app.controller('commonController', function($scope, $routeParams, $http,
 		$scope.fetchArticles("articles", "any", 1, from, max, "all");
 		from = from + 3;
 	};
-
 });
