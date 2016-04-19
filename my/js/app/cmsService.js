@@ -3,9 +3,9 @@ app.service('cmsService', function() {
 		console.log("Checking");
 		if (localStorage.getItem("userApiKey") == null) {
 			console.log("Failed");
-			return false;
 			$(".generalFooter").show();
 			$(".userButtons").hide();
+			return false;
 		} else {
 			var userObj = JSON.parse(localStorage.getItem("currentUser"));
 			$scope.profile = userObj;

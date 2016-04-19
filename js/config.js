@@ -1,5 +1,5 @@
 var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment',
-		'infinite-scroll' ]);
+		'infinite-scroll']);
 
 /*
  * Angular Moment for showing time now
@@ -53,3 +53,4 @@ app.filter('fromNow', function() {
 app.run(function(amMoment) {
 	amMoment.changeLocale('de');
 });
+
