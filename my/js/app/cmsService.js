@@ -1,27 +1,29 @@
-app.service('cmsService', function() {
-	this.checkUser = function($scope) {
-		console.log("Checking");
-		if (localStorage.getItem("userApiKey") == null) {
-			console.log("Failed");
-			$(".generalFooter").show();
-			$(".userButtons").hide();
-			return false;
-		} else {
-			var userObj = JSON.parse(localStorage.getItem("currentUser"));
-			$scope.profile = userObj;
-			console.log("=========>" + userObj.email);
-			$(".generalFooter").hide();
-			$(".userButtons").show();
-			return true;
+app.service('cmsService',
+		function() {
+			this.checkUser = function($scope) {
+				console.log("Checking");
+				if (localStorage.getItem("userApiKey") == null) {
+					console.log("Failed");
+					$(".generalFooter").show();
+					$(".userButtons").hide();
+					return false;
+				} else {
+					var userObj = JSON.parse(localStorage
+							.getItem("currentUser"));
+					$scope.profile = userObj;
+					$(".generalFooter").hide();
+					$(".userButtons").show();
+					var userType = JSON.parse(localStorage
+							.getItem("currentUser")).userType;
+					if (userType == "admin")
+						$(".admin-area").show();
+					else
+						$(".admin-area").hide();
+					return true;
 
-		}
-	};
-
-	this.setTitle = function(title) {
-		console.log("TTTTTTT=>"+title);
-		$document[0].title = title;
-	};
-});
+				}
+			};
+		});
 
 app.filter('unsafe', function($sce) {
 	return function(val) {
