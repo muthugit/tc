@@ -28,7 +28,7 @@ app.controller('commonController', function($scope, $routeParams, $http,
 
 	if (categoryId != undefined) {
 		console.log("Showing category: " + categoryId);
-		$scope.showContentList(categoryId, "contentList");
+		$scope.fetchArticles("contentList", categoryId, 1, 1, 300, "all");
 		cmsService.setTitle("Category");
 	}
 
