@@ -51,7 +51,7 @@ app.controller('userController',
 			$scope.fetchUserArticles = function() {
 				console.log("Fetching");
 				var userApi = localStorage.getItem("userApiKey");
-				var fetchArticleUrl = APIUrl + "/getSiteContents/any/1/1/100/"
+				var fetchArticleUrl = APIUrl + "/getMyContents/any/1/1/100/"
 						+ userApi;
 				console.log(fetchArticleUrl);
 				$scope.myArticles = [];
