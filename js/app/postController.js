@@ -1,9 +1,17 @@
-app.controller('postController', function($scope, $http, $routeParams,
-		$location, cmsService) {
+app.controller('postController', function($scope, $routeParams, $http,
+		$location, cmsService, $rootScope) {
 	var userApi = localStorage.getItem("userApiKey");
 	$scope.post = {};
 	var postScope = $scope.post;
 	postScope.userApi = userApi;
+
+	var postId = $routeParams.postId;
+
+	if (postId != undefined) {
+		$rootScope.pageTitle = "Single post";
+		cmsService.showContent($scope, postId, "singleContent");
+		
+	}
 
 	$scope.open = function($link) {
 		$location.path('/' + $link);
@@ -29,7 +37,7 @@ app.controller('postController', function($scope, $http, $routeParams,
 
 		var fetchCategoryUrl = APIUrl + "/getGenericContents/category";
 		$http.get(fetchCategoryUrl).then(function(response) {
-			
+
 			console.log(response.data);
 			$scope.categories = (response.data);
 

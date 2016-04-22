@@ -1,5 +1,5 @@
 var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment',
-		'infinite-scroll']);
+		'infinite-scroll' ]);
 
 /*
  * Angular Moment for showing time now
@@ -11,16 +11,16 @@ app.config([ '$routeProvider', '$locationProvider',
 			// Home
 			.when("/", {
 				templateUrl : "core/home/index.html",
-				controller : "commonController",
+				controller : "homePageController",
 			}).when("/p/:postId/", {
 				templateUrl : "core/singlePost.html",
-				controller : "commonController"
+				controller : "postController",
 			}).when("/author/:authorId/", {
 				templateUrl : "core/authorHome.html",
-				controller : "userController"
+				controller : "userController",
 			}).when("/c/:categoryId/", {
 				templateUrl : "core/category.html",
-				controller : "commonController"
+				controller : "commonController",
 			})
 
 			// else 404
@@ -29,6 +29,7 @@ app.config([ '$routeProvider', '$locationProvider',
 				controller : ""
 			});
 			$locationProvider.html5Mode(false);
+
 		} ]);
 
 app.filter('rawHtml', [ '$sce', function($sce) {
@@ -54,3 +55,6 @@ app.run(function(amMoment) {
 	amMoment.changeLocale('de');
 });
 
+app.controller('headerController', [ '$scope', function($scope) {
+	$scope.siteName = siteName;
+} ]);

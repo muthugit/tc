@@ -1,5 +1,5 @@
 app.service('cmsService', function($http, $rootScope, $window) {
-
+	var self = this;
 	this.fetchArticles = function($scope, area, category, page, from, max,
 			userApi) {
 		var fetchArticleUrl = APIUrl + "/getSiteContents/" + category + "/"
@@ -12,12 +12,6 @@ app.service('cmsService', function($http, $rootScope, $window) {
 				$scope[area].push(l);
 			});
 		});
-	};
-
-	this.setTitle = function(title) {
-		console.log("Changing Category: =============? " + title);
-		// $rootScope.header = title+siteName;
-		$window.document.title = title + siteName;
 	};
 
 	this.fetchUsers = function($scope, area, category, page, from, max) {
@@ -47,9 +41,13 @@ app.service('cmsService', function($http, $rootScope, $window) {
 		$scope[area] = [];
 		$http.get(fetchArticleUrl).then(function(response) {
 			$scope[area].push(response.data);
-			console.log(response.data);
+			self.setSeoContents($scope, response.data['title'], null, null);
 			jQuery("time.timeago").timeago();
 		});
+	};
+
+	this.setSeoContents = function($scope, title, tags, others) {
+		$rootScope.pageTitle = title;
 	};
 
 	this.showContentList = function($scope, categoryId, area) {
