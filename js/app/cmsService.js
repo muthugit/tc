@@ -47,7 +47,8 @@ app.service('cmsService', function($http, $rootScope, $window) {
 	};
 
 	this.setSeoContents = function($scope, title, tags, others) {
-		$rootScope.pageTitle = title;
+//		$rootScope.pageTitle = title;
+		$(document).prop('title', title);
 	};
 
 	this.showContentList = function($scope, categoryId, area) {
