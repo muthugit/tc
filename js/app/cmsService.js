@@ -49,6 +49,8 @@ app.service('cmsService', function($http, $rootScope, $window) {
 	this.setSeoContents = function($scope, title, tags, others) {
 //		$rootScope.pageTitle = title;
 		$("title").html("My new title");
+		$("meta[property='og\\:title']").attr("content", "Title");
+		$("meta[property='og\\:description']").attr("content", "Description");
 	};
 
 	this.showContentList = function($scope, categoryId, area) {
