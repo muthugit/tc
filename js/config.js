@@ -5,8 +5,11 @@ var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment',
  * Angular Moment for showing time now
  */
 
-app.config([ '$routeProvider', '$locationProvider',
+app.config([
+		'$routeProvider',
+		'$locationProvider',
 		function($routeProvider, $locationProvider) {
+
 			$routeProvider
 			// Home
 			.when("/", {
@@ -29,6 +32,10 @@ app.config([ '$routeProvider', '$locationProvider',
 				controller : ""
 			});
 			$locationProvider.html5Mode(false);
+
+			// ================== FOR SEO BEGINS
+			$locationProvider.hashPrefix('!');
+			// ============= END SEO
 
 		} ]);
 
