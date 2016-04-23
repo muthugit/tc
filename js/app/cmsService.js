@@ -47,10 +47,17 @@ app.service('cmsService', function($http, $rootScope, $window) {
 	};
 
 	this.setSeoContents = function($scope, title, tags, others) {
-//		$rootScope.pageTitle = title;
-		$("title").html("My new title");
-		$("meta[property='og\\:title']").attr("content", "Title");
-		$("meta[property='og\\:description']").attr("content", "Description");
+
+		var interval = setInterval(function() {
+			if (document.readyState == 'complete') {
+				$("title").html(title);
+				$("meta[property='og\\:title']").attr("content", "Title");
+				$("meta[property='og\\:description']").attr("content",
+						"Description");
+			}
+		}, 200);
+
+		// $rootScope.pageTitle = title;
 	};
 
 	this.showContentList = function($scope, categoryId, area) {
