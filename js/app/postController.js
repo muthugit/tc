@@ -6,11 +6,12 @@ app.controller('postController', function($scope, $routeParams, $http,
 	postScope.userApi = userApi;
 
 	var postId = $routeParams.postId;
+	var postTitle = $routeParams.postTitle;
 
 	if (postId != undefined) {
-		$rootScope.pageTitle = "Single post";
+		$rootScope.pageTitle = postTitle;
 		cmsService.showContent($scope, postId, "singleContent");
-		
+		$rootScope.htmlReady();
 	}
 
 	$scope.open = function($link) {

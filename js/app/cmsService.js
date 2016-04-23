@@ -47,16 +47,9 @@ app.service('cmsService', function($http, $rootScope, $window) {
 	};
 
 	this.setSeoContents = function($scope, title, tags, others) {
-
-		var interval = setInterval(function() {
-			if (document.readyState == 'complete') {
-				$("title").html(title);
-				$("meta[property='og\\:title']").attr("content", "Title");
-				$("meta[property='og\\:description']").attr("content",
-						"Description");
-			}
-		}, 200);
-
+//		$("title").html(title);
+//		$("meta[property='og\\:title']").attr("content", "Title");
+//		$("meta[property='og\\:description']").attr("content", "Description");
 		// $rootScope.pageTitle = title;
 	};
 

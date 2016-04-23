@@ -5,6 +5,10 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 	var max = 3;
 
 	$rootScope.pageTitle = "Home";
+	
+	$rootScope.htmlReady();
+	
+//	PageTitle.setTitle("home");
 
 	cmsService.fetchArticles($scope, "bigPic1", "any", 1, 1, 1, "all");
 	cmsService.fetchArticles($scope, "topNews", "any", 1, 1, 4, "all");

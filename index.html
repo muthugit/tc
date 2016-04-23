@@ -6,12 +6,12 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html ng-app="cmsApp" ng-controller="headerController" class="no-js">
+<html ng-app="cmsApp" class="no-js">
 <!--<![endif]-->
 <head>
 
 <!-- Meta-Information -->
-<title>!</title>
+<title ng:bind-template="Prefix: {{pageTitle}}"></title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="description" content="!">
@@ -64,6 +64,8 @@
 
 
 	<script src="js/jquery-ui.js"></script>
+	
+	<script src="js/angular-seo.js"></script>
 
 	<!-- Our Website Javascripts -->
 	<script src="js/localConfig.js"></script>
