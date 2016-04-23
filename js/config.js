@@ -1,5 +1,5 @@
 var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment',
-		'infinite-scroll' ]);
+		'infinite-scroll', 'seo' ]);
 
 /*
  * Angular Moment for showing time now
@@ -12,7 +12,7 @@ app.config([ '$routeProvider', '$locationProvider',
 			.when("/", {
 				templateUrl : "core/home/index.html",
 				controller : "homePageController",
-			}).when("/p/:postId/", {
+			}).when("/p/:postId/:postTitle/", {
 				templateUrl : "core/singlePost.html",
 				controller : "postController",
 			}).when("/author/:authorId/", {
