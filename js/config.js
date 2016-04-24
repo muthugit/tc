@@ -66,6 +66,11 @@ app.controller('headerController', [ '$scope', function($scope) {
 
 app.run(function($rootScope, $location, $window) {
 	$rootScope.$on('$routeChangeSuccess', function() {
-		$window._gaq.push([ '_trackPageview', $location.path() ]);
-	})
+        var output=$location.path()+"?";
+        angular.forEach($routeParams,function(value,key){
+            output+=key+"="+value+"&";
+        })
+        output=output.substr(0,output.length-1);
+        $window._gaq.push(['_trackPageView', output]);
+    });
 })
