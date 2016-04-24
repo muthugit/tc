@@ -37,7 +37,8 @@ body {
 								Female
 							</label>
 						</div>
-						<br><i>We'll send the password to your account.</i>
+						<br>
+						<i>We'll send the password to your account.</i>
 					</div>
 				</div>
 				<div class="form-group">
@@ -76,4 +77,25 @@ body {
 			</div>
 		</form>
 	</div>
+
+
+	<div class="col-sm-5 well" style='background-color: white'>
+		<form class="form-horizontal">
+			<fieldset>
+				<legend>Reset Password</legend>
+				<div class="form-group">
+					<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+					<div class="col-lg-10">
+						<input type="text" ng-model="resetPassword.email" class="form-control"
+							id="inputEmail" placeholder="Email">
+					</div>
+				</div>
+			</fieldset>
+			<div class="col-lg-10 col-lg-offset-2">
+				<button ng-click="resetPassword()" class="btn btn-link">Send
+					Request</button>
+			</div>
+		</form>
+	</div>
+
 </div>

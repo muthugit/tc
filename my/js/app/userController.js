@@ -42,6 +42,18 @@ app.controller('userController',
 						});
 			};
 
+			$scope.resetPassword = function() {
+				var loginUrl = APIUrl + "/resetPassword/"
+						+ $scope.resetPassword.email;
+				$http.get(loginUrl).then(function(response) {
+					if (response.data == "404")
+						alert("User name not exist");
+					else {
+						alert("Request has been sent to your mail");
+					}
+				});
+			};
+
 			$scope.logout = function() {
 				localStorage.removeItem("userApiKey");
 				alert("Logout successfully!");
@@ -73,8 +85,9 @@ app.controller('userController',
 
 			$scope.checkUser = function() {
 				var isUserLoggedIn = cmsService.checkUser($scope);
-				console.log(isUserLoggedIn);
 				if (isUserLoggedIn == false) {
+					if ($scope.resetPwd == true)
+						console.log("IS RRRRRRRRR = " + $scope.resetPwd);
 					$location.path('/login');
 				} else {
 					$scope.fetchUserArticles();

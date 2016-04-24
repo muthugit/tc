@@ -5,9 +5,7 @@ var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize', 'angularMoment',
  * Angular Moment for showing time now
  */
 
-app.config([
-		'$routeProvider',
-		'$locationProvider',
+app.config([ '$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {
 
 			$routeProvider
@@ -65,3 +63,9 @@ app.run(function(amMoment) {
 app.controller('headerController', [ '$scope', function($scope) {
 	$scope.siteName = siteName;
 } ]);
+
+app.run(function($rootScope, $location, $window) {
+	$rootScope.$on('$routeChangeSuccess', function() {
+		$window._gaq.push([ '_trackPageview', $location.path() ]);
+	})
+})

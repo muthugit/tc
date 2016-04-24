@@ -44,11 +44,13 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/blog/post", {
 				templateUrl : "core/blog_item.html",
 				controller : ""
-			})
-
-			.when("/c/:categoryId/", {
+			}).when("/c/:categoryId/", {
 				templateUrl : "core/category.html",
 				controller : ""
+			}).when("/resetPassword/:userId", {
+				templateUrl : "core/resetPassword.html",
+				controller : "profileController",
+				resetPwd : "true"
 			})
 			// else 404
 			.otherwise("/404", {
