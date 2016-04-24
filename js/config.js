@@ -64,7 +64,7 @@ app.controller('headerController', [ '$scope', function($scope) {
 	$scope.siteName = siteName;
 } ]);
 
-app.run(function($rootScope, $location, $window) {
+app.run(function($rootScope, $location, $routeParams, $window) {
 	$rootScope.$on('$routeChangeSuccess', function() {
         var output=$location.path()+"?";
         angular.forEach($routeParams,function(value,key){
