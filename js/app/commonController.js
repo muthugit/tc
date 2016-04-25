@@ -5,7 +5,7 @@ app.controller('commonController', function($scope, $routeParams, $http,
 	var categoryId = $routeParams.categoryId;
 
 	$scope.fetchArticles = function(area, category, page, from, max, userApi) {
-		cmsService.fetchArticles($scope, area, category, page, from, max,
+		cmsService.fetchArticles($scope, area, category, page, from, max,false,
 				userApi);
 	};
 

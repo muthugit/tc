@@ -1,9 +1,10 @@
 app.service('cmsService', function($http, $rootScope, $window) {
 	var self = this;
 	this.fetchArticles = function($scope, area, category, page, from, max,
-			userApi) {
+			isFeatureImageRequired, userApi) {
 		var fetchArticleUrl = APIUrl + "/getSiteContents/" + category + "/"
-				+ page + "/" + from + "/" + max + "/" + userApi + "/true";
+				+ page + "/" + from + "/" + max + "/" + userApi + "/"
+				+ isFeatureImageRequired;
 		if ($scope[area] == null)
 			$scope[area] = [];
 		$http.get(fetchArticleUrl).then(function(response) {
