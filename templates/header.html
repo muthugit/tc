@@ -4,7 +4,7 @@
 }
 
 .tcMenuLinks {
-	background-color: #5858FA;
+	background-color: #0174DF;
 	color: white;
 	border: 2px solid black;
 }
@@ -93,10 +93,10 @@
 		</center>
 	</div>
 </div>
-<div class="container col-sm-12" ng-controller="commonController">
+<div class="container col-sm-12" ng-controller="homePageController">
 	<marquee onmouseover="this.stop()" onmouseout="this.start();"
 		style="padding-top: 15px; background-color: #F2F2F2; height: 50px">
-		Latest: <span ng-repeat="recentStory in recentStories"> <a href="/"
+		Latest: <span ng-repeat="recentStory in recentStories"> <a href="#!/p/{{recentStory.objectId}}/{{recentStory.title}}"
 			style="top: 40px;" class="">{{recentStory.title}}</a> |
 		</span>
 	</marquee>

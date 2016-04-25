@@ -3,7 +3,7 @@ app.service('cmsService', function($http, $rootScope, $window) {
 	this.fetchArticles = function($scope, area, category, page, from, max,
 			userApi) {
 		var fetchArticleUrl = APIUrl + "/getSiteContents/" + category + "/"
-				+ page + "/" + from + "/" + max + "/" + userApi;
+				+ page + "/" + from + "/" + max + "/" + userApi + "/true";
 		if ($scope[area] == null)
 			$scope[area] = [];
 		$http.get(fetchArticleUrl).then(function(response) {
@@ -47,9 +47,10 @@ app.service('cmsService', function($http, $rootScope, $window) {
 	};
 
 	this.setSeoContents = function($scope, title, tags, others) {
-//		$("title").html(title);
-//		$("meta[property='og\\:title']").attr("content", "Title");
-//		$("meta[property='og\\:description']").attr("content", "Description");
+		// $("title").html(title);
+		// $("meta[property='og\\:title']").attr("content", "Title");
+		// $("meta[property='og\\:description']").attr("content",
+		// "Description");
 		// $rootScope.pageTitle = title;
 	};
 

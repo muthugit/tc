@@ -13,7 +13,9 @@ app.controller('homePageController', function($scope, $routeParams, $http,
 
 	cmsService.fetchArticles($scope, "bigPic2", "any", 1, 3, 2, "all");
 	cmsService.fetchArticles($scope, "categoryList1", "any", 1, 1, 4, "all");
+	
 	cmsService.fetchArticles($scope, "recentStories", "any", 1, 1, 20, "all");
+	
 
 	$scope.loadMore = function() {
 		console.log("From: " + from);
