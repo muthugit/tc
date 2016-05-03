@@ -1,44 +1,49 @@
 <?php
-$this->load->view ( 'common/header' );
 ?>
 
-<div class="col-xl-12 well">
-	<div class="col-xs-3 well" style="background-color: red">
+<div class="col-sm-12 well">
+	<div class="col-sm-3 well" style="background-color: #F2F2F2">
 		<legend>Authors</legend>
-		<marquee style="height: 120px;" scrollamount="2" scrolldelay="5"
+		<marquee style="height: 320px;" scrollamount="3" scrolldelay="5"
 			direction="up" onmouseover="this.stop()" onmouseout="this.start()">
 		<?php
 		foreach ( $authors as $author ) {
-			if (isset ( $author ['email'] ) && isset ( $author ['name'] ))
-				echo $author ['email'] . '<hr>';
+			if (isset ( $author ['email'] ) && isset ( $author ['name'] ) && isset ( $author ['profilePic'] )) {
+				echo '<span class="col-sm-12  col-xs-12">';
+				echo '<div class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
+				url(' . $author ['profilePic'] . ')"></div>';
+				echo '<div class="col-sm-9 col-xs-9">' . ($author ['name']) . '
+					<br>' . explode ( "@", $author ['email'] )[0] . '<hr>
+					</div></span>';
+			}
 		}
 		
 		?>
 		</marquee>
 	</div>
-	<div class="col-xs-6">
+	<div class="col-sm-6">
 		<legend>Latest Articles</legend>
 	<?php
 	foreach ( $latestArticles as $article ) {
-		echo ($article ['userItem'] ['email']);
+		echo '<h3><a href="post/show/'.$article['objectId'].'/' . urlencode($article ['title']) . '">'. $article ['title'] .'</a></h3><br>';
+		echo '<span class="col-sm-12  col-xs-12">';
+		echo '<div class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
+				url(' . $article ['userItem'] ['profilePic'] . ')"></div>';
+		echo '<div class="col-sm-9 col-xs-9" style="padding-bottom: 20px">' . ($article ['userItem'] ['name']) . '
+					<br>' . explode ( "@", $article ['userItem'] ['email'] )[0] . '
+					</div></span>';
 		if (isset ( $article ['featureImageURL'] )) {
 			echo '<img src="' . $article ['featureImageURL'] . '">';
 		}
-		echo $article ['title'] . '<br>';
 		if (isset ( $article ['description'] )) {
-			echo $article ['description'];
+			echo '<p class="well">' . $article ['description'] . '</p>';
 		}
 		echo '<hr>';
 	}
 	?>
 	</div>
-	<div class="col-xs-3 well" style="background-color: red">
-		<legend>Categories</legend>
-	<?php
-	foreach ( $categories as $category ) {
-		echo $category ['title'] . "<br>";
-	}
-	?>
+	<div class="col-sm-3 well">
+		<?php $this->load->view ( 'common/rightPanel' );?>
 	</div>
 </div>
 

@@ -8,19 +8,17 @@
 <!--[if gt IE 8]><!-->
 <!--<![endif]-->
 <head>
-<span class="seoContents"> <!-- Meta-Information -->
-	<title></title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="!">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="" />
-</span>
+<title><?php echo $title;?></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="<?php echo $description?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
 <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
-<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="/assets/css/jquery-ui.css">
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui.css">
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/main.css">
 <nav class="navbar navbar-inverse navbar-fixed-top is-visible">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -31,7 +29,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"><b><img src="logo.png"
+			<a class="navbar-brand" href="<?php echo base_url();?>"><b><img src="<?php echo base_url();?>logo.png"
 					style="height: 40px"></b></a>
 
 		</div>
