@@ -1,0 +1,101 @@
+<style>
+body {
+	background-color: white
+}
+</style>
+<div class="container" ng-app="cmsApp" ng-controller="postController">
+	<div class="col-sm-9">
+
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Post Title</label> <input
+				type="text" ng-model="post.title" name="postTitle"
+				class="form-control" placeholder="Post title">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Description</label> <input
+				type="text" ng-model="post.description" name="postTitle"
+				class="form-control" placeholder="Post Description">
+		</div>
+
+		<div class="form-group">
+			<label class="control-label" for="postContent">Post Content</label>
+			<form method="post" id="pictureUploadForm">
+				<label class="btn btn-primary" for="uploadFile"> <input
+					type="file" class="file" id="uploadFile" style="display: none"
+					name="thumbnail"> Upload Image
+				</label> <input type="hidden" id="imgText" name='imgText'>
+			</form>
+			<div id="summernote">
+				<p>Add your content</p>
+			</div>
+			<textarea style="display: none" class="form-control" id="postContent"
+				ng-model="post.content" name="postContent"
+				placeholder="Post Content"></textarea>
+		</div>
+	</div>
+	<div class="col-sm-3 well" style="background-color: #F2F2F2">
+		<div class="form-group">
+			<form method="post" id="featureImageForm">
+				<label class="btn btn-primary" for="uploadFeatureImage"> <input
+					type="file" class="file" id="uploadFeatureImage"
+					style="display: none" name="thumbnail"> Upload Image
+				</label>
+			</form>
+			<br> <img ng-src="{{post.featureImage}}"
+				id="img_uploadFeatureImage_src" style="max-width: 100px"> <input
+				type="text" ng-model="post.featureImage" id="img_uploadFeatureImage"
+				class="form-control" name="featureImage"
+				placeholder="Post Image URL">
+			<hr>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Post video URL</label> <input
+				type="text" ng-model="post.video" name="postTitle"
+				class="form-control" placeholder="Post video URL">
+		</div>
+
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Categories</label> <select
+				ng-model="post.categoryItem">
+				<option ng-repeat="x in categories" value="{{x.objectId}}">{{x.title}}</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label" for="postTitle">Tags</label> <input
+				type="text" name="postTitle" class="form-control" placeholder="tags"
+				value="">
+		</div>
+		<button class="btn btn-link">Draft</button>
+		<button ng-click="savePost()" onclick="getRichTextValue()"
+			class="btn btn-primary">Publish</button>
+		<hr>
+
+	</div>
+</div>
+<script>
+	function save() {
+		getRichTextValue();
+	}
+
+	$('#summernote')
+			.summernote(
+					{
+						height : 700,
+						fontNames : [ 'Roboto', 'Serif', 'Sans', 'Arial',
+								'Arial Black', 'Courier', 'Courier New',
+								'Comic Sans MS', 'Helvetica', 'Impact',
+								'Lucida Grande' ]
+
+					});
+	function getRichTextValue() {
+		$('#summernote').summernote({
+			focus : true
+		});
+		var textareaValue = $('#summernote').summernote('code');
+		$("#postContent").val(textareaValue);
+	}
+
+	EL("uploadFile").addEventListener("change", readFile, false);
+	EL("uploadFeatureImage").addEventListener("change", readFile, false);
+</script>

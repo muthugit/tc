@@ -1,0 +1,53 @@
+<style>
+
+</style>
+<div class="container" ng-controller="userController">
+	<div class="col-sm-12 well">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<h3 style="color: grey">{{profile.name}}</h3>
+			<div class="circleImage"
+				style='background-size: cover; background-image: url({{profile.profilePic}})'></div>
+			<a href="#/profile" class="btn btn-link">Edit Profile</a>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<legend>Latest</legend>
+			<div ng-repeat="myArticle in myArticles">
+				<div class="cmsArticle well" ng-mouseover="showAction(myArticle)"
+					ng-mouseleave="hideAction()" id="{{myArticle.title}}" style="">
+					<div class="circleImage pull-right"
+						style='background-size: cover; background-image: url({{profile.profilePic}})'></div>
+					<small><b>{{myArticle.userItem.name}}</b> |
+						{{myArticle.updatedAt}}</small>
+					<h4>{{myArticle.title | unsafe}}</h4>
+					<div class="post-footer" style="height: 30px; vertical-align: top;">
+						<span class="label label-primary">{{myArticle.status}}</span>
+						<!-- 				<div ng-bind-html="myArticle.postDetail | unsafe "></div> -->
+						<span hidden="true" id="{{'action-'+myArticle.objectId}}"
+							class="action-items">
+							<button class="btn btn-link btn-xs">
+								<i class="fa fa-pencil-square-o"></i> <span class="hidden-xs">Edit</span>
+							</button>
+							<button class="btn btn-link btn-xs">
+								<i class="fa fa-times"></i> <span class="hidden-xs">Delete</span>
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>
+</div>
+
+<script>
+	function showAction(actionId) {
+		$(".action-items").hide();
+		$("#" + actionId).show();
+	}
+</script>

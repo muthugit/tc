@@ -1,0 +1,88 @@
+<style>
+.footer {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	height: 60px;
+	width: 100%;
+	background: #2856b6;
+	color: white;
+	/* 	text-align: center; */
+	padding-top: 5px;
+}
+
+.footer-btn {
+	font-size: 18px;
+	/* 	line-height: 1.5em; */
+}
+
+.footer .btn-link {
+	color: white;
+}
+
+.footer .btn-link:FOCUS {
+	background-color: #2856b6;
+	color: white;
+}
+
+.footer .btn-link:HOVER {
+	color: black;
+}
+
+.footer-top {
+	position: absolute;
+	height: 70px;
+	visibility: hidden;
+}
+
+/* /* IE 6 */
+/* * html .footer { */
+/* 	position: absolute; */
+/* 	top: expression(( 0 -( footer.offsetHeight)+(document.documentElement.clientHeight? */
+/* 		 document.documentElement.clientHeight: document.body.clientHeight)+(ignoreMe= */
+/* 		 document.documentElement.scrollTop? document.documentElement.scrollTop: */
+/* 		 document.body.scrollTop))+'px'); */
+/* } */
+</style>
+<div class="footer-top">This is hidden footer</div>
+<div class="footer">
+	<div class="userButtons">
+		<button class="btn btn-link footer-btn" ng-controller="postController"
+			ng-click="open('');">
+			<i class="fa fa-tachometer"></i> <span class="hidden-xs">
+				Dashboard</span>
+		</button>
+		<button class="btn btn-link footer-btn" ng-controller="postController"
+			ng-click="open('new-post');">
+			<i class="fa fa-pencil-square-o"></i> <span class="hidden-xs">
+				Write</span>
+		</button>
+		<button class="btn btn-link pull-right footer-btn" ng-app="cmsApp"
+			ng-click="logout()" ng-controller="userController">
+			<i class="fa fa-sign-out"></i> <span class="hidden-xs"> Logout</span>
+		</button>
+		<span class="admin-area"> <a class="btn btn-link footer-btn"
+			ng-app="cmsApp" ng-click="" href="#/users"
+			ng-controller="userController"> <i class="fa fa-users"></i> <span
+				class="hidden-xs"> Users</span>
+		</a> <a class="btn btn-link footer-btn" ng-app="cmsApp" ng-click=""
+			href="#/contents" ng-controller="userController"> <i
+				class="fa fa-rss"></i> <span class="hidden-xs"> Contents</span>
+		</a>
+			<button class="btn btn-link footer-btn" ng-app="cmsApp"
+				ng-click="open('categories')" ng-controller="postController">
+				<i class="fa fa-bars"></i> <span class="hidden-xs">
+					Categories</span>
+			</button>
+			<button class="btn btn-link footer-btn" ng-app="cmsApp"
+				ng-click="themeSettings()" ng-controller="userController">
+				<i class="fa fa-cogs"></i> <span class="hidden-xs"> Theme
+					Settings</span>
+			</button>
+		</span>
+	</div>
+	<div class="generalFooter">
+		<center>Admin - Portal</center>
+	</div>
+</div>
+

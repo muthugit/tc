@@ -1,0 +1,22 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "myAppId",
+      "appName": "MyApp",
+"masterKey":"master"
+    },
+{
+  "apps": [
+    {
+      "serverURL": "http://128.199.93.125:1337/parse",
+      "appId": "myAppId",
+      "appName": "MyApp",
+"masterKey":"master"
+    }
+
+  ]
+}
+
+  ]
+}

@@ -1,0 +1,20 @@
+<div ng-bind="PageTitle.title()">))000</div>
+<div ng-repeat="bigPicContent1 in bigPic1"
+	style="padding: 30px; background-color: white; color: white; background-size: cover; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), center no-repeat url({{bigPicContent1.featureImageURL}}); height: 400px;"
+	class="well col-sm-8 ">
+	<div class="bigPicInner" style="padding-top: 260px">
+		<a href="#!/p/{{bigPicContent1.objectId}}/{{bigPicContent1.title}}"><h4 style="color: white">{{bigPicContent1.title}}</h4></a>
+		<small>By: <a style="color: white"
+			href="#!/author/{{bigPicContent1.userItem.objectId}}">{{bigPicContent1.userItem.name}}</a>
+		</small>
+	</div>
+</div>
+<div ng-repeat="bigPicContent2 in bigPic2"
+	style="background-color: white; color: white; background-size: cover; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), center no-repeat url({{bigPicContent2.featureImageURL}}); height: 200px"
+	class="col-sm-4 ">
+	<div class="bigPicInner" style="padding-top: 120px">
+		<a href="#!/p/{{bigPicContent2.objectId}}/{{bigPicContent2.title}}"><p
+				style="color: white; padding: 3px;">{{bigPicContent2.title}}</p></a>
+	</div>
+</div>
+
