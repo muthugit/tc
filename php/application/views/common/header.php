@@ -15,10 +15,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
 <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui.css">
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/main.css">
+<link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/jquery-ui.css">
+<link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/main.css">
 <nav class="navbar navbar-inverse navbar-fixed-top is-visible">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -29,7 +29,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo base_url();?>"><b><img src="<?php echo base_url();?>logo.png"
+			<a class="navbar-brand" href="<?php echo SITE_PATH;?>"><b><img src="<?php echo SITE_PATH;?>logo.png"
 					style="height: 40px"></b></a>
 
 		</div>
