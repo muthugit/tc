@@ -42,7 +42,7 @@ class Post extends CI_Controller {
 		else
 			$description = urldecode ( $title );
 		
-		$metaImage = "http://hellboundbloggers.com/wp-content/uploads/2015/01/Reducing-Costs-When-Starting-A-New-Business.jpg";
+		$metaImage = $data ['article'] ['featureImageURL'];
 		
 		require_once (APPPATH . 'controllers/Welcome.php');
 		$aObj = new Welcome (); // create object

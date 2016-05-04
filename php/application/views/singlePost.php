@@ -11,7 +11,15 @@
 			<div style="padding-top: 10px" class="col-sm-9">
 				<a href=""><?php echo $article['userItem']['name'];?></a> <span>Time</span> 
 				<?php if(isset($article['categoryItemData']['title'])) echo ' in '.$article['categoryItemData']['title'];?><br>
+				<hr>
+				<?php if(isset($article['featureImageURL'])){?>
+					<img src="<?php echo $article['featureImageURL'];?>"
+					style="max-height: 300px">
+				<?php }?>
+				
 				<p><?php echo $article['postDetail'];?>
+			
+			
 			</div>
 		</div>
 	</div>
