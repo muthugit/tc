@@ -18,8 +18,6 @@
 				<?php }?>
 				
 				<p><?php echo $article['postDetail'];?>
-			
-			
 			</div>
 		</div>
 	</div>

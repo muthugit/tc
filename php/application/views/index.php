@@ -26,8 +26,9 @@
 	<?php
 	foreach ( $latestArticles as $article ) {
 		
-		$title = str_replace ( ' ', '-', $article ['title'] );
-		$title = preg_replace ( '/[^A-Za-z0-9\-]/', '', $title );
+		$title = str_replace ( ',', '-', $article ['title'] );
+		// $title = preg_replace ( '/[^A-Za-z0-9\-]/', '', $title );
+		$title = $title;
 		
 		echo '<h3><a href="post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h3><br>';
 		echo '<span class="col-sm-12  col-xs-12">';
