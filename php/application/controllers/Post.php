@@ -35,6 +35,9 @@ class Post extends CI_Controller {
 	}
 	public function show($id, $title) {
 		$article = file_get_contents ( 'http://128.199.93.125:9991/fetchSingleContent/' . $id, 0, null, null );
+		
+		
+		
 		$data ['article'] = json_decode ( $article, true );
 		if (isset ( $data ['article'] ['description'] ))
 			$description = $data ['article'] ['description'];
