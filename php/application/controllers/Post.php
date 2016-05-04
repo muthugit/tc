@@ -36,17 +36,17 @@ class Post extends CI_Controller {
 	public function show($id, $title) {
 		$article = file_get_contents ( 'http://128.199.93.125:9991/fetchSingleContent/' . $id, 0, null, null );
 		
-		
-		
 		$data ['article'] = json_decode ( $article, true );
 		if (isset ( $data ['article'] ['description'] ))
 			$description = $data ['article'] ['description'];
 		else
 			$description = urldecode ( $title );
 		
+		$metaImage = "http://hellboundbloggers.com/wp-content/uploads/2015/01/Reducing-Costs-When-Starting-A-New-Business.jpg";
+		
 		require_once (APPPATH . 'controllers/Welcome.php');
 		$aObj = new Welcome (); // create object
-		$aObj->header ( $title, $description ); // call function
+		$aObj->header ( $title, $description, $metaImage ); // call function
 		
 		$this->load->view ( 'singlePost', $data );
 	}

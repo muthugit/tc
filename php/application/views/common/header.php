@@ -14,10 +14,17 @@
 <meta name="description" content="<?php echo $description?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
+<?php if(isset($metaImage)){?>
+	<meta property="og:image" content="<?php echo $metaImage;?>" />
+<?php }?>
+
 <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
-<link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/jquery-ui.css">
+<link rel="stylesheet"
+	href="<?php echo SITE_PATH;?>assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="<?php echo SITE_PATH;?>assets/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="<?php echo SITE_PATH;?>assets/css/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/main.css">
 <nav class="navbar navbar-inverse navbar-fixed-top is-visible">
 	<div class="container-fluid">
@@ -29,8 +36,8 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo SITE_PATH;?>"><b><img src="<?php echo SITE_PATH;?>logo.png"
-					style="height: 40px"></b></a>
+			<a class="navbar-brand" href="<?php echo SITE_PATH;?>"><b><img
+					src="<?php echo SITE_PATH;?>logo.png" style="height: 40px"></b></a>
 
 		</div>
 		<?php $this->load->view ( 'common/topNav' );?>
