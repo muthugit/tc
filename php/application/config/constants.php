@@ -13,8 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);
 
-//define('SITE_PATH',"http://192.168.0.102/tc/php/");
- define('SITE_PATH',"http://www.padaippaligalulagam.com/");
+define('SITE_PATH',"http://192.168.0.102/tc/php/");
+// define('SITE_PATH',"http://www.padaippaligalulagam.com/");
+ define('POSTS_PER_PAGE',3);
 
 /*
 |--------------------------------------------------------------------------

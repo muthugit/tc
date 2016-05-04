@@ -22,15 +22,20 @@ class Home extends CI_Controller {
 	}
 	public function page($page) {
 		$data ['title'] = "Home";
-		$data['description']="The blog for Tamil Creators";
+		$data ['description'] = "The blog for Tamil Creators";
 		if ($page > 1)
-			$from = $page * 15;
+			$from = 1 + (($page - 1) * POSTS_PER_PAGE);
 		else
 			$from = 1;
-		$latestArticles = file_get_contents ( 'http://128.199.93.125:9991/getSiteContents/any/1/' . $from . '/15/all/true', 0, null, null );
+		
+		require_once (APPPATH . 'controllers/Welcome.php');
+		$aObj = new Welcome (); // create object
+		$aObj->header ( "Home", "Home" ); // call function
+		
+		$latestArticles = file_get_contents ( 'http://128.199.93.125:9991/getSiteContents/any/1/' . $from . '/' . POSTS_PER_PAGE . '/all/true', 0, null, null );
 		$categories = file_get_contents ( 'http://128.199.93.125:9991/getGenericContents/category', 0, null, null );
 		$authors = file_get_contents ( 'http://128.199.93.125:9991/getGenericContents/users', 0, null, null );
-		$data ['latestArticles'] = json_decode ( $latestArticles, true );
+		$data ['articleList'] = json_decode ( $latestArticles, true );
 		$data ['categories'] = json_decode ( $categories, true );
 		$data ['authors'] = json_decode ( $authors, true );
 		$this->load->view ( 'index', $data );

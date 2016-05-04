@@ -50,4 +50,19 @@ class Post extends CI_Controller {
 		
 		$this->load->view ( 'singlePost', $data );
 	}
+	
+	public function page($page, $category = false, $author = false) {
+		if ($page > 1)
+			$from = 1 + (($page - 1) * POSTS_PER_PAGE);
+		else
+			$from = 1;
+		if (! isset ( $category ) || $category == "")
+			$category = "any";
+		if (! isset ( $author ) || $author == "")
+			$author = "all";
+		
+		$latestArticles = file_get_contents ( 'http://128.199.93.125:9991/getSiteContents/' . $category . '/1/' . $from . '/' . POSTS_PER_PAGE . '/' . $author . '/true', 0, null, null );
+		$data ['articleList'] = json_decode ( $latestArticles, true );
+		$this->load->view ( 'templates/articleList', $data );
+	}
 }

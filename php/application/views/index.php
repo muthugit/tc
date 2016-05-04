@@ -4,48 +4,32 @@
 <div class="col-sm-12 well">
 	<div class="col-sm-3 well" style="background-color: #F2F2F2">
 		<legend>Authors</legend>
-		<marquee style="height: 320px;" scrollamount="3" scrolldelay="5"
-			direction="up" onmouseover="this.stop()" onmouseout="this.start()">
+		<div id="demo1" class="scroll-text"
+			style="width: 100%; height: 200px; overflow: hidden;">
+			<ul style="list-style-type: none;">
 		<?php
 		foreach ( $authors as $author ) {
 			if (isset ( $author ['email'] ) && isset ( $author ['name'] ) && isset ( $author ['profilePic'] )) {
-				echo '<span class="col-sm-12  col-xs-12">';
-				echo '<div class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
-				url(' . $author ['profilePic'] . ')"></div>';
-				echo '<div class="col-sm-9 col-xs-9">' . ($author ['name']) . '
+				echo '<li class="col-sm-12  col-xs-12 pull-left">';
+				echo '<span class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
+				url(' . $author ['profilePic'] . ')"></span>';
+				echo '<span class="col-sm-9 col-xs-9">' . ($author ['name']) . '
 					<br>' . explode ( "@", $author ['email'] )[0] . '<hr>
-					</div></span>';
+					</span></li>';
 			}
 		}
 		
 		?>
-		</marquee>
+		</ul>
+		</div>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-6" id="articleList">
 		<legend>Latest Articles</legend>
-	<?php
-	foreach ( $latestArticles as $article ) {
-		
-		$title = str_replace ( ',', '-', $article ['title'] );
-		// $title = preg_replace ( '/[^A-Za-z0-9\-]/', '', $title );
-		$title = $title;
-		
-		echo '<h3><a href="post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h3><br>';
-		echo '<span class="col-sm-12  col-xs-12">';
-		echo '<div class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
-				url(' . $article ['userItem'] ['profilePic'] . ')"></div>';
-		echo '<div class="col-sm-9 col-xs-9" style="padding-bottom: 20px">' . ($article ['userItem'] ['name']) . '
-					<br>' . explode ( "@", $article ['userItem'] ['email'] )[0] . '
-					</div></span>';
-		if (isset ( $article ['featureImageURL'] )) {
-			echo '<img src="' . $article ['featureImageURL'] . '">';
-		}
-		if (isset ( $article ['description'] )) {
-			echo '<p class="well">' . $article ['description'] . '</p>';
-		}
-		echo '<hr>';
-	}
-	?>
+		<div id="articleList">
+			<?php
+			$this->load->view ( 'templates/articleList' );
+			?>
+		</div>
 	</div>
 	<div class="col-sm-3 well">
 		<?php $this->load->view ( 'common/rightPanel' );?>
@@ -53,3 +37,52 @@
 </div>
 
 <?php $this->load->view ( 'common/footer' );?>
+<script>
+<?php if(!isset($currentCategory)) $currentCategory="any"; ?>
+<?php if(!isset($currentAuthor)) $currentAuthor="all"; ?>
+
+$('#demo1').scrollbox({
+	  linear: true,
+	  step: 1,
+	  delay: 0,
+	  speed: 80
+	});
+
+var currentPage=1;
+function loadMore(){
+	console.log("Loading more");
+	currentPage=currentPage+1;
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            $("#articleList").append(xmlhttp.responseText);
+        }
+    };
+    xmlhttp.open("GET", "<?php echo SITE_PATH;?>/post/page/" + currentPage+"/<?php echo $currentCategory;?>/<?php echo $currentAuthor;?>", true);
+    xmlhttp.send();
+}
+
+$(document).scroll(function(e){
+
+    // grab the scroll amount and the window height
+    var scrollAmount = $(window).scrollTop();
+    var documentHeight = $(document).height();
+
+    // calculate the percentage the user has scrolled down the page
+    var scrollPercent = (scrollAmount / documentHeight) * 100;
+
+    if(scrollPercent > 50) {
+        // run a function called doSomething
+       loadMore();
+    }
+
+    function doSomething() { 
+
+        // do something when a user gets 50% of the way down my page
+
+    }
+
+});
+
+
+	</script>

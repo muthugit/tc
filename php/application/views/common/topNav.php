@@ -2,7 +2,7 @@
 	<ul class="nav navbar-nav">
 	<?php
 	foreach ( $categories as $category ) {
-		echo '<li><a href=""><b>' . $category ['title'] . "</b></a></li>";
+		echo '<li><a href="' . SITE_PATH . 'category/lists/' . $category ['objectId'] . '/'.$category ['title'].'"><b>' . $category ['title'] . "</b></a></li>";
 	}
 	?>
 	</ul>

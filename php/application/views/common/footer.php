@@ -5,3 +5,4 @@
 <script src="<?php echo SITE_PATH;?>assets/js/bootstrap.min.js"></script>
 <script src="<?php echo SITE_PATH;?>assets/js/jquery-ui.js"></script>
 <script src="<?php echo SITE_PATH;?>assets/js/localConfig.js"></script>
+<script src="<?php echo SITE_PATH;?>assets/js/jquery.scrollbox.js"></script>
