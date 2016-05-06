@@ -5,7 +5,7 @@ foreach ( $articleList as $article ) {
 	// $title = preg_replace ( '/[^A-Za-z0-9\-]/', '', $title );
 	$title = $title;
 	
-	echo '<h3><a href="post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h3><br>';
+	echo '<h3><a href="'.SITE_PATH.'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h3><br>';
 	echo '<span class="col-sm-12  col-xs-12">';
 	echo '<div class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
 				url(' . $article ['userItem'] ['profilePic'] . ')"></div>';

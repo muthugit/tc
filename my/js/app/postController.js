@@ -10,6 +10,7 @@ app.controller('postController', function($scope, $http, $location) {
 	};
 
 	$scope.savePost = function() {
+		$('input[type="submit"]').prop('disabled', false);
 		var textareaValue = $('#summernote').summernote('code');
 		postScope.postDetail = $.trim(textareaValue);
 		postScope.featureImageURL = $("#img_uploadFeatureImage").val();
@@ -22,7 +23,7 @@ app.controller('postController', function($scope, $http, $location) {
 		}).error(function(err) {
 			console.log("Error" + err);
 		});
-
+		
 		console.log("Saving post");
 		console.log($scope.post);
 	};

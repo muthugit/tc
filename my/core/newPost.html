@@ -26,7 +26,7 @@ body {
 				</label> <input type="hidden" id="imgText" name='imgText'>
 			</form>
 			<div id="summernote">
-				<p>Add your content</p>
+				<p></p>
 			</div>
 			<textarea style="display: none" class="form-control" id="postContent"
 				ng-model="post.content" name="postContent"
@@ -68,7 +68,7 @@ body {
 		</div>
 		<button class="btn btn-link">Draft</button>
 		<button ng-click="savePost()" onclick="getRichTextValue()"
-			class="btn btn-primary">Publish</button>
+			class="btn btn-primary" id="btnPublish">Publish</button>
 		<hr>
 
 	</div>
@@ -81,11 +81,12 @@ body {
 	$('#summernote')
 			.summernote(
 					{
+						placeholder : "Enter Text Here...",
 						height : 700,
 						fontNames : [ 'Roboto', 'Serif', 'Sans', 'Arial',
 								'Arial Black', 'Courier', 'Courier New',
 								'Comic Sans MS', 'Helvetica', 'Impact',
-								'Lucida Grande' ]
+								'Lucida Grande' ],
 
 					});
 	function getRichTextValue() {

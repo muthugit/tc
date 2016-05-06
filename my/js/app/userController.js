@@ -83,6 +83,19 @@ app.controller('userController',
 				$(".action-items").hide();
 			};
 
+			$scope.showLogin = function() {
+				$(".loginBox").hide();
+				$("#loginSection").show();
+			};
+			$scope.showRegister = function() {
+				$(".loginBox").hide();
+				$("#registerSection").show();
+			};
+			$scope.showForgotPassword = function() {
+				$(".loginBox").hide();
+				$("#resetPasswordSection").show();
+			};
+
 			$scope.checkUser = function() {
 				var isUserLoggedIn = cmsService.checkUser($scope);
 				if (isUserLoggedIn == false) {
