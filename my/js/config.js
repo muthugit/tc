@@ -20,7 +20,7 @@ app.config([ '$routeProvider', '$locationProvider',
 				controller : "postController"
 			}).when("/users", {
 				templateUrl : "core/admin/users.html",
-				controller : ""
+				controller : "userManagementController"
 			}).when("/contents", {
 				templateUrl : "core/admin/contents.html",
 				controller : "contentManagementController"
@@ -33,6 +33,15 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/contact", {
 				templateUrl : "core/contact.html",
 				controller : ""
+			}).when("/themeSettings", {
+				templateUrl : "core/themeSettings/index.html",
+				controller : ""
+			}).when("/themeSettings/htmlBlocks/:htmlBlockId", {
+				templateUrl : "core/themeSettings/htmlContents.html",
+				controller : "themeController"
+			}).when("/themeSettings/staticContents/:isStatic/:htmlBlockId", {
+				templateUrl : "core/themeSettings/htmlContents.html",
+				controller : "themeController"
 			})
 			// Blog
 			.when("/blog", {

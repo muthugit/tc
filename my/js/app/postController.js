@@ -5,6 +5,8 @@ app.controller('postController', function($scope, $http, $location) {
 	var postScope = $scope.post;
 	postScope.userApi = userApi;
 
+	var userType = JSON.parse(localStorage.getItem("currentUser")).userType;
+
 	$scope.open = function($link) {
 		$location.path('/' + $link);
 	};
@@ -23,13 +25,17 @@ app.controller('postController', function($scope, $http, $location) {
 		}).error(function(err) {
 			console.log("Error" + err);
 		});
-		
+
 		console.log("Saving post");
 		console.log($scope.post);
 	};
 
 	$scope.categoryInDropDown = function() {
-		var fetchCategoryUrl = APIUrl + "/getGenericContents/category";
+		if (userType == "admin")
+			fetchCategoryUrl = APIUrl + "/getGenericContents/category";
+		else
+			fetchCategoryUrl = APIUrl + "/getCategoryList/false";
+
 		$http.get(fetchCategoryUrl).then(function(response) {
 			console.log(response.data);
 			$scope.categories = (response.data);
@@ -37,12 +43,9 @@ app.controller('postController', function($scope, $http, $location) {
 	};
 
 	$scope.updateCategory = function() {
-		
 		var categoryScope = $scope.category;
 		categoryScope.userApi = userApi;
 		categoryScope.repository = "category";
-
-		console.log("Started creating category");
 		var url = APIUrl + '/newAdminGenericContent';
 		$http.post(url, $scope.category).success(function(data, status) {
 			console.log("Category insert data ==> " + data);

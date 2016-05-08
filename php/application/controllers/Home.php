@@ -32,12 +32,15 @@ class Home extends CI_Controller {
 		$aObj = new Welcome (); // create object
 		$aObj->header ( "Home", "Home" ); // call function
 		
-		$latestArticles = file_get_contents ( 'http://128.199.93.125:9991/getSiteContents/any/1/' . $from . '/' . POSTS_PER_PAGE . '/all/true', 0, null, null );
-		$categories = file_get_contents ( 'http://128.199.93.125:9991/getGenericContents/category', 0, null, null );
-		$authors = file_get_contents ( 'http://128.199.93.125:9991/getGenericContents/users', 0, null, null );
+		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/any/1/' . $from . '/' . POSTS_PER_PAGE . '/all/true', 0, null, null );
+		$categories = file_get_contents ( API_PATH . 'getGenericContents/category', 0, null, null );
+		
+		
+		$authors = file_get_contents ( API_PATH . 'getGenericContents/users', 0, null, null );
 		$data ['articleList'] = json_decode ( $latestArticles, true );
 		$data ['categories'] = json_decode ( $categories, true );
 		$data ['authors'] = json_decode ( $authors, true );
+		
 		$this->load->view ( 'index', $data );
 	}
 }

@@ -4,18 +4,50 @@
 	color: black
 }
 </style>
-<div class="container" ng-app="cmsApp"
-	ng-controller="contentManagementController">
-	<div class="col-lg-12 well">
-		<div class="col-lg-8">
+<div class="container" ng-app="cmsApp">
+	<div class="col-sm-12 well">
+		<div class="col-sm-8">
 			<h3 style="color: grey">Contents</h3>
 		</div>
-		<div class="col-lg-2"></div>
+		<div class="col-sm-2"></div>
 	</div>
 
-	<div class="col-lg-12">
+	<div class="col-sm-12">
 		<div ng-repeat="content in allContents">
-			<div class="bs-component col-lg-6"">
+			<div class="col-sm-12 well">
+				<b class="bs-component col-sm-6 col-xs-12">{{content.title}}</b> <span
+					class="bs-component col-sm-3 col-xs-12">{{content.userItem.name}}<br>
+					<small>{{content.userItem.email}}</small></span> <span
+					class="bs-component col-sm-1" id="staus_{{content.objectId}}"><i><small>Status
+					</small></i>{{content.status}}</span>
+				<div class="bs-component col-sm-1 pull-right">
+					<img style="width: 30px;" class="pull-right"
+						src="icons/check-icon.png" ng-if="content.status!='Approved' "
+						id="approveBtn-{{content.objectId}}"
+						ng-click="changeStatus($index,content.objectId,'Approved')">
+					<img style="width: 30px;" class="pull-right"
+						src="icons/warning-icon.png" ng-if="content.status=='Approved' "
+						id="approveBtn-{{content.objectId}}"
+						ng-click="changeStatus($index,content.objectId,'Pending')">
+				</div>
+				<div class="bs-component col-sm-1 pull-right">
+					<img style="width: 30px;" class="pull-right"
+						src="icons/star-empty.png" ng-if="content.isFeatured!='Yes' "
+						id="featureBtn-{{content.objectId}}"
+						ng-click="isFeatured($index,content.objectId,'Yes')"> <img
+						style="width: 30px;" class="pull-right" src="icons/star-full.png"
+						ng-if="content.isFeatured=='Yes' "
+						id="featureBtn-{{content.objectId}}"
+						ng-click="isFeatured($index,content.objectId,'No')">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="col-sm-12">
+		<div ng-repeat="content in allContents">
+			<div class="bs-component col-sm-6"">
 				<div class="alert alert-dismissible alert-things">
 					<h5>{{content.title}}</h5>
 					<br>{{content.userItem.email}} <br>{{content.userItem.name}}<br>
@@ -29,4 +61,5 @@
 			</div>
 		</div>
 	</div>
+	 -->
 </div>

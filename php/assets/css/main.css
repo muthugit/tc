@@ -231,7 +231,7 @@ html,body {
 }
 
 .firstContainer {
-	padding-top: 63px;
+	padding-top: 83px;
 }
 
 .topMenu {
@@ -711,7 +711,7 @@ p {
 .tcMenuLinks {
 	background-color: #0174DF;
 	color: white;
-/* 	border: 2px solid black; */
+	/* 	border: 2px solid black; */
 }
 
 .tblBtn:HOVER {
@@ -750,4 +750,17 @@ p {
 		width: 100%;
 		margin-bottom: 0px;
 	}
+}
+
+.navbar-inverse {
+	background-color: #08298A;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+/* 	font-weight:bold; */
+	color: white;
+}
+
+.icon-bar {
+	background-color: white;
 }

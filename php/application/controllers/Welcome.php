@@ -6,10 +6,10 @@ class Welcome extends CI_Controller {
 		$this->load->helper ( 'url' );
 	}
 	public function index() {
-		$latestArticles = file_get_contents ( 'http://128.199.93.125:9991/getSiteContents/any/1/1/' . POSTS_PER_PAGE . '/all/true', 0, null, null );
+		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/any/1/1/' . POSTS_PER_PAGE . '/all/false', 0, null, null );
 		$data ['articleList'] = json_decode ( $latestArticles, true );
 		
-		$authors = file_get_contents ( 'http://128.199.93.125:9991/getGenericContents/users', 0, null, null );
+		$authors = file_get_contents ( API_PATH . 'getGenericContents/users', 0, null, null );
 		$data ['authors'] = json_decode ( $authors, true );
 		
 		$this->header ( "Home", "Home" );
@@ -24,8 +24,21 @@ class Welcome extends CI_Controller {
 		if (isset ( $metaImage )) {
 			$data ['metaImage'] = $metaImage;
 		}
-		$categories = file_get_contents ( 'http://128.199.93.125:9991/getGenericContents/category', 0, null, null );
+		$data = $this->getHtmlContent ( $data, "top-navigation", "topNav" );
+		for($i = 0; $i <= 20; $i ++)
+			$data = $this->getHtmlContent ( $data, $i, "htmlContent" . $i );
+		$headerContent = file_get_contents ( API_PATH . 'getHtmlBlocks/header', 0, null, null );
+		if (isSet ( json_decode ( $headerContent, true )[0] ))
+			$data ['header'] = json_decode ( $headerContent, true )[0];
+		
+		$categories = file_get_contents ( API_PATH . 'getGenericContents/category', 0, null, null );
 		$data ['categories'] = json_decode ( $categories, true );
 		$this->load->view ( 'common/header', $data );
+	}
+	public function getHtmlContent($data, $whatToGet, $contentName) {
+		$htmlContent = file_get_contents ( API_PATH . 'getHtmlBlocks/' . $whatToGet, 0, null, null );
+		if (isSet ( json_decode ( $htmlContent, true )[0] ))
+			$data [$contentName] = json_decode ( $htmlContent, true )[0];
+		return $data;
 	}
 }

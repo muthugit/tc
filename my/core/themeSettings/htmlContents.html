@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="col-sm-12 well">
+		<legend>Html Blocks</legend>
+		<div class="col-sm-12 well" style="background-color: #f0f0f0">
+			<span style="padding: 3px" ng-repeat="n in totalHtmlBlocks"> <a
+				href="{{redirectUrl}}{{n}}"
+				class="btn btn-primary  btn-xs">#{{n}}</a>
+			</span>
+		</div>
+		<center>
+			<h4>Currently Editing Block #{{currentBlockId}}</h4>
+		</center>
+		<div class="form-group">
+			<label for="comment">HTML Content</label>
+			<textarea ng-model="htmlBlock.htmlContent" class="form-control"
+				placeholder="Your HTML Content of the block {{currentBlockId}} here"
+				rows="5" id="comment"></textarea>
+			<br>
+			<center>
+				<button id="saveBtn" ng-click="saveBlock(currentBlockId)" class="btn btn-primary">Save the block</button>
+			</center>
+		</div>
+	</div>
+</div>

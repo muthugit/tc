@@ -21,5 +21,15 @@ app.controller('contentManagementController', function($scope, $http,
 		});
 	};
 
+	$scope.isFeatured = function(index, contentId, toStatus) {
+		var userApi = localStorage.getItem("userApiKey");
+		var approveUrl = APIUrl + "/isFeatured/" + userApi + "/" + contentId
+				+ "/" + toStatus;
+		$http.get(approveUrl).then(function(response) {
+			id = Number(index);
+			$scope.allContents[id].isFeatured = response.data;
+		});
+	};
+
 	$scope.listContents();
 });

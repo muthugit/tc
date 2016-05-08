@@ -13,6 +13,19 @@ body {
 				<input type="text" ng-model="category.description"
 					name="postDescription" class="form-control"
 					placeholder="Category Description"> <br>
+				Is Admin only Category?				
+				<div class="radio">
+					<label> <input ng-model="category.isAdminOnlyCategory" type="radio"
+						name="optionsRadios" id="optionsRadios2" value="true">
+						Yes
+					</label>
+				</div>
+				<div class="radio">
+					<label> <input ng-model="category.isAdminOnlyCategory" type="radio"
+						name="optionsRadios" id="optionsRadios2" value="false">
+						No
+					</label>
+				</div>
 				<button ng-click="updateCategory()" class="btn btn-primary">Update
 					Category</button>
 			</div>

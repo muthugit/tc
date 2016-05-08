@@ -76,10 +76,39 @@
 	<script src="js/app/cmsService.js"></script>
 	<script src="js/app/postController.js"></script>
 	<script src="js/app/profileController.js"></script>
+	<script src="js/app/themeController.js"></script>
 	<script src="js/app/admin/userManagementController.js"></script>
 	<script src="js/app/admin/contentManagementController.js"></script>
 	<script src="js/app/fileProcess.js"></script>
 	<script src="js/summernote.js"></script>
+<!-- 	<script type="text/javascript" src="https://www.google.com/jsapi" ></script> -->
 </body>
 </html>
 
+
+
+<script>
+	// Load the Google Transliterate API
+	google.load("elements", "1", {
+		packages : "transliteration"
+	});
+
+	function onLoad() {
+		var options = {
+			sourceLanguage : google.elements.transliteration.LanguageCode.ENGLISH,
+			destinationLanguage : [ google.elements.transliteration.LanguageCode.TAMIL ],
+			shortcutKey : 'ctrl+g',
+			transliterationEnabled : true
+		};
+
+		// Create an instance on TransliterationControl with the required
+		// options.
+		var control = new google.elements.transliteration.TransliterationControl(
+				options);
+
+		// Enable transliteration in the textbox with id
+		// 'transliterateTextarea'.
+		control.makeTransliteratable([ 'transliterateTextarea' ]);
+	}
+	google.setOnLoadCallback(onLoad);
+</script>

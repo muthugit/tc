@@ -17,7 +17,7 @@
 					style="max-height: 300px">
 				<?php }?>
 				
-				<p><?php echo $article['postDetail'];?>
+				<p><?php echo $article['postDetail'];?></p>
 			</div>
 		</div>
 	</div>
@@ -25,3 +25,4 @@
 	<?php $this->load->view('common/rightPanel');?>
 	</div>
 </div>
+<?php $this->load->view ( 'common/footer' );?>

@@ -26,21 +26,12 @@
 <link rel="stylesheet"
 	href="<?php echo SITE_PATH;?>assets/css/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/main.css">
-<nav class="navbar navbar-inverse navbar-fixed-top is-visible">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="<?php echo SITE_PATH;?>"><b><img
-					src="<?php echo SITE_PATH;?>logo.png" style="height: 40px"></b></a>
-
-		</div>
-		<?php $this->load->view ( 'common/topNav' );?>
-	</div>
-</nav>
-<div class="firstContainer">
+<div class="col-sm-12 col-xs-12" style="background-color: black;">
+	<center><a class=" col-sm-3 col-xs-12" href="<?php echo SITE_PATH;?>"><b><img
+			class="" src="<?php echo SITE_PATH;?>logo.png" style=""></b></a></center>
+		<?php
+		if (isSet ( $header ))
+			echo $header ['htmlContent'];
+		?>
+</div>
+<?php $this->load->view ( 'common/topNav' );?>
