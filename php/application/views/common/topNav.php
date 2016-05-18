@@ -24,9 +24,6 @@
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Link</a></li>
-		</ul>
 	</div>
 </nav>
 <div class="container">
