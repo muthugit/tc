@@ -230,6 +230,22 @@ var contentRepository = function() {
 		});
 	};
 
+	self.isFeatured = function(Parse, userApiKey, contentId, toStatus, req, res) {
+		console.log("User API: " + userApiKey);
+		var GameScore = Parse.Object.extend("content");
+		var query = new Parse.Query(GameScore);
+		query.get(contentId, {
+			success : function(gameScore) {
+				gameScore.set("isFeatured", toStatus);
+				gameScore.save();
+				res.send(toStatus);
+			},
+			error : function(object, error) {
+				res.send("ERROR");
+			}
+		});
+	};
+
 	self.getContents = function(Parse, userApiKey, req, res) {
 		var Contents = Parse.Object.extend("content");
 		var query = new Parse.Query(Contents);

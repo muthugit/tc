@@ -52,6 +52,7 @@ app.controller('postController', function($scope, $http, $location) {
 		}).error(function(err) {
 			console.log("Error" + err);
 		});
+
 	};
 	$scope.categoryInDropDown();
 });

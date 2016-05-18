@@ -170,13 +170,20 @@ app.get('/getSiteUsers/:categoryId/:page/:from/:max', function(req, res, next) {
 			.getSiteUsers(Parse, req.params['categoryId'], req.params['page'],
 					req.params['from'], req.params['max'], req, res);
 });
+app.get('/makeFeature/:userApiKey/:contentId/:toStatus', function(req, res,
+		next) {
+	console.log("Make feature");
+});
 
 app.get('/approveContent/:userApiKey/:contentId/:toStatus', function(req, res,
 		next) {
+	console.log("Approving");
 	var contentRepositoryInstance = new contentRepository();
 	contentRepositoryInstance.approveContent(Parse, req.params['userApiKey'],
 			req.params['contentId'], req.params['toStatus'], req, res);
 });
+
+
 
 app.param('userId', function(req, res, next, id) {
 	res.send(id);

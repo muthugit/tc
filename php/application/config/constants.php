@@ -7,10 +7,14 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 defined ( 'SHOW_DEBUG_BACKTRACE' ) or define ( 'SHOW_DEBUG_BACKTRACE', TRUE );
 
 // define ( 'SITE_PATH', "http://192.168.0.102/tc/php/" );
-define ( 'SITE_PATH', "http://www.padaippaligalulagam.com/" );
+// define ( 'SITE_PATH', "http://www.padaippaligalulagam.com/" );
+define ( 'SITE_PATH', "http://192.168.1.139/tc/php/" );
+
 
 // define ( 'API_PATH', "http://192.168.0.102:9991/" );
-define ( 'API_PATH', "http://128.199.93.125:9991/" );
+// define ( 'API_PATH', "http://128.199.93.125:9991/" );
+define ( 'API_PATH', "http://192.168.1.139:9991/" );
+
 define ( 'POSTS_PER_PAGE', 3 );
 
 /*

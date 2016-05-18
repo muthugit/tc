@@ -1,6 +1,6 @@
 <style>
 body {
-	background-color: white
+	background-color:
 }
 </style>
 <div class="container">
@@ -12,18 +12,18 @@ body {
 					class="form-control" placeholder="Category title"> <br>
 				<input type="text" ng-model="category.description"
 					name="postDescription" class="form-control"
-					placeholder="Category Description"> <br>
-				Is Admin only Category?				
+					placeholder="Category Description"> <br> Is Admin only
+				Category?
 				<div class="radio">
-					<label> <input ng-model="category.isAdminOnlyCategory" type="radio"
-						name="optionsRadios" id="optionsRadios2" value="true">
+					<label> <input ng-model="category.isAdminOnlyCategory"
+						type="radio" name="optionsRadios" id="optionsRadios2" value="true">
 						Yes
 					</label>
 				</div>
 				<div class="radio">
-					<label> <input ng-model="category.isAdminOnlyCategory" type="radio"
-						name="optionsRadios" id="optionsRadios2" value="false">
-						No
+					<label> <input ng-model="category.isAdminOnlyCategory"
+						type="radio" name="optionsRadios" id="optionsRadios2"
+						value="false"> No
 					</label>
 				</div>
 				<button ng-click="updateCategory()" class="btn btn-primary">Update
@@ -31,5 +31,19 @@ body {
 			</div>
 		</div>
 	</div>
+	<div class="col-sm-9">
+
+		<div class="container" ng-app="cmsApp" ng-controller="postController">
+			<div ng-repeat="category in categories">
+				<div class="col-sm-12 well" style="background-color: white">
+					<span class="col-sm-3"> {{category.objectId}}</span> <span
+						class="col-sm-4"> {{category.title}}</span> <span class="col-sm-2">
+						{{category.isAdminOnlyCategory}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
 </div>
 

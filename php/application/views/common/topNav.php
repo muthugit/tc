@@ -69,3 +69,15 @@
 	</div>
 	</div>
 </div>
+<script>
+  (function() {
+    var cx = '004252836609829600480:hh3zz55r4yy';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
