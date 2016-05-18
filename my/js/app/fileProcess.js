@@ -1,13 +1,23 @@
-function sendFile(base64Content, url, editor, isSummerNote) {
-	console.log("Base 64============?" + base64Content);
+function sendFile(base64Content, url, editor, isSummerNote, pictureId) {
 	var url = APIUrl + "/fileUpload"; // the script where you handle the form
-	// input.
-	// console.log("Form info: " + $("#idForm").serialize());
-	console.log(url);
+	console.log("Processing: " + pictureId);
+	var url = PHP_API + "/upload.php";
+	var file_data = $('#' + pictureId).prop('files')[0];
+
+	var d = new Date();
+	var timeStamp = d.getTime();
+	var form_data = new FormData();
+	form_data.append('file', file_data);
+	form_data.append('timeStamp', timeStamp);
+	console.log(form_data);
 	$.ajax({
-		type : "POST",
 		url : url,
-		data : $("#pictureUploadForm").serialize(), // serializes the form's elements.
+		dataType : 'text',
+		cache : false,
+		contentType : false,
+		processData : false,
+		data : form_data,
+		type : 'post',
 		success : function(data) {
 			if (isSummerNote == true)
 				editor.summernote('insertImage', data);
@@ -43,7 +53,8 @@ function readFile() {
 				targetId = "img_" + currentlyLoading;
 				isSummerNote = false;
 			}
-			sendFile(e.target.result, url, targetId, isSummerNote);
+			sendFile(e.target.result, url, targetId, isSummerNote,
+					currentlyLoading);
 		};
 		FR.readAsDataURL(this.files[0]);
 	}

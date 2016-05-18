@@ -3,7 +3,7 @@
 	<div class="col-sm-8 well">
 		<fieldset>
 			<legend>Profile</legend>
-			<div class="form-group" style="display:none">
+			<div class="form-group" style="display: none">
 				<label for="inputEmail" class="col-lg-2 control-label">API</label>
 				<div class="col-lg-10">
 					<input type="text" disabled="disabled" ng-model="profile.objectId"
@@ -30,8 +30,9 @@
 			<div class="form-group" style="">
 				<form method="post" id="pictureUploadForm">
 					<label class="btn btn-primary" for="profilePic"> <input
-						type="file" class="file" id="profilePic" style="display: none"
-						name="thumbnail"> Upload Profile Picture
+						type="file" class="file" id="profilePic" name="profilePic"
+						style="display: none" name="thumbnail"> Upload Profile
+						Picture
 					</label> <input type="hidden" id="imgText" name='imgText'>
 				</form>
 				<br> <img ng-src="{{profile.profilePic}}"
@@ -39,7 +40,8 @@
 
 			</div>
 			<input type="text" ng-model="profile.profilePic" id="img_profilePic"
-				class="form-control" name="profilePic" style="display:none" placeholder="Post Image URL">
+				class="form-control" name="profilePic" style="display: none"
+				placeholder="Post Image URL">
 
 			<button ng-click="updateProfile()" class="btn btn-primary">UpdateProfile</button>
 		</fieldset>
