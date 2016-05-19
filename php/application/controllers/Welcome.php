@@ -12,6 +12,17 @@ class Welcome extends CI_Controller {
 		$authors = file_get_contents ( API_PATH . 'getGenericContents/users', 0, null, null );
 		$data ['authors'] = json_decode ( $authors, true );
 		
+		$data = $this->getHtmlContent ( $data, "widget-1", "widget-1" );
+		$widget1Category = explode ( "|", $data ['widget-1'] ['htmlContent'] );
+		if (isset ( $widget1Category [1] ))
+			$data ['widget1CategoryTitle'] = trim ( $widget1Category [1] );
+		if (isset ( $widget1Category [0] ) && $widget1Category [0] != null && trim($widget1Category [0]) != '') {
+			$widget1Articles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widget1Category [0] ) . '/1/1/5/all/false', 0, null, null );
+			$data ['widget1ArticlesList'] = json_decode ( $widget1Articles, true );
+		} else {
+			$data ['widget1ArticlesList'] = "";
+		}
+		
 		$this->header ( "Home", "Home" );
 		$this->load->view ( 'index', $data );
 	}

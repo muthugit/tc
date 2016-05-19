@@ -1,6 +1,4 @@
-<?php
-?>
-
+<?php $this->load->view ( 'common/htmlBlocksSet1' );?>
 <div class="col-sm-12 well">
 	<div class="col-sm-3 well" style="background-color: #F2F2F2">
 		<legend>Authors</legend>
@@ -23,13 +21,21 @@
 		</ul>
 		</div>
 	</div>
-	<div class="col-sm-6" id="articleList">
-		<legend>Latest Articles</legend>
-		<div id="articleList">
-			<?php
-			$this->load->view ( 'templates/articleList' );
-			?>
-		</div>
+	<div class="col-sm-6 well" style="background-color: blue"
+		id="articleList">
+	
+	<?php
+	if (isset ( $widget1CategoryTitle) && isset($widget1ArticlesList )) {
+		echo "<h3 class='white-text'>" . $widget1CategoryTitle . '</h3>';
+	
+	foreach ( $widget1ArticlesList as $article ) {
+		$title = str_replace ( ',', '-', $article ['title'] );
+		$title = $title;
+		echo '<h4><a class="white-text" href="' . SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h4>';
+	}
+	}
+	?>
+	<a class="white-text" href="#">Read more...</a>
 	</div>
 	<div class="col-sm-3 well">
 		<?php $this->load->view ( 'common/rightPanel' );?>
