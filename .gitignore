@@ -1,4 +1,5 @@
 /bin/*
+/angular/bin/*
 /my/js/localConfig.js
 /php/application/config/constants.php
 /baskerServer/*
