@@ -2,4 +2,6 @@
 /my/js/localConfig.js
 /php/application/config/constants.php
 /baskerServer/*
+/officeNetwork/*
+/homeNetwork/*
 
