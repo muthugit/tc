@@ -1,6 +1,8 @@
 app.controller('userController',
 		function($scope, $http, $location, cmsService) {
 
+			$scope.imagePath = UPLOAD_PATH;
+
 			$scope.reset = function() {
 				$scope.user = "";
 			};

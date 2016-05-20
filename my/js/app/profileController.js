@@ -3,6 +3,7 @@ app.controller('profileController', function($scope, $http, $location) {
 	$scope.profile = {};
 	var profileScope = $scope.profile;
 	profileScope.objectId = userApi;
+	$scope.imagePath = UPLOAD_PATH;
 
 	$scope.open = function($link) {
 		$location.path('/' + $link);
@@ -11,7 +12,6 @@ app.controller('profileController', function($scope, $http, $location) {
 	$scope.getProfile = function() {
 		var fetchCategoryUrl = APIUrl + "/getGenericContentsById/users/"
 				+ userApi;
-		console.log(fetchCategoryUrl);
 		$http.get(fetchCategoryUrl).then(function(response) {
 			console.log(response.data);
 			$scope.profile = (response.data);
@@ -23,7 +23,6 @@ app.controller('profileController', function($scope, $http, $location) {
 		console.log(url);
 		profileScope = $scope.profile;
 		profileScope.profilePic = $("#img_profilePic").val();
-		console.log("PPPPPPPPPPP ========> +" + $("#img_profilePic").val());
 		$http.post(url, $scope.profile).success(function(data, status) {
 			localStorage.setItem("currentUser", JSON.stringify(data));
 		}).error(function(err) {

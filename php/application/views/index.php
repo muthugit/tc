@@ -1,16 +1,29 @@
+<style>
+.head3 {
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+	font-weight: bold;
+}
+
+tr>td {
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+</style>
 <?php $this->load->view ( 'common/htmlBlocksSet1' );?>
 <div class="col-sm-12 well">
 	<div class="col-sm-3 well" style="background-color: #F2F2F2">
 		<legend>Authors</legend>
 		<div id="demo1" class="scroll-text"
-			style="width: 100%; height: 200px; overflow: hidden;">
+			style="width: 100%; height: 400px; overflow: hidden;">
 			<ul style="list-style-type: none;">
 		<?php
 		foreach ( $authors as $author ) {
 			if (isset ( $author ['email'] ) && isset ( $author ['name'] ) && isset ( $author ['profilePic'] )) {
 				echo '<li class="col-sm-12  col-xs-12 pull-left">';
 				echo '<span class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
-				url(' . $author ['profilePic'] . ')"></span>';
+				url(' . IMAGE_PATH . $author ['profilePic'] . ')"></span>';
 				echo '<span class="col-sm-9 col-xs-9">' . ($author ['name']) . '
 					<br>' . explode ( "@", $author ['email'] )[0] . '<hr>
 					</span></li>';
@@ -21,24 +34,17 @@
 		</ul>
 		</div>
 	</div>
-	<div class="col-sm-6 well" style="background-color: blue"
-		id="articleList">
-	
-	<?php
-	if (isset ( $widget1CategoryTitle) && isset($widget1ArticlesList )) {
-		echo "<h3 class='white-text'>" . $widget1CategoryTitle . '</h3>';
-	
-	foreach ( $widget1ArticlesList as $article ) {
-		$title = str_replace ( ',', '-', $article ['title'] );
-		$title = $title;
-		echo '<h4><a class="white-text" href="' . SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h4>';
-	}
-	}
-	?>
-	<a class="white-text" href="#">Read more...</a>
+	<div class="col-sm-6 well"
+		style="overflow: hidden; background-color: #F5F6CE" id="articleList">
+		<div style="height: 447px;">
+		<?php $this->load->view ( 'common/widgets/widget1' );?>
+		</div>
 	</div>
-	<div class="col-sm-3 well">
-		<?php $this->load->view ( 'common/rightPanel' );?>
+	<div class="col-sm-3 well"
+		style="background-color: #CECEF6; overflow: auto;">
+		<div style="height: 447px;">
+		<?php $this->load->view ( 'common/widgets/widget2' );?>
+		</div>
 	</div>
 </div>
 
@@ -79,7 +85,7 @@ $(document).scroll(function(e){
 
     if(scrollPercent > 50) {
         // run a function called doSomething
-       loadMore();
+       //loadMore();
     }
 
     function doSomething() { 

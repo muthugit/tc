@@ -20,10 +20,10 @@ function sendFile(base64Content, url, editor, isSummerNote, pictureId) {
 		type : 'post',
 		success : function(data) {
 			if (isSummerNote == true)
-				editor.summernote('insertImage', data);
+				editor.summernote('insertImage', UPLOAD_PATH+data);
 			else {
 				console.log("Editor: ");
-				$("#" + editor + "_src").attr('src', data);
+				$("#" + editor + "_src").attr('src', UPLOAD_PATH+data);
 				$("#" + editor).val(data);
 			}
 		}

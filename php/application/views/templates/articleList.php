@@ -13,7 +13,7 @@ foreach ( $articleList as $article ) {
 					<br>' . explode ( "@", $article ['userItem'] ['email'] )[0] . '
 					</div></span>';
 	if (isset ( $article ['featureImageURL'] )) {
-		echo '<img src="' . $article ['featureImageURL'] . '">';
+		echo '<img src="' . IMAGE_PATH.$article ['featureImageURL'] . '">';
 	}
 	if (isset ( $article ['description'] )) {
 		echo '<p class="well">' . $article ['description'] . '</p>';

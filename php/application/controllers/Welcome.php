@@ -16,11 +16,22 @@ class Welcome extends CI_Controller {
 		$widget1Category = explode ( "|", $data ['widget-1'] ['htmlContent'] );
 		if (isset ( $widget1Category [1] ))
 			$data ['widget1CategoryTitle'] = trim ( $widget1Category [1] );
-		if (isset ( $widget1Category [0] ) && $widget1Category [0] != null && trim($widget1Category [0]) != '') {
+		if (isset ( $widget1Category [0] ) && $widget1Category [0] != null && trim ( $widget1Category [0] ) != '') {
 			$widget1Articles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widget1Category [0] ) . '/1/1/5/all/false', 0, null, null );
 			$data ['widget1ArticlesList'] = json_decode ( $widget1Articles, true );
 		} else {
 			$data ['widget1ArticlesList'] = "";
+		}
+		
+		$data = $this->getHtmlContent ( $data, "widget-2", "widget-2" );
+		$widget2Category = explode ( "|", $data ['widget-2'] ['htmlContent'] );
+		if (isset ( $widget2Category [1] ))
+			$data ['widget2CategoryTitle'] = trim ( $widget2Category [1] );
+		if (isset ( $widget2Category [0] ) && $widget2Category [0] != null && trim ( $widget2Category [0] ) != '') {
+			$widget2Articles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widget2Category [0] ) . '/1/1/5/all/false', 0, null, null );
+			$data ['widget2ArticlesList'] = json_decode ( $widget2Articles, true );
+		} else {
+			$data ['widget2ArticlesList'] = "";
 		}
 		
 		$this->header ( "Home", "Home" );

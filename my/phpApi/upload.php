@@ -1,6 +1,6 @@
 <?php
-$target_dir = "/var/www/html/uploads/";
-$uploadedUrl = "http://192.168.1.139/uploads/";
+$target_dir = "/var/www/html/tc/php/uploads/";
+
 $timeStamp = $_POST ['timeStamp'];
 $newFileName = $timeStamp . '-' . basename ( $_FILES ["file"] ["name"] );
 $target_file = $target_dir . $newFileName;
@@ -10,7 +10,7 @@ $imageFileType = pathinfo ( $target_file, PATHINFO_EXTENSION );
 $check = getimagesize ( $_FILES ["file"] ["tmp_name"] );
 if ($check !== false) {
 	if (move_uploaded_file ( $_FILES ["file"] ["tmp_name"], $target_file )) {
-		echo $uploadedUrl . $newFileName;
+		echo $newFileName;
 	} else {
 		echo "400";
 	}
