@@ -15,6 +15,8 @@ class Category extends CI_Controller {
 		$description = "Category";
 		
 		$data ['currentCategory'] = $categoryId;
+		$data ['currentAuthor'] = 'all';
+		
 		
 		require_once (APPPATH . 'controllers/Welcome.php');
 		$aObj = new Welcome (); // create object
@@ -23,6 +25,6 @@ class Category extends CI_Controller {
 		$authors = file_get_contents ( API_PATH . 'getGenericContents/users', 0, null, null );
 		$data ['authors'] = json_decode ( $authors, true );
 		
-		$this->load->view ( 'index', $data );
+		$this->load->view ( 'categoryList', $data );
 	}
 }
