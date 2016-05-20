@@ -14,6 +14,7 @@
 <meta name="description" content="<?php echo $description?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
+<link rel="icon" href="favicon.png" type="image/gif" sizes="16x16">
 <?php if(isset($metaImage)){?>
 	<meta property="og:image" content="<?php echo IMAGE_PATH.$metaImage;?>" />
 <?php }?>
