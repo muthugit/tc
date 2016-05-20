@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
 <?php if(isset($metaImage)){?>
-	<meta property="og:image" content="<?php echo $metaImage;?>" />
+	<meta property="og:image" content="<?php echo IMAGE_PATH.$metaImage;?>" />
 <?php }?>
 
 <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
