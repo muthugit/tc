@@ -27,7 +27,7 @@
 		<div class="col-sm-2 col-xs-6">
 	<?php
 	if (isSet ( $htmlContent11 ))
-		echo $htmlContent5 ['htmlContent'];
+		echo $htmlContent11 ['htmlContent'];
 	?>
 	</div>
 		<div class="col-sm-2">
