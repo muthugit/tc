@@ -4,7 +4,7 @@ foreach ( $articleList as $article ) {
 	$title = str_replace ( ',', '-', $article ['title'] );
 	$title = $title;
 	
-	echo '<h3><a href="' . SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h3><br>';
+	echo '<h4><a href="' . SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '">' . $article ['title'] . '</a></h4><br>';
 	echo '<span class="col-sm-12  col-xs-12">';
 	echo '<div class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
 				url(' . IMAGE_PATH . $article ['userItem'] ['profilePic'] . ')"></div>';
