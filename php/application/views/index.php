@@ -13,7 +13,7 @@ tr>td {
 </style>
 <?php $this->load->view ( 'common/htmlBlocksSet1' );?>
 <div class="col-sm-12 well">
-	<div class="col-sm-3" style="background-color: ;">
+	<div class="col-sm-3" style="background-color:;">
 		<span class="col-sm-12" style="background-color: blue;"><h5 class=''
 				style='color: white'>
 				<b>Authors</b>
@@ -33,25 +33,31 @@ tr>td {
 					</span></li>';
 			}
 		}
-		
 		?>
 		</ul>
 		</div>
 	</div>
 	<div class="col-sm-6"
-		style="overflow: hidden; background-color: #F4FA58; padding-left: 2px; padding-right: 2px;"
+		style="overflow: hidden; background-color: <?php echo $widget1['backgroundColor'];?>; padding-left: 2px; padding-right: 2px;"
 		id="articleList">
 		<div style="height: 447px; overflow: auto;">
-		<?php $this->load->view ( 'common/widgets/widget1' );?>
+		<?php $this->load->view ( 'common/widgets/widget1',$widget1 );?>
 		</div>
 	</div>
+
 	<div class="col-sm-3"
-		style="background-color: red; overflow: auto; padding-left: 3px; padding-right: 2px;">
+		style="background-color: <?php echo $widget2['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
 		<div style="height: 447px;">
-		<?php $this->load->view ( 'common/widgets/widget2' );?>
+		<?php $this->load->view ( 'common/widgets/widget1',$widget2 );?>
 		</div>
 	</div>
 </div>
+
+<?php $this->load->view ( 'common/widgets/widget2',$widget3);?>
+<?php $this->load->view ( 'common/widgets/widget2',$widget4);?>
+<?php $this->load->view ( 'common/widgets/widget2',$widget5);?>
+<?php $this->load->view ( 'common/widgets/widget2',$widget6);?>
+<?php $this->load->view ( 'common/widgets/widget2',$widget7);?>
 
 <?php $this->load->view ( 'common/footer' );?>
 <script>

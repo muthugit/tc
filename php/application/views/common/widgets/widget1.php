@@ -1,27 +1,36 @@
-<div class="col-sm-12" style="background-color: #F4FA58">
+<div class="col-sm-12">
 	<?php
-	if (isset ( $widget1CategoryTitle ) && isset ( $widget1ArticlesList )) {
-		echo "<h5 class=''><b>" . $widget1CategoryTitle . '</b></h5>';
+	if (isset ( $widgetCategoryTitle ) && isset ( $widgetArticlesList ) && $widgetCategoryTitle != "") {
+		echo "<h5 class='' style='color:" . $titleColor . "'><b>" . $widgetCategoryTitle . '</b></h5>';
 		?>
 		</div>
+<div class="col-sm-12"
+	style="padding: 0px; height: 367px; overflow: auto">
 <?php
-		foreach ( $widget1ArticlesList as $article ) {
+		foreach ( $widgetArticlesList as $article ) {
 			$title = str_replace ( ',', '-', $article ['title'] );
 			$title = $title;
 			?>
-<table style="border-bottom: 1px black solid;width:100%">
-	<tr class="well" style="width: 100%">
-		<td class="well" style="vertical-align: top;" width="100px"><img style="max-width: 100px;"
-			src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>"></td>
-		<td class="well" style="valign: top; padding-left: 10px;"><a class="head3"
-			href="<?php echo SITE_PATH;?>post/show/<?php echo $article ['objectId'];?>/<?php echo urlencode ( $title );?>">
-			<?php echo $article ['title'];?></a><p style='padding-top: 10px'>
+	<div class="col-sm-12 well" style="margin-bottom: 2px; padding: 10px;">
+	<?php if($isImage=="yes"){?>
+		<div class="col-sm-3">
+			<img style="max-width: 100%;"
+				src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
+		</div>
+		<?php }?>
+		<div class="col-sm-9">
+			<a class="head3"
+				href="<?php echo SITE_PATH;?>post/show/<?php echo $article ['objectId'];?>/<?php echo urlencode ( $title );?>">
+			<?php echo $article ['title'];?></a>
+			<p style='padding-top: 10px'>
 			<?php echo $article['description'];?></p>
-			</td>
-	</tr>
-</table>
+		</div>
+	</div>
 <?php
 		}
+		?>
+		</div>
+<?php
 	}
 	?>
-<a class="white-text" href="#">Read more...</a>
+<a class="white-text" href="<?php echo $categoryUrl;?>">Read more...</a>

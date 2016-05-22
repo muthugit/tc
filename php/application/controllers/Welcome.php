@@ -12,30 +12,44 @@ class Welcome extends CI_Controller {
 		$authors = file_get_contents ( API_PATH . 'getGenericContents/users', 0, null, null );
 		$data ['authors'] = json_decode ( $authors, true );
 		
-		$data = $this->getHtmlContent ( $data, "widget-1", "widget-1" );
-		$widget1Category = explode ( "|", $data ['widget-1'] ['htmlContent'] );
-		if (isset ( $widget1Category [1] ))
-			$data ['widget1CategoryTitle'] = trim ( $widget1Category [1] );
-		if (isset ( $widget1Category [0] ) && $widget1Category [0] != null && trim ( $widget1Category [0] ) != '') {
-			$widget1Articles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widget1Category [0] ) . '/1/1/5/all/false', 0, null, null );
-			$data ['widget1ArticlesList'] = json_decode ( $widget1Articles, true );
-		} else {
-			$data ['widget1ArticlesList'] = "";
-		}
-		
-		$data = $this->getHtmlContent ( $data, "widget-2", "widget-2" );
-		$widget2Category = explode ( "|", $data ['widget-2'] ['htmlContent'] );
-		if (isset ( $widget2Category [1] ))
-			$data ['widget2CategoryTitle'] = trim ( $widget2Category [1] );
-		if (isset ( $widget2Category [0] ) && $widget2Category [0] != null && trim ( $widget2Category [0] ) != '') {
-			$widget2Articles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widget2Category [0] ) . '/1/1/5/all/false', 0, null, null );
-			$data ['widget2ArticlesList'] = json_decode ( $widget2Articles, true );
-		} else {
-			$data ['widget2ArticlesList'] = "";
-		}
+		$data ['widget1'] = $this->createWidgetContents ( "widget-1", "red", "white", "yes" );
+		$data ['widget2'] = $this->createWidgetContents ( "widget-2", "yellow", "black", "no" );
+		$data ['widget3'] = $this->createWidgetContents ( "widget-3", "#f0efef", "black", "no" );
+		$data ['widget4'] = $this->createWidgetContents ( "widget-4", "grey", "white", "no" );
+		$data ['widget5'] = $this->createWidgetContents ( "widget-5", "grey", "white", "no" );
+		$data ['widget6'] = $this->createWidgetContents ( "widget-6", "grey", "white", "no" );
+		$data ['widget7'] = $this->createWidgetContents ( "widget-7", "grey", "white", "no" );
 		
 		$this->header ( "Home", "Home" );
 		$this->load->view ( 'index', $data );
+	}
+	public function createWidgetContents($widgetName, $backgroundColor, $titleColor, $isImage) {
+		$categoryInfo = "";
+		$htmlContent = file_get_contents ( API_PATH . 'getHtmlBlocks/' . $widgetName, 0, null, null );
+		if (isset ( $htmlContent )) {
+			$categoryInfo ['backgroundColor'] = $backgroundColor;
+			$categoryInfo ['titleColor'] = $titleColor;
+			$categoryInfo ['isImage'] = $isImage;
+			if (isSet ( json_decode ( $htmlContent, true )[0] )) {
+				$widgetContent = json_decode ( $htmlContent, true )[0];
+				
+				$widgetContentArray = explode ( "|", $widgetContent ['htmlContent'] );
+				if (isset ( $widgetContentArray )) {
+					if (isset ( $widgetContentArray [1] ))
+						$categoryInfo ['widgetCategoryTitle'] = trim ( $widgetContentArray [1] );
+					else
+						$categoryInfo ['widgetCategoryTitle'] = "";
+				}
+				$categoryInfo ['categoryUrl'] = "category/lists/" . $widgetContentArray [0];
+				if (isset ( $widgetContentArray [0] ) && $widgetContentArray [0] != null && trim ( $widgetContentArray [0] ) != '') {
+					$widgetArticles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widgetContentArray [0] ) . '/1/1/5/all/false', 0, null, null );
+					$categoryInfo ['widgetArticlesList'] = json_decode ( $widgetArticles, true );
+				} else {
+					$categoryInfo ['widgetArticlesList'] = "";
+				}
+			}
+		}
+		return $categoryInfo;
 	}
 	public function header($title, $description, $metaImage = false) {
 		$data ['title'] = urldecode ( $title );
