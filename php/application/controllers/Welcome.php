@@ -40,6 +40,13 @@ class Welcome extends CI_Controller {
 					else
 						$categoryInfo ['widgetCategoryTitle'] = "";
 				}
+				if (isset ( $widgetContentArray [2] )){
+					$categoryInfo ['backgroundColor'] = $widgetContentArray [2];
+				}
+				if (isset ( $widgetContentArray [3] )){
+					$categoryInfo ['titleColor'] = $widgetContentArray [3];
+				}
+				
 				$categoryInfo ['categoryUrl'] = "category/lists/" . $widgetContentArray [0];
 				if (isset ( $widgetContentArray [0] ) && $widgetContentArray [0] != null && trim ( $widgetContentArray [0] ) != '') {
 					$widgetArticles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widgetContentArray [0] ) . '/1/1/5/all/false', 0, null, null );
