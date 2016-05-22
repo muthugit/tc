@@ -18,7 +18,7 @@
 	<div class="col-sm-3"
 		style="background-color: <?php echo $widget2['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
 		<div style="height: 447px;">
-		<?php $this->load->view ( 'common/widgets/widget1',$widget1 );?>
+		<?php $this->load->view ( 'common/widgets/widget1',$widget2 );?>
 		</div>
 	</div>
 	<hr>
