@@ -58,6 +58,8 @@ tr>td {
 <?php $this->load->view ( 'common/widgets/widget2',$widget5);?>
 <?php $this->load->view ( 'common/widgets/widget2',$widget6);?>
 <?php $this->load->view ( 'common/widgets/widget2',$widget7);?>
+<?php $this->load->view ( 'common/widgets/widget2',$widget8);?>
+<?php $this->load->view ( 'common/widgets/widget2',$widget9);?>
 
 <?php $this->load->view ( 'common/footer' );?>
 <script>

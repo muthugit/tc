@@ -19,6 +19,8 @@ class Welcome extends CI_Controller {
 		$data ['widget5'] = $this->createWidgetContents ( "widget-5", "grey", "white", "no" );
 		$data ['widget6'] = $this->createWidgetContents ( "widget-6", "grey", "white", "no" );
 		$data ['widget7'] = $this->createWidgetContents ( "widget-7", "grey", "white", "no" );
+		$data ['widget8'] = $this->createWidgetContents ( "widget-8", "grey", "white", "no" );
+		$data ['widget9'] = $this->createWidgetContents ( "widget-9", "grey", "white", "no" );
 		
 		$this->header ( "Home", "Home" );
 		$this->load->view ( 'index', $data );
