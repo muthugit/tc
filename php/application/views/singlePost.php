@@ -1,15 +1,21 @@
-<div class="col-xs-12">
-	<div class="col-xs-2"></div>
-	<div class="col-xs-8">
-	<?php //print_r($article);?>
-		<h3><?php echo $article['title']?></h3>
+<style>
+h4 {
+	font-size: 20px;
+	font-weight: bold;
+}
+</style>
+<div class="col-sm-12">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8">
+
+		<h4><?php echo $article['title']?></h4>
 		<div class="" style="padding-bottom: 30px">
 			<div class="circleImage col-sm-3"
 				style="background-size: cover; background-image: url(
 				<?php echo IMAGE_PATH.$article['userItem']['profilePic'];?>
 				)"></div>
 			<div style="padding-top: 10px" class="col-sm-9">
-				<a href=""><?php echo $article['userItem']['name'];?></a> <span>Time</span> 
+				<a href=""><?php echo $article['userItem']['name'];?></a> <span><abbr class="timeago" title="<?php echo $article['createdAt'];?>"></abbr></span> 
 				<?php if(isset($article['categoryItemData']['title'])) echo ' in '.$article['categoryItemData']['title'];?><br>
 				<hr>
 				<?php if(isset($article['featureImageURL'])){?>
@@ -21,7 +27,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-2">
+	<div class="col-sm-2">
 	<?php $this->load->view('common/rightPanel');?>
 	</div>
 </div>
