@@ -28,8 +28,10 @@
 	href="<?php echo SITE_PATH;?>assets/css/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/main.css">
 <div class="col-sm-12 col-xs-12" style="background-color: black;">
-	<center><a class=" col-sm-3 col-xs-12" href="<?php echo SITE_PATH;?>"><b><img
-			class="" src="<?php echo SITE_PATH;?>logo.png" style=""></b></a></center>
+	<center>
+		<a class=" col-sm-3 col-xs-12" href="<?php echo SITE_PATH;?>"><b><img
+				class="" src="<?php echo SITE_PATH;?>logo.png" style=""></b></a>
+	</center>
 		<?php
 		if (isSet ( $header ))
 			echo $header ['htmlContent'];
