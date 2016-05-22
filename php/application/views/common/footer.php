@@ -8,7 +8,7 @@
 <script src="<?php echo SITE_PATH;?>assets/js/jquery.timeago.js"></script>
 <script>
     jQuery(document).ready(function($){
-     $("abbr.timeago").timeago()
+     $("abbr.timeago").timeago();
 
     });
     </script>

@@ -1,10 +1,30 @@
-<div class="col-sm-2 well">Left devision</div>
-<div class="col-sm-8 well">
-	<div id="articleList">
+<div class="well" style="background-color: red;">
+	<center>
+		<h4 style="color: white"><?php echo $title;?></h4>
+	</center>
+</div>
+<?php $this->load->view ( 'common/htmlBlocksSet1' );?>
+<div class="col-sm-12 well">
+	<div class="col-sm-3"
+		style="background-color: <?php echo $widget1['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
+		<div style="height: 447px;">
+		<?php $this->load->view ( 'common/widgets/widget1',$widget2 );?>
+		</div>
+	</div>
+	<div class="col-sm-6 well">
+		<div id="articleList">
 		<?php $this->load->view ( 'templates/articleList');?>
 	</div>
+	</div>
+	<div class="col-sm-3"
+		style="background-color: <?php echo $widget2['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
+		<div style="height: 447px;">
+		<?php $this->load->view ( 'common/widgets/widget1',$widget1 );?>
+		</div>
+	</div>
+	<hr>
+
 </div>
-<div class="col-sm-2 well">Right devision</div>
 <?php $this->load->view ( 'common/footer');?>
 <script>
 var currentPage=1;
@@ -19,6 +39,7 @@ function loadMore(){
     };
     xmlhttp.open("GET", "<?php echo SITE_PATH;?>/post/page/" + currentPage+"/<?php echo $currentCategory;?>/<?php echo $currentAuthor;?>", true);
     xmlhttp.send();
+    $("abbr.timeago").timeago();
 }
 
 $(document).scroll(function(e){

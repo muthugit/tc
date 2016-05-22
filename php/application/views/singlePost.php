@@ -1,9 +1,3 @@
-<style>
-h4 {
-	font-size: 20px;
-	font-weight: bold;
-}
-</style>
 <div class="col-sm-12">
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8">
@@ -15,7 +9,7 @@ h4 {
 				<?php echo IMAGE_PATH.$article['userItem']['profilePic'];?>
 				)"></div>
 			<div style="padding-top: 10px" class="col-sm-9">
-				<a href=""><?php echo $article['userItem']['name'];?></a> <span><abbr class="timeago" title="<?php echo $article['createdAt'];?>"></abbr></span> 
+				<a href=""><?php echo $article['userItem']['name'];?></a> <abbr class="timeago" title="<?php echo $article['createdAt'];?>"></abbr> 
 				<?php if(isset($article['categoryItemData']['title'])) echo ' in '.$article['categoryItemData']['title'];?><br>
 				<hr>
 				<?php if(isset($article['featureImageURL'])){?>

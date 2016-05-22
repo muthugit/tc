@@ -17,6 +17,7 @@ class Category extends CI_Controller {
 		$data ['currentCategory'] = $categoryId;
 		$data ['currentAuthor'] = 'all';
 		
+		$data ['categoryTitle'] = $categoryTitle;
 		
 		require_once (APPPATH . 'controllers/Welcome.php');
 		$aObj = new Welcome (); // create object

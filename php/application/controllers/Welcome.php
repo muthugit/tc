@@ -12,8 +12,8 @@ class Welcome extends CI_Controller {
 		$authors = file_get_contents ( API_PATH . 'getGenericContents/users', 0, null, null );
 		$data ['authors'] = json_decode ( $authors, true );
 		
-		$data ['widget1'] = $this->createWidgetContents ( "widget-1", "red", "white", "yes" );
-		$data ['widget2'] = $this->createWidgetContents ( "widget-2", "yellow", "black", "no" );
+		
+		
 		$data ['widget3'] = $this->createWidgetContents ( "widget-3", "#f0efef", "black", "no" );
 		$data ['widget4'] = $this->createWidgetContents ( "widget-4", "grey", "white", "no" );
 		$data ['widget5'] = $this->createWidgetContents ( "widget-5", "grey", "white", "no" );
@@ -42,14 +42,14 @@ class Welcome extends CI_Controller {
 					else
 						$categoryInfo ['widgetCategoryTitle'] = "";
 				}
-				if (isset ( $widgetContentArray [2] )){
+				if (isset ( $widgetContentArray [2] )) {
 					$categoryInfo ['backgroundColor'] = $widgetContentArray [2];
 				}
-				if (isset ( $widgetContentArray [3] )){
+				if (isset ( $widgetContentArray [3] )) {
 					$categoryInfo ['titleColor'] = $widgetContentArray [3];
 				}
 				
-				$categoryInfo ['categoryUrl'] = "category/lists/" . $widgetContentArray [0];
+				$categoryInfo ['categoryUrl'] = "category/lists/" . trim ( $widgetContentArray [0] ) . "/" . $categoryInfo ['widgetCategoryTitle'];
 				if (isset ( $widgetContentArray [0] ) && $widgetContentArray [0] != null && trim ( $widgetContentArray [0] ) != '') {
 					$widgetArticles = file_get_contents ( API_PATH . 'getSiteContents/' . trim ( $widgetContentArray [0] ) . '/1/1/5/all/false', 0, null, null );
 					$categoryInfo ['widgetArticlesList'] = json_decode ( $widgetArticles, true );
@@ -78,8 +78,13 @@ class Welcome extends CI_Controller {
 		
 		$categories = file_get_contents ( API_PATH . 'getGenericContents/category', 0, null, null );
 		$data ['categories'] = json_decode ( $categories, true );
+		
+		$data ['widget1'] = $this->createWidgetContents ( "widget-1", "red", "white", "yes" );
+		$data ['widget2'] = $this->createWidgetContents ( "widget-2", "yellow", "black", "no" );
+		
 		$this->load->view ( 'common/header', $data );
 	}
+	
 	public function getHtmlContent($data, $whatToGet, $contentName) {
 		$htmlContent = file_get_contents ( API_PATH . 'getHtmlBlocks/' . $whatToGet, 0, null, null );
 		if (isSet ( json_decode ( $htmlContent, true )[0] ))
