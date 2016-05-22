@@ -3,17 +3,16 @@
 		<h4 style="color: white"><?php echo $title;?></h4>
 	</center>
 </div>
-<?php $this->load->view ( 'common/htmlBlocksSet1' );?>
 <div class="col-sm-12 well">
-	<div class="col-sm-3"
-		style="background-color: <?php echo $widget1['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
-		<div style="height: 447px;">
-		<?php $this->load->view ( 'common/widgets/widget1',$widget2 );?>
+	<div class="col-sm-2"
+		style="background-color:; border: 1px solid black; padding-left: 3px; padding-right: 2px;">
+		<div style="">
+		<?php $this->load->view ( 'common/widgets/featuredArticlesList',$featuredArticleList  );?>
 		</div>
 	</div>
-	<div class="col-sm-6 well">
+	<div class="col-sm-7">
 		<div id="articleList">
-		<?php $this->load->view ( 'templates/articleList');?>
+		<?php $this->load->view ( 'templates/articleList',$articleList);?>
 	</div>
 	</div>
 	<div class="col-sm-3"

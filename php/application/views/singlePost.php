@@ -1,3 +1,5 @@
+<?php $this->load->view ( 'common/htmlBlocksSet2' );?>
+<hr>
 <div class="col-sm-12">
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8">

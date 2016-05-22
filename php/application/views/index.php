@@ -37,6 +37,7 @@ tr>td {
 		</ul>
 		</div>
 	</div>
+
 	<div class="col-sm-6"
 		style="overflow: hidden; background-color: <?php echo $widget1['backgroundColor'];?>; padding-left: 2px; padding-right: 2px;"
 		id="articleList">
@@ -52,6 +53,9 @@ tr>td {
 		</div>
 	</div>
 </div>
+
+<?php $this->load->view ( 'common/htmlBlocksSet2' );?>
+<hr>
 
 <?php $this->load->view ( 'common/widgets/widget2',$widget3);?>
 <?php $this->load->view ( 'common/widgets/widget2',$widget4);?>

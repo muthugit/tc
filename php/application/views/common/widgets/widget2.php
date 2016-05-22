@@ -6,7 +6,7 @@
 		<h4 style="color: <?php echo $titleColor;?>">
 			<b><?php echo $widgetCategoryTitle;?></b>
 		</h4>
-		<a  style="color: <?php echo $titleColor;?>" href="<?php echo $categoryUrl;?>">Read more</a>
+		<a  style="color: <?php echo $titleColor;?>" href="<?php echo SITE_PATH.$categoryUrl;?>">Read more</a>
 
 	</div>
 	<?php

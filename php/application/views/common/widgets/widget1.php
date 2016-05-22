@@ -33,4 +33,5 @@
 <?php
 	}
 	?>
-<a class="white-text" href="<?php echo $categoryUrl;?>">Read more...</a>
+<a class="white-text" href="<?php echo SITE_PATH.$categoryUrl;?>">Read
+	more...</a>
