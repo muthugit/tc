@@ -8,7 +8,7 @@ foreach ( $articleList as $article ) {
 	echo '<span class="col-sm-12  col-xs-12">';
 	echo '<div class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
 				url(' . IMAGE_PATH . $article ['userItem'] ['profilePic'] . ')"></div>';
-	echo '<div class="col-sm-9 col-xs-9" style="padding-bottom: 20px">' . ($article ['userItem'] ['name']) . '
+	echo '<div class="col-sm-9 col-xs-9" style="padding-bottom: 20px"><a href=' . SITE_PATH . 'author/' . $article ['userApi'] . '>' . ($article ['userItem'] ['name']) . '</a>
 					 @ <abbr class="timeago" title="' . $article ['createdAt'] . '"></abbr> <br>' . explode ( "@", $article ['userItem'] ['email'] )[0] . '
 					</div></span>';
 	if (isset ( $article ['featureImageURL'] )) {

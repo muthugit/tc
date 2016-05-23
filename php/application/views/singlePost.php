@@ -3,7 +3,6 @@
 <div class="col-sm-12">
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8">
-
 		<h4><?php echo $article['title']?></h4>
 		<div class="" style="padding-bottom: 30px">
 			<div class="circleImage col-sm-3"
@@ -11,7 +10,8 @@
 				<?php echo IMAGE_PATH.$article['userItem']['profilePic'];?>
 				)"></div>
 			<div style="padding-top: 10px" class="col-sm-9">
-				<a href=""><?php echo $article['userItem']['name'];?></a> <abbr class="timeago" title="<?php echo $article['createdAt'];?>"></abbr> 
+				<a href="<?php echo SITE_PATH.'author/'.$article['userApi'];?>"><?php echo $article['userItem']['name'];?></a>
+				<abbr class="timeago" title="<?php echo $article['createdAt'];?>"></abbr> 
 				<?php if(isset($article['categoryItemData']['title'])) echo ' in '.$article['categoryItemData']['title'];?><br>
 				<hr>
 				<?php if(isset($article['featureImageURL'])){?>
