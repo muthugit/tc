@@ -8,13 +8,16 @@
 				style="background-size: cover; background-image: url(
 				<?php echo IMAGE_PATH.$article['userItem']['profilePic'];?>
 				)"></div>
-			<div style="padding-top: 10px" class="col-sm-9">
+			<div class="col-sm-9">
 				By: <a href="<?php echo SITE_PATH.'author/'.$article['userApi'];?>"><?php echo $article['userItem']['name'];?></a>
 				<abbr class="timeago" title="<?php echo $article['createdAt'];?>"></abbr>
 			
 				<?php if(isset($article['categoryItemData']['title'])) echo ' in <span class="well" style="background-color:orange;padding:3px;color:white;font-weight:bold">'.$article['categoryItemData']['title'];?></span><br>
+				<br>
 			</div>
-			<div style="padding-top: 10px" class="col-sm-12">
+			
+			<div style="padding-top: 20px" class="col-sm-12">
+			
 				<?php if(isset($article['featureImageURL'])){?>
 					<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>"
 					style="max-height: 300px">
