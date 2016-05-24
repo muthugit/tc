@@ -1,8 +1,16 @@
 <?php $this->load->view ( 'common/htmlBlocksSet2' );?>
 <hr>
 <div class="col-sm-12">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-8">
+	<div class="col-sm-3"
+		style="background-color:; border: 1px solid black; padding-left: 3px; padding-right: 2px;">
+		<div style="">
+		<?php
+		$featureArticles ['featuredArticleList'] = $allFeatureArticles;
+		$this->load->view ( 'common/widgets/featuredArticlesList', $featureArticles );
+		?>
+		</div>
+	</div>
+	<div class="col-sm-9">
 		<h4><?php echo $article['title']?></h4>
 		<div class="" style="padding-bottom: 30px">
 			<div class="circleImage col-sm-3"
@@ -22,9 +30,6 @@
 				<p><?php echo $article['postDetail'];?></p>
 			</div>
 		</div>
-	</div>
-	<div class="col-sm-2">
-	<?php $this->load->view('common/rightPanel');?>
 	</div>
 </div>
 <?php $this->load->view ( 'common/footer' );?>

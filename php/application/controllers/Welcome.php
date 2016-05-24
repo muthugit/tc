@@ -85,6 +85,10 @@ class Welcome extends CI_Controller {
 		$data ['widget1'] = $this->createWidgetContents ( "widget-1", "red", "white", "yes" );
 		$data ['widget2'] = $this->createWidgetContents ( "widget-2", "yellow", "black", "no" );
 		
+		$featuredArticles = file_get_contents ( API_PATH . 'getSiteContents/any/2/1/10/all/true', 0, null, null );
+		$data ['allFeatureArticles'] = json_decode ( $featuredArticles, true );
+		
+		
 		$this->load->view ( 'common/header', $data );
 	}
 	public function getHtmlContent($data, $whatToGet, $contentName) {

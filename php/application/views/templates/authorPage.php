@@ -21,7 +21,7 @@
 <div class="col-sm-12">
 	<div class="col-sm-12">
 		<center>
-			<h4>Articles</h4>
+			<h4>Articles by <?php echo $author['name'];?></h4>
 			<hr>
 		</center>
 	</div>
