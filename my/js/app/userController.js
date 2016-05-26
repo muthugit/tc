@@ -12,6 +12,15 @@ app
 					$scope.saveUser = function() {
 						captchaResponse = (grecaptcha.getResponse());
 						if (captchaResponse != '') {
+							if (!($("#email"))) {
+								alert("Invalid email id");
+								return;
+							}
+							if ($("#email") != $("#Confirmemail")) {
+								alert("Invalid confirm email address");
+								return;
+							}
+
 							var url = APIUrl + '/newUser';
 							$http
 									.post(url, $scope.user)
@@ -28,7 +37,7 @@ app
 											}).error(function(err) {
 										console.log("Error" + err);
 									});
-						}else{
+						} else {
 							alert("Invalid CAPTCHA");
 						}
 					};
