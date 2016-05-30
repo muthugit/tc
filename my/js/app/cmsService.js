@@ -23,6 +23,10 @@ app.service('cmsService',
 
 				}
 			};
+
+			this.getUniqueNameStatus = function($scope) {
+				
+			};
 		});
 
 app.filter('unsafe', function($sce) {

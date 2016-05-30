@@ -28,9 +28,11 @@ tr>td {
 				echo '<li class="col-sm-12 well  col-xs-12 pull-left">';
 				echo '<span class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
 				url(' . IMAGE_PATH . $author ['profilePic'] . ')"></span>';
-				echo '<span class="col-sm-9 col-xs-9"><a href="' . SITE_PATH . 'author/' . $author ['objectId'] . '">' . ($author ['name']) . '</a>
-					<br>' . explode ( "@", $author ['email'] )[0] . '
-					</span></li>';
+				echo '<span class="col-sm-9 col-xs-9"><a href="' . SITE_PATH . 'author/' . $author ['objectId'] . '">' . ($author ['name']) . '</a>';
+				if (isset($author ['uniqueName'])) {
+					echo '<br>' . $author ['uniqueName'];
+				}
+				echo '</span></li>';
 			}
 		}
 		?>

@@ -10,6 +10,9 @@
 	<div class="col-sm-4">
 		<p class="white-text">Name: <?php echo $author['name'];?></p>
 		<p class="white-text">Email: <?php echo $author['email'];?></p>
+		<?php if($author['uniqueName']){?>
+			<p class="white-text">Unique Name: <?php echo $author['uniqueName'];?></p>
+		<?php }?>
 	</div>
 	<div class="col-sm-3 pull-right"
 		style="background-color: <?php echo $widget1['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
