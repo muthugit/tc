@@ -43,32 +43,39 @@ app
 					};
 
 					$scope.loginUser = function() {
-						console.log($scope.login.email);
-						var loginUrl = APIUrl + "/login/" + $scope.login.email
-								+ "/" + $scope.login.password;
-						$http
-								.get(loginUrl)
-								.then(
-										function(response) {
-											if (response.data == "failed")
-												alert("User name password not matched");
-											else {
-												console
-														.log("User Data keys========> "
-																+ Object
-																		.keys(response.data));
-												localStorage.setItem(
-														"userApiKey",
-														response.data.objectId);
-												localStorage
-														.setItem(
-																"currentUser",
-																JSON
-																		.stringify(response.data));
-												$location.path('/');
-												$scope.checkUser();
-											}
-										});
+						captchaResponse = (grecaptcha.getResponse());
+						if (captchaResponse != '') {
+							console.log($scope.login.email);
+							var loginUrl = APIUrl + "/login/"
+									+ $scope.login.email + "/"
+									+ $scope.login.password;
+							$http
+									.get(loginUrl)
+									.then(
+											function(response) {
+												if (response.data == "failed")
+													alert("User name password not matched");
+												else {
+													console
+															.log("User Data keys========> "
+																	+ Object
+																			.keys(response.data));
+													localStorage
+															.setItem(
+																	"userApiKey",
+																	response.data.objectId);
+													localStorage
+															.setItem(
+																	"currentUser",
+																	JSON
+																			.stringify(response.data));
+													$location.path('/');
+													$scope.checkUser();
+												}
+											});
+						}else {
+							alert("Invalid CAPTCHA");
+						}
 					};
 
 					$scope.resetPassword = function() {
