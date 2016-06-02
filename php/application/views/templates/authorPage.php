@@ -3,16 +3,20 @@
 	color: white;
 }
 </style>
-<div class="col-sm-12 well" style="background-color: grey">
-	<div class="col-sm-2">
-		<img src="<?php echo IMAGE_PATH.$author['profilePic'];?>">
-	</div>
-	<div class="col-sm-4">
-		<p class="white-text">Name: <?php echo $author['name'];?></p>
-		<p class="white-text">Email: <?php echo $author['email'];?></p>
+<div class="col-sm-12 well" style="background-color: #FAFAFA">
+	<div class="col-sm-9">
+		<div class="col-sm-5">
+			<center><span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:300px;width:300px;background-size: cover; background-image:
+				url('<?php echo IMAGE_PATH.$author['profilePic'];?>')"></span></center>
+		</div>
+		<div class="col-sm-7">
+			<h3><?php echo $author['name'];?></h3>
+			<hr>
+			<p class="grey-text">Email: <?php echo $author['email'];?></p>
 		<?php if(isset($author['uniqueName'])){?>
-			<p class="white-text">Unique Name: <?php echo $author['uniqueName'];?></p>
+			<p class="grey-text">Unique Name: <?php echo $author['uniqueName'];?></p>
 		<?php }?>
+	</div>
 	</div>
 	<div class="col-sm-3 pull-right"
 		style="background-color: <?php echo $widget1['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
