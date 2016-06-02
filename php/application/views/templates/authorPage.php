@@ -10,7 +10,7 @@
 	<div class="col-sm-4">
 		<p class="white-text">Name: <?php echo $author['name'];?></p>
 		<p class="white-text">Email: <?php echo $author['email'];?></p>
-		<?php if($author['uniqueName']){?>
+		<?php if(isset($author['uniqueName'])){?>
 			<p class="white-text">Unique Name: <?php echo $author['uniqueName'];?></p>
 		<?php }?>
 	</div>
