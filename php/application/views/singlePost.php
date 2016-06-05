@@ -15,7 +15,7 @@
 				<?php if(isset($article['categoryItemData']['title'])) echo ' in <span class="well" style="background-color:orange;padding:3px;color:white;font-weight:bold">'.$article['categoryItemData']['title'];?></span><br>
 				<br>
 			</div>
-			
+
 			<div style="padding-top: 20px" class="col-sm-12">
 			
 				<?php if(isset($article['featureImageURL'])){?>
@@ -24,6 +24,9 @@
 				<?php }?>
 				
 				<p><?php echo $article['postDetail'];?></p>
+				<?php $currentUrl= 'http://'.$_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'];?>
+				<div class="fb-comments" data-href="<?php echo $currentUrl;?>"
+					data-numposts="5"></div>
 			</div>
 		</div>
 	</div>
@@ -37,4 +40,16 @@
 		</div>
 	</div>
 </div>
+
+
+
 <?php $this->load->view ( 'common/footer' );?>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6&appId=386245301517722";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
