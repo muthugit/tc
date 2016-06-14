@@ -44,7 +44,7 @@ app
 
 					$scope.loginUser = function() {
 						captchaResponse = (grecaptcha.getResponse());
-						if (captchaResponse != '') {
+//						if (captchaResponse != '') {
 							console.log($scope.login.email);
 							var loginUrl = APIUrl + "/login/"
 									+ $scope.login.email + "/"
@@ -73,9 +73,9 @@ app
 													$scope.checkUser();
 												}
 											});
-						}else {
-							alert("Invalid CAPTCHA");
-						}
+//						}else {
+//							alert("Invalid CAPTCHA");
+//						}
 					};
 
 					$scope.resetPassword = function() {
