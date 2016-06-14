@@ -26,7 +26,7 @@ body {
 						</div>
 					</div>
 					<center>
-						<div id="RecaptchaField1"></div>
+<!-- 						<div id="RecaptchaField1"></div> -->
 					</center>
 				</fieldset>
 
@@ -94,7 +94,7 @@ body {
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
 							<center>
-								<div style="padding-bottom: 10px;" id="RecaptchaField2"></div>
+								<div style="padding-bottom: 10px;" id="RecaptchaField1"></div>
 							</center>
 							<button ng-click="reset()" class="btn btn-link">Reset</button>
 							<button type="submit" ng-click="saveUser()"
@@ -148,8 +148,8 @@ body {
 		grecaptcha.render('RecaptchaField1', {
 			'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'
 		});
-		grecaptcha.render('RecaptchaField2', {
-			'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'
-		});
+// 		grecaptcha.render('RecaptchaField2', {
+// 			'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'
+// 		});
 	};
 </script>
