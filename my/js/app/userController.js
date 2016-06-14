@@ -16,7 +16,7 @@ app
 								alert("Invalid email id");
 								return;
 							}
-							if ($("#email") != $("#Confirmemail")) {
+							if ($("#email") != $("#confirmEmail")) {
 								alert("Invalid confirm email address");
 								return;
 							}
