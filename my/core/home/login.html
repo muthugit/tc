@@ -25,6 +25,7 @@ body {
 								class="form-control" id="inputPassword" placeholder="Password">
 						</div>
 					</div>
+					<div id="RecaptchaField1"></div>
 					
 				</fieldset>
 
@@ -92,9 +93,7 @@ body {
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
 							<center>
-								<div class="g-recaptcha"
-									data-sitekey="6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9"></div>
-								<br>
+								<div id="RecaptchaField1"></div>
 							</center>
 							<button ng-click="reset()" class="btn btn-link">Reset</button>
 							<button type="submit" ng-click="saveUser()"
@@ -134,10 +133,18 @@ body {
 		<div class="col-sm-3"></div>
 	</div>
 </div>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+<script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit" async defer></script>
 
 <script type="text/javascript">
 	var onloadCallback = function() {
 		alert("grecaptcha is ready!");
 	};
+	
+	<script type="text/javascript">
+    var CaptchaCallback = function() {
+        grecaptcha.render('RecaptchaField1', {'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'});
+        grecaptcha.render('RecaptchaField2', {'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'});
+    };
+</script>
 </script>
