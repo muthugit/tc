@@ -1,5 +1,5 @@
 app.service('cmsService',
-		function() {
+		function($http, $rootScope, $window) {
 			this.checkUser = function($scope) {
 				console.log("Checking");
 				if (localStorage.getItem("userApiKey") == null) {

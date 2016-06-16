@@ -1,9 +1,13 @@
-app.controller('postController', function($scope, $http, $location) {
+app.controller('postController', function($scope, $routeParams, $http,
+		$location) {
 	var userApi = localStorage.getItem("userApiKey");
 	$scope.post = {};
 	$scope.category = {};
 	var postScope = $scope.post;
 	postScope.userApi = userApi;
+	$scope.imagePath = UPLOAD_PATH;
+
+	var postId = $routeParams.postId;
 
 	var userType = JSON.parse(localStorage.getItem("currentUser")).userType;
 
@@ -54,5 +58,19 @@ app.controller('postController', function($scope, $http, $location) {
 		});
 
 	};
+
+	$scope.showSinglePost = function() {
+		if (postId != undefined) {
+			area = 'singleContent';
+			var fetchArticleUrl = APIUrl + "/fetchSingleContent/" + postId;
+			console.log("Area: " + postId);
+			console.log(fetchArticleUrl);
+			$scope[area] = [];
+			$http.get(fetchArticleUrl).then(function(response) {
+				$scope[area].push(response.data);
+			});
+		}
+	};
+	$scope.showSinglePost();
 	$scope.categoryInDropDown();
 });

@@ -22,7 +22,7 @@
 						style='background-size: cover; background-image: url({{imagePath}}{{profile.profilePic}})'></div>
 					<small><b>{{myArticle.userItem.name}}</b> |
 						{{myArticle.updatedAt}}</small>
-					<h4>{{myArticle.title | unsafe}}</h4>
+					<a href="#/singlePost/{{myArticle.objectId}}"><h4>{{myArticle.title | unsafe}}</h4></a>
 					<div class="post-footer" style="height: 30px; vertical-align: top;">
 						<span class="label label-primary">{{myArticle.status}}</span>
 						<!-- 				<div ng-bind-html="myArticle.postDetail | unsafe "></div> -->

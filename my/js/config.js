@@ -1,4 +1,4 @@
-var app = angular.module('cmsApp', [ 'ngRoute' ]);
+var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize' ]);
 
 app.config([ '$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {
@@ -42,6 +42,9 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/themeSettings/staticContents/:isStatic/:htmlBlockId", {
 				templateUrl : "core/themeSettings/htmlContents.html",
 				controller : "themeController"
+			}).when("/singlePost/:postId", {
+				templateUrl : "core/singlePost.html",
+				controller : "postController"
 			})
 			// Blog
 			.when("/blog", {
@@ -68,3 +71,5 @@ app.config([ '$routeProvider', '$locationProvider',
 			});
 			$locationProvider.html5Mode(false);
 		} ]);
+
+
