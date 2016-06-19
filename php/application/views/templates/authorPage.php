@@ -6,8 +6,10 @@
 <div class="col-sm-12 well" style="background-color: #FAFAFA">
 	<div class="col-sm-9">
 		<div class="col-sm-5">
-			<center><span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:300px;width:300px;background-size: cover; background-image:
-				url('<?php echo IMAGE_PATH.$author['profilePic'];?>')"></span></center>
+			<center>
+				<span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:300px;width:300px;background-size: cover; background-image:
+				url('<?php echo IMAGE_PATH.$author['profilePic'];?>')"></span>
+			</center>
 		</div>
 		<div class="col-sm-7">
 			<h3><?php echo $author['name'];?></h3>
@@ -16,8 +18,16 @@
 		<?php if(isset($author['uniqueName'])){?>
 			<p class="grey-text">Unique Name: <?php echo $author['uniqueName'];?></p>
 		<?php }?>
-		<p class="grey-text">Email: <?php echo $author['createdAt'];?></p>
-	</div>
+		
+		<?php
+		$s = $author ['createdAt'];
+		$dt = new DateTime ( $s );
+		
+		$date = $dt->format ( 'm/d/Y' );
+		?>
+		
+		<p class="grey-text">Member since: <?php echo $date;?></p>
+		</div>
 	</div>
 	<div class="col-sm-3 pull-right"
 		style="background-color: <?php echo $widget1['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
