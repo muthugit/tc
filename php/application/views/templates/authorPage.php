@@ -23,9 +23,8 @@
 		$s = $author ['createdAt'];
 		$dt = new DateTime ( $s );
 		
-		$date = $dt->format ( 'd/m/Y' );
+		$date = $dt->format ( 'd F Y' );
 		?>
-		
 		<p class="grey-text">Member since: <?php echo $date;?></p>
 		</div>
 	</div>
