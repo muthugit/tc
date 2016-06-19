@@ -16,6 +16,7 @@
 		<?php if(isset($author['uniqueName'])){?>
 			<p class="grey-text">Unique Name: <?php echo $author['uniqueName'];?></p>
 		<?php }?>
+		<p class="grey-text">Email: <?php echo $author['createdAt'];?></p>
 	</div>
 	</div>
 	<div class="col-sm-3 pull-right"
