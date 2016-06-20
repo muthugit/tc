@@ -2,6 +2,12 @@
 body {
 	background-color: white
 }
+
+.note-editor .note-editable {
+	line-height: 1.5;
+	font-size: 12px;
+	height: 700px;
+}
 </style>
 <div class="container" ng-app="cmsApp" ng-controller="postController">
 	<div class="col-sm-9">
@@ -44,7 +50,7 @@ body {
 			</form>
 			<br> <img ng-src="{{post.featureImage}}"
 				id="img_uploadFeatureImage_src" style="max-width: 100px"> <input
-				type="text" ng-model="post.featureImage" id="img_uploadFeatureImage"
+				type="hidden" ng-model="post.featureImage" id="img_uploadFeatureImage"
 				class="form-control" name="featureImage"
 				placeholder="Post Image URL">
 			<hr>
@@ -82,19 +88,26 @@ Type in Hindi (Press Ctrl+g to toggle between English and Hindi)
 		getRichTextValue();
 	}
 
-	$('#summernote')
-			.summernote(
-					{
-						placeholder : "Enter Text Here...",
-						height : 700,
-						fontNames : [ 'Roboto', 'Serif', 'Sans', 'Arial',
-								'Arial Black', 'Courier', 'Courier New',
-								'Comic Sans MS', 'Helvetica', 'Impact',
-								'Lucida Grande' ],
+	$('#summernote').summernote('fontSize', 18);
+	// 		$('#summernote').summernote('height', 700);
 
-					});
+	// 	$('#summernote')
+	// 			.summernote(
+	// 					{
+	// 						defaultFontName : 'Roboto',
+	// 						placeholder : "Enter Text Here...",
+	// 						height : 700,
+	// 						fontNames : [ 'Roboto', 'Serif', 'Sans', 'Arial',
+	// 								'Arial Black', 'Courier', 'Courier New',
+	// 								'Comic Sans MS', 'Helvetica', 'Impact',
+	// 								'Lucida Grande' ],
+
+	// 					});
+
 	function getRichTextValue() {
 		$('#summernote').summernote({
+			height : 200,
+			minHeight : 200,
 			focus : true
 		});
 		var textareaValue = $('#summernote').summernote('code');
