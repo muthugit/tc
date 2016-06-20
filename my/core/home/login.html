@@ -93,9 +93,9 @@ body {
 
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
-							<center>
-								<div style="padding-bottom: 10px;" id="RecaptchaField1"></div>
-							</center>
+							<!-- 							<center> -->
+							<!-- 								<div style="padding-bottom: 10px;" id="RecaptchaField1"></div> -->
+							<!-- 							</center> -->
 							<button ng-click="reset()" class="btn btn-link">Reset</button>
 							<button type="submit" ng-click="saveUser()"
 								class="btn btn-primary">Submit</button>
@@ -140,16 +140,16 @@ body {
 	async defer></script>
 
 <script type="text/javascript">
-	var onloadCallback = function() {
-		alert("grecaptcha is ready!");
-	};
+	// 	var onloadCallback = function() {
+	// 		alert("grecaptcha is ready!");
+	// 	};
 
-	var CaptchaCallback = function() {
-		grecaptcha.render('RecaptchaField1', {
-			'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'
-		});
-		// 		grecaptcha.render('RecaptchaField2', {
-		// 			'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'
-		// 		});
-	};
+	// 	var CaptchaCallback = function() {
+	// 		grecaptcha.render('RecaptchaField1', {
+	// 			'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'
+	// 		});
+	// 		// 		grecaptcha.render('RecaptchaField2', {
+	// 		// 			'sitekey' : '6LdQ_iATAAAAAOv5yCdRD0pkarUgT5CBZBxaL-F9'
+	// 		// 		});
+	// 	};
 </script>
