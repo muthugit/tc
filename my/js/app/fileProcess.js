@@ -24,6 +24,7 @@ function sendFile(base64Content, url, editor, isSummerNote, pictureId) {
 			if (isSummerNote == true) {
 				editor.summernote('insertImage', UPLOAD_PATH + data);
 				$("#" + pictureId + "-btn").show();
+				$("#" + pictureId + "-loading").hide();
 			} else {
 				console.log("Editor: ");
 				$("#" + editor + "_src").attr('src', UPLOAD_PATH + data);
