@@ -52,6 +52,7 @@ app.controller('profileController', function($scope, $http, $location) {
 		$http.post(url, $scope.profile).success(function(data, status) {
 			localStorage.setItem("currentUser", JSON.stringify(data));
 			alert("Profile updated successfully");
+			$location.path('');
 		}).error(function(err) {
 			console.log("Error" + err);
 		});

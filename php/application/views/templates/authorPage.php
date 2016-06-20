@@ -26,11 +26,24 @@
 		
 		<?php
 		$s = $author ['createdAt'];
+		date_default_timezone_set ( 'Africa/Lagos' );
 		$dt = new DateTime ( $s );
 		
 		$date = $dt->format ( 'd F Y' );
 		?>
 		<p class="grey-text">Member since: <?php echo $date;?></p>
+		<?php
+		if (isset ( $author ['aboutAuthor'] )) {
+			?>
+			<p class="grey-text">
+				About me:<br>
+			
+			
+			<p style="background-color: black; color: white; padding: 20px;"> <?php echo $author ['aboutAuthor'];?></p>
+			</p>
+		<?php }?>
+		
+		
 		</div>
 	</div>
 	<div class="col-sm-3 pull-right"

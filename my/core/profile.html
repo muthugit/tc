@@ -1,5 +1,10 @@
+<style>
+.form-group{
+padding-top: 30px;
+}
+</style>
 <div class="container" ng-controller="profileController">
-	<div class="col-sm-2"></div>
+	<div class="col-sm-1"></div>
 	<div class="col-sm-8 well">
 		<fieldset>
 			<legend>Profile</legend>
@@ -43,10 +48,11 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="authorGroup" class="col-lg-2 control-label">Author
-					Group</label>
+				<label for="authorGroup" class="col-lg-2 control-label">Category
+				</label>
 				<div class="col-lg-10">
-					<select class="form-control" ng-model="profile.authorGroup"  id="authorGroup" name="authorGroup">
+					<select class="form-control" ng-model="profile.authorGroup"
+						id="authorGroup" name="authorGroup">
 						<option value="Poet">Poet</option>
 						<option value="Sports Person">Sports Person</option>
 						<option value="Artist">Artist</option>
@@ -56,35 +62,61 @@
 					</select>
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="aboutMe" class="col-lg-2 control-label">About me
+				</label>
+				<div class="col-lg-10">
+					<textarea class="form-control" rows="3" id="aboutMe"
+						ng-model="profile.aboutAuthor" maxlength="150"
+						placeHolder="Brief about the Author"></textarea>
+				</div>
+			</div>
+
 		</fieldset>
+		<br>
+		<center>
+			<button ng-click="updateProfile()" class="btn btn-primary">
+				<i class="fa fa-check"></i> Save Profile
+			</button>
+		</center>
+	</div>
+	<div class="col-sm-2">
 		<fieldset>
 			<br>
 			<div class="form-group">
 				<form method="post" id="pictureUploadForm">
-					<label class="btn btn-primary" for="profilePic"> <input
+					<label class="btn btn-warning" for="profilePic"> <input
 						type="file" class="file" id="profilePic" name="profilePic"
 						style="display: none" name="thumbnail"> Upload Profile
 						Picture
 					</label> <input type="hidden" id="imgText" name='imgText'>
 				</form>
-				<br> <img ng-src="{{imagePath}}{{profile.profilePic}}"
-					id="img_profilePic_src" style="max-width: 100px">
-
+				<br>
+				<center>
+					<img ng-src="{{imagePath}}{{profile.profilePic}}"
+						id="img_profilePic_src" style="max-width: 100px">
+				</center>
 			</div>
 			<input type="text" ng-model="profile.profilePic" id="img_profilePic"
 				class="form-control" name="profilePic" style="display: none"
 				placeholder="Post Image URL">
-			<center>
-				<button ng-click="updateProfile()" class="btn btn-primary">UpdateProfile</button>
-			</center>
+
 		</fieldset>
 	</div>
-	<div class="col-sm-2"></div>
 </div>
 <script>
 	EL("profilePic").addEventListener("change", readFile, false);
 	$(document).on('keydown', '#uniqueName', function(e) {
 		if (e.keyCode == 32)
 			return false;
+	});
+	$(function() {
+
+		$("#dob").datepicker({
+			changeMonth : true,
+			changeYear : true,
+			defaultDate : '01/01/1980'
+		});
+		$("#dob").datepicker("option", "dateFormat", "dd/mm/yy");
 	});
 </script>

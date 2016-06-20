@@ -4,10 +4,21 @@
 	<div class="col-sm-12 well">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
-			<h3 style="color: grey">{{profile.name}}</h3>
-			<div class="circleImage"
-				style='background-size: cover; background-image: url({{imagePath}}{{profile.profilePic}})'></div>
-			<a href="#/profile" class="btn btn-link">Edit Profile</a>
+			<div class="col-sm-8">
+				<h3 style="color: grey">{{profile.name}}</h3>
+
+				<h4>{{profile.authorGroup}}</h4>
+				<p>
+					<i>{{profile.aboutAuthor}}</i>
+				</p>
+				<hr>
+				<a href="#/profile" class="btn btn-info"><i class="fa fa-user"></i>
+					Edit Profile</a> <a href="#/new-post" class="btn btn-primary"><i
+					class="fa fa-pencil"></i> Write article</a>
+			</div>
+			<div class="col-sm-4 pull-right circleImage"
+				style='height: 200px; width: 200px; background-size: cover; background-image: url({{imagePath}}{{profile.profilePic}})'></div>
+
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
@@ -21,8 +32,9 @@
 					<div class="circleImage pull-right"
 						style='background-size: cover; background-image: url({{imagePath}}{{profile.profilePic}})'></div>
 					<small><b>{{myArticle.userItem.name}}</b> |
-						{{myArticle.updatedAt}}</small>
-					<a href="#/singlePost/{{myArticle.objectId}}"><h4>{{myArticle.title | unsafe}}</h4></a>
+						{{myArticle.updatedAt}}</small> <a
+						href="#/singlePost/{{myArticle.objectId}}"><h4>{{myArticle.title
+							| unsafe}}</h4></a>
 					<div class="post-footer" style="height: 30px; vertical-align: top;">
 						<span class="label label-primary">{{myArticle.status}}</span>
 						<!-- 				<div ng-bind-html="myArticle.postDetail | unsafe "></div> -->
