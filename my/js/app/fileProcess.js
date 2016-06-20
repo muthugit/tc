@@ -1,4 +1,5 @@
 function sendFile(base64Content, url, editor, isSummerNote, pictureId) {
+	$("#" + pictureId + "-btn").hide();
 	var url = APIUrl + "/fileUpload"; // the script where you handle the form
 	console.log("Processing: " + pictureId);
 	var url = PHP_API + "/upload.php";
@@ -19,12 +20,14 @@ function sendFile(base64Content, url, editor, isSummerNote, pictureId) {
 		data : form_data,
 		type : 'post',
 		success : function(data) {
-			if (isSummerNote == true)
-				editor.summernote('insertImage', UPLOAD_PATH+data);
-			else {
+			if (isSummerNote == true) {
+				editor.summernote('insertImage', UPLOAD_PATH + data);
+				$("#" + pictureId + "-btn").show();
+			} else {
 				console.log("Editor: ");
-				$("#" + editor + "_src").attr('src', UPLOAD_PATH+data);
+				$("#" + editor + "_src").attr('src', UPLOAD_PATH + data);
 				$("#" + editor).val(data);
+				$("#" + pictureId + "-btn").show();
 			}
 		}
 	});
