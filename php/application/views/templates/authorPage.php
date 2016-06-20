@@ -13,6 +13,11 @@
 		</div>
 		<div class="col-sm-7">
 			<h3><?php echo $author['name'];?></h3>
+			<?php
+			if (isset ( $author ['authorGroup'] )) {
+				echo '(' . $author ['authorGroup'] . ')';
+			}
+			?>
 			<hr>
 			<p class="grey-text">Email: <?php echo $author['email'];?></p>
 		<?php if(isset($author['uniqueName'])){?>
