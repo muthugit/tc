@@ -27,9 +27,10 @@ body {
 		<div class="form-group">
 			<label class="control-label" for="postContent">Post Content</label>
 			<form method="post" id="pictureUploadForm">
-				<label class="btn btn-primary" id="uploadFile-btn" for="uploadFile"> <input
-					type="file" class="file" id="uploadFile" style="display: none"
-					name="thumbnail"> Upload Image
+				<label id="uploadFile-loading" style="display: none">Loading......</label>
+				<label class="btn btn-primary" id="uploadFile-btn" for="uploadFile">
+					<input type="file" class="file" id="uploadFile"
+					style="display: none" name="thumbnail"> Upload Image
 				</label> <input type="hidden" id="imgText" name='imgText'>
 			</form>
 			<div id="summernote">
@@ -43,15 +44,16 @@ body {
 	<div class="col-sm-3 well" style="background-color: #F2F2F2">
 		<div class="form-group">
 			<form method="post" id="featureImageForm">
-				<label class="btn btn-primary" id="uploadFeatureImage-btn" for="uploadFeatureImage"> <input
-					type="file" class="file" id="uploadFeatureImage"
-					style="display: none" name="thumbnail"> Upload Cover Image
+				<label class="btn btn-primary" id="uploadFeatureImage-btn"
+					for="uploadFeatureImage"> <input type="file" class="file"
+					id="uploadFeatureImage" style="display: none" name="thumbnail">
+					Upload Cover Image
 				</label>
 			</form>
 			<br> <img ng-src="{{post.featureImage}}"
 				id="img_uploadFeatureImage_src" style="max-width: 100px"> <input
-				type="hidden" ng-model="post.featureImage" id="img_uploadFeatureImage"
-				class="form-control" name="featureImage"
+				type="hidden" ng-model="post.featureImage"
+				id="img_uploadFeatureImage" class="form-control" name="featureImage"
 				placeholder="Post Image URL">
 			<hr>
 		</div>
