@@ -15,7 +15,7 @@
 			<h3><?php echo $author['name'];?></h3>
 			<?php
 			if (isset ( $author ['authorGroup'] )) {
-				echo '(' . $author ['authorGroup'] . ')';
+				echo '<b>(' . $author ['authorGroup'] . ')</b>';
 			}
 			?>
 			<hr>
