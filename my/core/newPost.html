@@ -8,13 +8,14 @@ body {
 
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Post Title</label> <input
-				type="text" ng-model="post.title" name="postTitle"
+				type="text" id="postTitle" ng-model="post.title" name="postTitle"
 				class="form-control" placeholder="Post title">
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Description</label> <input
 				type="text" ng-model="post.description" name="postTitle"
-				class="form-control" placeholder="Post Description">
+				class="form-control" id="postDescription"
+				placeholder="Post Description">
 		</div>
 
 		<div class="form-group">
@@ -56,7 +57,7 @@ body {
 
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Categories</label> <select
-				ng-model="post.categoryItem">
+				ng-model="post.categoryItem" id="postCategory">
 				<option ng-repeat="x in categories" value="{{x.objectId}}">{{x.title}}</option>
 			</select>
 		</div>

@@ -16,7 +16,20 @@ app.controller('postController', function($scope, $routeParams, $http,
 	};
 
 	$scope.savePost = function() {
-		$('input[type="submit"]').prop('disabled', false);
+		$('input[type="submit"]').prop('disabled', true);
+		if ($("#postTitle").val() == "") {
+			alert("Please enter post title.");
+			return;
+		}
+		if ($("#postDescription").val() == "") {
+			alert("Please enter post description.");
+			return;
+		}
+		if ($("#postCategory").val() == "") {
+			alert("Please select the post category.");
+			return;
+		}
+		$("#btnPublish").hide();
 		var textareaValue = $('#summernote').summernote('code');
 		postScope.postDetail = $.trim(textareaValue);
 		postScope.featureImageURL = $("#img_uploadFeatureImage").val();
