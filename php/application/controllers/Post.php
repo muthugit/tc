@@ -43,7 +43,7 @@ class Post extends CI_Controller {
 		if (! isset ( $author ) || $author == "")
 			$author = "all";
 		
-		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/' . $category . '/1/' . $from . '/' . POSTS_PER_PAGE . '/' . $author . '/true', 0, null, null );
+		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/' . $category . '/1/' . $from . '/' . POSTS_PER_PAGE . '/' . $author . '/false', 0, null, null );
 		$data ['articleList'] = json_decode ( $latestArticles, true );
 		$this->load->view ( 'templates/articleList', $data );
 	}
