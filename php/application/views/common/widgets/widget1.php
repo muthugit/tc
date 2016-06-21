@@ -14,8 +14,13 @@
 	<div class="col-sm-12 well" style="margin-bottom: 2px; padding: 10px;">
 	<?php if($isImage=="yes"){?>
 		<div class="col-sm-3">
-			<img style="max-width: 100%;"
-				src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
+			<?php
+			if (isset ( $article ['featureImageURL'] )) {
+				?>
+			<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
+			<?php }else{?>
+			<img src="http://www.padaippaligalulagam.com/logo.png">
+			<?php }?>
 		</div>
 		<?php }?>
 		<div class="col-sm-9">
