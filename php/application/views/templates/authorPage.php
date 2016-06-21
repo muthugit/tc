@@ -21,7 +21,7 @@
 			<hr>
 			<p class="grey-text">Email: <?php echo $author['email'];?></p>
 		<?php if(isset($author['uniqueName'])){?>
-			<p class="grey-text">Unique Name: <?php echo $author['uniqueName'];?></p>
+			<p class="grey-text">Nick Name: <?php echo $author['uniqueName'];?></p>
 		<?php }?>
 		
 		<?php
