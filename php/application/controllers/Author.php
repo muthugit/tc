@@ -24,7 +24,7 @@ class Author extends CI_Controller {
 		
 		$data ['currentAuthor'] = $data ['author'] ['objectId'];
 		
-		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/any/1/1/' . POSTS_PER_PAGE . '/' . $data ['author'] ['objectId'] . '/true', 0, null, null );
+		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/any/1/1/' . POSTS_PER_PAGE . '/' . $data ['author'] ['objectId'] . '/false', 0, null, null );
 		$data ['articleList'] = json_decode ( $latestArticles, true );
 		$data ['currentCategory'] = "any";
 		
