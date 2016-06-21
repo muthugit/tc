@@ -18,7 +18,8 @@
 	<div class="col-sm-2">
 		<div class="col-sm-12" style="padding: 0px;">
 		<?php
-			if (isset ( $article ['featureImageURL'] )) {
+			if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '') {
+				echo 'No image';
 				?>
 			<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
 			<?php }else{?>
