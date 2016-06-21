@@ -18,7 +18,7 @@
 
 			<div style="padding-top: 20px" class="col-sm-12">
 			
-				<?php if(isset($article['featureImageURL'])){?>
+				<?php if(isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != ''){?>
 					<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>"
 					style="max-height: 300px">
 				<?php }?>
