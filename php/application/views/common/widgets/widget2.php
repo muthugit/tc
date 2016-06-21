@@ -19,21 +19,8 @@
 		<div class="col-sm-12" style="padding: 0px;">
 		<?php
 			$isImageExist = false;
-			
-			$img_url = IMAGE_PATH . $article ['featureImageURL'];
-			$img_formats = array (
-					"png",
-					"jpg",
-					"jpeg",
-					"gif",
-					"tiff" 
-			); // Etc. . .
-			$path_info = pathinfo ( $img_url );
-			
-			if (in_array ( strtolower ( $path_info ['extension'] ), $img_formats )) {
+			if (is_array ( getimagesize ( IMAGE_PATH . $article ['featureImageURL'] ) ) && isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 				$isImageExist = true;
-			}
-			
 			if ($isImageExist == true) {
 				?>
 			<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
