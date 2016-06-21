@@ -18,8 +18,9 @@
 	<div class="col-sm-2">
 		<div class="col-sm-12" style="padding: 0px;">
 		<?php
-			if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '') {
-				echo 'No image';
+			if (is_array ( getimagesize ( IMAGE_PATH . $article ['featureImageURL'] ) ))
+				$isImageExist = true;
+			if ($isImageExist == true) {
 				?>
 			<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
 			<?php }else{?>
