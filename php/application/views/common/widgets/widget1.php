@@ -21,6 +21,8 @@
 			if ($isImageExist == true) {
 				?>
 			<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
+			<?php }else{?>
+			<img src="http://www.padaippaligalulagam.com/logo.png">
 			<?php }?>
 		</div>
 		<?php }?>
