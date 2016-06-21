@@ -15,11 +15,12 @@
 	<?php if($isImage=="yes"){?>
 		<div class="col-sm-3">
 			<?php
-			if (isset ( $article ['featureImageURL'] )) {
+			$isImageExist = false;
+			if (is_array ( getimagesize ( IMAGE_PATH . $article ['featureImageURL'] ) ) && isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
+				$isImageExist = true;
+			if ($isImageExist == true) {
 				?>
 			<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
-			<?php }else{?>
-			<img src="http://www.padaippaligalulagam.com/logo.png">
 			<?php }?>
 		</div>
 		<?php }?>
