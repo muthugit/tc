@@ -11,9 +11,11 @@ foreach ( $articleList as $article ) {
 	echo '<div class="col-sm-9 col-xs-9" style="padding-bottom: 20px"><a href=' . SITE_PATH . 'author/' . $article ['userApi'] . '>' . ($article ['userItem'] ['name']) . '</a>
 					 @ <abbr class="timeago" title="' . $article ['createdAt'] . '"></abbr> <br>' . explode ( "@", $article ['userItem'] ['email'] )[0] . '
 					</div></span>';
-	if (isset ( $article ['featureImageURL'] )) {
+	$isImageExist = false;
+	if (is_array ( getimagesize ( IMAGE_PATH . $article ['featureImageURL'] ) ) && isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
+		$isImageExist = true;
+	if ($isImageExist == true)
 		echo '<img src="' . IMAGE_PATH . $article ['featureImageURL'] . '">';
-	}
 	if (isset ( $article ['description'] )) {
 		echo '<p class="well">' . $article ['description'] . '</p>';
 	}
