@@ -191,7 +191,7 @@ body {
 	background-color: white;
 	background-color: #D4D4D4;
 	line-height: 1.2;
-	color:black;
+	color: black;
 }
 
 .well {
@@ -251,7 +251,8 @@ html,body {
 }
 
 .list-group-item {
-/* 	border-radius: 4px; */
+	/* 	border-radius: 4px; */
+	
 }
 
 .media-image-container {
@@ -270,14 +271,16 @@ html,body {
 }
 
 .list-group-item:hover {
-/* 	border-color: blue; */
+	/* 	border-color: blue; */
+	
 }
 
 @media only screen and (max-width: 1500px) {
 	.container {
 		width: 100%;
-		padding-left: 0px;
-		padding-right: 0px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 10px;
 	}
 	.singlePost {
 		width: 60%;
@@ -287,6 +290,11 @@ html,body {
 @media only screen and (max-width: 600px) {
 	.singlePost {
 		width: 100%;
+	}
+	.container {
+		width: 100%;
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 }
 
@@ -759,7 +767,7 @@ p {
 }
 
 .navbar-inverse .navbar-nav>li>a {
-/* 	font-weight:bold; */
+	/* 	font-weight:bold; */
 	color: white;
 }
 
@@ -767,15 +775,14 @@ p {
 	background-color: white;
 }
 
-.white-text{
-	color:white;
+.white-text {
+	color: white;
 }
 
 h4 {
 	font-size: 20px;
 	font-weight: bold;
 }
-
 
 .navbar {
 	margin-bottom: 0px;

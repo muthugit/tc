@@ -14,7 +14,7 @@ tr>td {
 <?php $this->load->view ( 'common/htmlBlocksSet1' );?>
 <div class="col-sm-12 well">
 	<div class="col-sm-3" style="padding:0px;">
-		<span class="col-sm-12" style="background-color: blue;"><h5 class=''
+		<span class="col-sm-12 col-xs-12" style="background-color: blue;"><h5 class=''
 				style='color: white'>
 				<b>Authors</b>
 			</h5></span>
