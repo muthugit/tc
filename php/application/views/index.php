@@ -13,7 +13,7 @@ tr>td {
 </style>
 <?php $this->load->view ( 'common/htmlBlocksSet1' );?>
 <div class="col-sm-12 well">
-	<div class="col-sm-3" style="background-color:;">
+	<div class="col-sm-3" style="padding:0px;">
 		<span class="col-sm-12" style="background-color: blue;"><h5 class=''
 				style='color: white'>
 				<b>Authors</b>
@@ -21,11 +21,11 @@ tr>td {
 		<div id="demo1" class="scroll-text"
 			style="width: 100%; height: 400px; overflow: hidden;">
 			<ul class="col-sm-12"
-				style="background-color: grey; list-style-type: none; padding-left: 0px; padding-right: 0px;">
+				style="list-style-type: none; border: 1px solid #EAEAEA padding-left: 0px; padding-right: 0px;">
 		<?php
 		foreach ( $authors as $author ) {
 			if (isset ( $author ['email'] ) && isset ( $author ['name'] ) && isset ( $author ['profilePic'] )) {
-				echo '<li class="col-sm-12 well  col-xs-12 pull-left">';
+				echo '<li class="col-sm-12 well  col-xs-12 pull-left" style="border-bottom:1px solid #EAEAEA; ">';
 				echo '<span class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
 				url(' . IMAGE_PATH . $author ['profilePic'] . ')"></span>';
 				echo '<span class="col-sm-9 col-xs-9"><a href="' . SITE_PATH . 'author/' . $author ['objectId'] . '">' . ($author ['name']) . '</a>';
