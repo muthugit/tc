@@ -1,4 +1,6 @@
 <style>
+
+
 .white-text {
 	color: white;
 }
@@ -60,6 +62,9 @@ td {
 				
 				
 				
+				
+				
+				
 				<tr>
 					<td><b>Member since</b></td>
 					<td><?php echo $date;?></td>
@@ -69,7 +74,7 @@ td {
 
 			</table>
 
-		
+
 		</div>
 	</div>
 	<div class="col-sm-3"
