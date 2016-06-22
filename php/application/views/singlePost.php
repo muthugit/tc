@@ -20,9 +20,8 @@ background-color: #D4D4D4;
 				<?php if(isset($article['categoryItemData']['title'])) echo ' in <span class="well" style="background-color:orange;padding:3px;color:white;font-weight:bold">'.$article['categoryItemData']['title'];?></span><br>
 				<br>
 			</div>
-
-			<div style="padding-top: 20px" class="col-sm-12">
-			
+			<div style="" class="col-sm-12">
+			<hr>
 				<?php if(isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != ''){?>
 					<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>"
 					style="max-height: 300px">
