@@ -1,6 +1,6 @@
 <style>
 body{
-background-color: grey;
+background-color: #D4D4D4;
 }
 </style>
 <?php $this->load->view ( 'common/htmlBlocksSet2' );?>

@@ -38,4 +38,5 @@
 		?>
 </div>
 <?php $this->load->view ( 'common/topNav' );?>
-<div class="container" style="padding: 50px">
+<div class="container"
+	style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
