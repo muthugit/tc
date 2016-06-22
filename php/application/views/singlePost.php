@@ -4,7 +4,7 @@ background-color: #D4D4D4;
 }
 </style>
 <?php $this->load->view ( 'common/htmlBlocksSet2' );?>
-<hr>
+<br>
 <div class="col-sm-12" style="background-color: white">
 	<div class="col-sm-9">
 		<h4><?php echo $article['title']?></h4>
