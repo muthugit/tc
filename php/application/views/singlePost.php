@@ -1,6 +1,11 @@
+<style>
+body{
+background-color: grey;
+}
+</style>
 <?php $this->load->view ( 'common/htmlBlocksSet2' );?>
 <hr>
-<div class="col-sm-12 well">
+<div class="col-sm-12" style="background-color: white">
 	<div class="col-sm-9">
 		<h4><?php echo $article['title']?></h4>
 		<div class="" style="padding-bottom: 30px">
@@ -30,8 +35,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-3"
-		style="padding-left: 3px; padding-right: 2px;">
+	<div class="col-sm-3" style="padding-left: 3px; padding-right: 2px;">
 		<div style="">
 		<?php
 		$featureArticles ['featuredArticleList'] = $allFeatureArticles;
