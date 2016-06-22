@@ -17,7 +17,7 @@ tr>td {
 	<div class="col-sm-3" style="padding:0px;">
 		<span class="col-sm-12 col-xs-12" style="background-color: blue;"><h5 class=''
 				style='color: white'>
-				<b>Authors</b>
+				<a href="authors"><b style="color:white">Authors</b></a>
 			</h5></span>
 		<div id="demo1" class="scroll-text"
 			style="width: 100%; height: 400px; overflow: hidden;">
