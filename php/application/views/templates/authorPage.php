@@ -53,19 +53,6 @@ td {
 				<?php }?>
 				
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				<tr>
 					<td><b>Member since</b></td>
 					<td><?php echo $date;?></td>

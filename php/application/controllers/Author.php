@@ -7,6 +7,7 @@ class Author extends CI_Controller {
 	}
 	public function index() {
 	}
+	
 	public function show($id) {
 		$metaImage = "";
 		$author = file_get_contents ( API_PATH . 'getUserInfo/' . $id, 0, null, null );
