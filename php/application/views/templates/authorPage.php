@@ -92,13 +92,13 @@ td {
 			<hr>
 		</center>
 	</div>
-	<div class="col-sm-2 well"></div>
+	<div class="col-sm-2 "></div>
 	<div class="col-sm-8 well">
 		<div id="articleList">
 			<?php $this->load->view ( 'templates/articleList',$articleList);?>
 		</div>
 	</div>
-	<div class="col-sm-2 well"></div>
+	<div class="col-sm-2 "></div>
 </div>
 
 <?php $this->load->view ( 'common/footer');?>
