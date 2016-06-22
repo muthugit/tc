@@ -33,7 +33,7 @@ td {
 			
 			<?php if (isset ( $author ['aboutAuthor'] )) {?>
 			<hr>
-			<i><p style="padding: 20px;"> <?php echo $author ['aboutAuthor'];?></p></i>
+			<p style="padding: 20px;font-size:15px;"> <?php echo $author ['aboutAuthor'];?></p>
 			<?php }?>
 			<?php
 			$s = $author ['createdAt'];
