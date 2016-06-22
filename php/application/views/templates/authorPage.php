@@ -13,8 +13,8 @@ td {
 	font-size: 14px;
 }
 </style>
-<div class="col-sm-12 well" style="background-color: #DFDFDF">
-	<div class="col-sm-9" style="border-bottom: 1px solid #EBEBEB">
+<div class="col-sm-12 well" style="background-color:">
+	<div class="col-sm-9" style="">
 		<div class="col-sm-2 col-xs-12" style="padding-top: 50px;">
 			<center>
 				<span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:100px;width:100px;background-size: cover; background-image:
