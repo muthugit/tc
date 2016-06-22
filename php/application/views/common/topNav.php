@@ -8,7 +8,6 @@ cse .gsc-control-cse,.gsc-control-cse {
 <nav class="navbar  navbar-inverse is-visible"
 	style="position: inherit;">
 	<div class="navbar-header">
-
 		<button type="button" class="navbar-toggle collapsed"
 			data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"

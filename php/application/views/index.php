@@ -12,6 +12,7 @@ tr>td {
 }
 </style>
 <?php $this->load->view ( 'common/htmlBlocksSet1' );?>
+<br>
 <div class="col-sm-12 well">
 	<div class="col-sm-3" style="padding:0px;">
 		<span class="col-sm-12 col-xs-12" style="background-color: blue;"><h5 class=''
@@ -57,7 +58,7 @@ tr>td {
 </div>
 
 <?php $this->load->view ( 'common/htmlBlocksSet2' );?>
-<hr>
+<br>
 
 <?php $this->load->view ( 'common/widgets/widget2',$widget3);?>
 <?php $this->load->view ( 'common/widgets/widget2',$widget4);?>

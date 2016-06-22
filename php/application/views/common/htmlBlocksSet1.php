@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding: 0px">
 	<div class="col-sm-12">
 		<div class="col-sm-2 col-xs-6">
 	<?php
