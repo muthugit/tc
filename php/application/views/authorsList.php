@@ -3,7 +3,7 @@
 foreach ( $authors as $author ) {
 	if (isset ( $author ['name'] )) {
 		?>
-		<div class="list-group col-sm-3">
+		<div class="list-group col-sm-3" style="height: 150px;">
 		<a href="author/<?php echo $author['objectId'];?>"
 			class="list-group-item">
 			<h4 class="list-group-item-heading"><?php echo $author['name']?></h4>
