@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div class="col-sm-3"
-		style="background-color:; border: 1px solid black; padding-left: 3px; padding-right: 2px;">
+		style="padding-left: 3px; padding-right: 2px;">
 		<div style="">
 		<?php
 		$featureArticles ['featuredArticleList'] = $allFeatureArticles;

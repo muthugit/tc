@@ -1,6 +1,4 @@
 <style>
-
-
 .white-text {
 	color: white;
 }
@@ -33,7 +31,7 @@ td {
 			
 			<?php if (isset ( $author ['aboutAuthor'] )) {?>
 			<hr>
-			<p style="padding: 20px;font-size:15px;"> <?php echo $author ['aboutAuthor'];?></p>
+			<p style="padding: 20px; font-size: 15px;"> <?php echo $author ['aboutAuthor'];?></p>
 			<?php }?>
 			<?php
 			$s = $author ['createdAt'];
@@ -53,6 +51,9 @@ td {
 					<td><b>Nick Name</b></td>
 					<td><?php echo $author['uniqueName'];?></td>
 				<?php }?>
+				
+				
+				
 				
 				
 				

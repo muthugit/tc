@@ -5,7 +5,7 @@
 </div>
 <div class="col-sm-12 well">
 	<div class="col-sm-2"
-		style="background-color:; border: 1px solid black; padding-left: 3px; padding-right: 2px;">
+		style="padding-left: 3px; padding-right: 2px;">
 		<div style="">
 		<?php $this->load->view ( 'common/widgets/featuredArticlesList',$featuredArticleList  );?>
 		</div>
