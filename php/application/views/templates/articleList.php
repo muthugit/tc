@@ -12,7 +12,8 @@ foreach ( $articleList as $article ) {
 					 @ <abbr class="timeago" title="' . $article ['createdAt'] . '"></abbr> <br>' . explode ( "@", $article ['userItem'] ['email'] )[0] . '
 					</div></span>';
 	$isImageExist = false;
-	if (is_array ( getimagesize ( IMAGE_PATH . $article ['featureImageURL'] ) ) && isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
+	$featureImageUrl = IMAGE_PATH . $article ['featureImageURL'];
+	if (is_array ( getimagesize ( ($featureImageUrl) ) ) && isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 		$isImageExist = true;
 	if ($isImageExist == true)
 		echo '<img src="' . IMAGE_PATH . $article ['featureImageURL'] . '">';

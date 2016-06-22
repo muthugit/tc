@@ -2,51 +2,77 @@
 .white-text {
 	color: white;
 }
+
+tr {
+	height: 40px;
+	font-size: 13px;
+}
+
+td {
+	height: 40px;
+	font-size: 14px;
+}
 </style>
-<div class="col-sm-12 well" style="background-color: #FAFAFA">
-	<div class="col-sm-9">
-		<div class="col-sm-5">
+<div class="col-sm-12 well" style="background-color: #DFDFDF">
+	<div class="col-sm-9" style="border-bottom: 1px solid #EBEBEB">
+		<div class="col-sm-2 col-xs-12" style="padding-top: 50px;">
 			<center>
-				<span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:300px;width:300px;background-size: cover; background-image:
+				<span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:100px;width:100px;background-size: cover; background-image:
 				url('<?php echo IMAGE_PATH.$author['profilePic'];?>')"></span>
 			</center>
 		</div>
-		<div class="col-sm-7">
-			<h3><?php echo $author['name'];?></h3>
+		<div class="col-sm-10" style="border-left: 1px solid #EBEBEB">
+			<h4><?php echo $author['name'];?></h4>
 			<?php
 			if (isset ( $author ['authorGroup'] )) {
 				echo '<b>(' . $author ['authorGroup'] . ')</b>';
 			}
 			?>
+			
+			<?php if (isset ( $author ['aboutAuthor'] )) {?>
 			<hr>
-			<p class="grey-text">Email: <?php echo $author['email'];?></p>
-		<?php if(isset($author['uniqueName'])){?>
-			<p class="grey-text">Nick Name: <?php echo $author['uniqueName'];?></p>
-		<?php }?>
-		
-		<?php
-		$s = $author ['createdAt'];
-		date_default_timezone_set ( 'Africa/Lagos' );
-		$dt = new DateTime ( $s );
-		
-		$date = $dt->format ( 'd F Y' );
-		?>
-		<p class="grey-text">Member since: <?php echo $date;?></p>
-		<?php
-		if (isset ( $author ['aboutAuthor'] )) {
-			?>
-			<p class="grey-text">
-				About me:<br>
-			
-			
 			<p style="background-color: black; color: white; padding: 20px;"> <?php echo $author ['aboutAuthor'];?></p>
-			</p>
-		<?php }?>
-		
+			<?php }?>
+			<?php
+			$s = $author ['createdAt'];
+			date_default_timezone_set ( 'Africa/Lagos' );
+			$dt = new DateTime ( $s );
+			
+			$date = $dt->format ( 'd F Y' );
+			?>
+			<hr>
+			<table>
+				<tr>
+					<td style="width: 40%"><b>Email</b></td>
+					<td><?php echo $author['email'];?></td>
+				</tr>
+				<?php if(isset($author['uniqueName'])){?>
+				<tr>
+					<td><b>Nick Name</b></td>
+					<td><?php echo $author['uniqueName'];?></td>
+				<?php }?>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td><b>Member since</b></td>
+					<td><?php echo $date;?></td>
+				</tr>
+
+
+
+			</table>
+
 		
 		</div>
 	</div>
-	<div class="col-sm-3 pull-right"
+	<div class="col-sm-3"
 		style="background-color: <?php echo $widget1['backgroundColor'];?>; overflow: auto; padding-left: 3px; padding-right: 2px;">
 		<div style="height: 447px;">
 		<?php $this->load->view ( 'common/widgets/widget1',$widget1 );?>
