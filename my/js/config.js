@@ -45,6 +45,9 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/singlePost/:postId", {
 				templateUrl : "core/singlePost.html",
 				controller : "postController"
+			}).when("/editPost/:postId", {
+				templateUrl : "core/newPost.html",
+				controller : "postController"
 			})
 			// Blog
 			.when("/blog", {

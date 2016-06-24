@@ -30,9 +30,15 @@ app.controller('postController', function($scope, $routeParams, $http,
 			return;
 		}
 		$("#btnPublish").hide();
+
 		var textareaValue = $('#summernote').summernote('code');
-		postScope.postDetail = $.trim(textareaValue);
-		postScope.featureImageURL = $("#img_uploadFeatureImage").val();
+		postScope.content = textareaValue;
+		// postScope.postDetail = $.trim(textareaValue);
+		// postScope.featureImageURL = $("#img_uploadFeatureImage").val();
+
+		$scope.post['content'] = $.trim(textareaValue);
+		$scope.post['postDetail'] = $.trim(textareaValue);
+		$scope.post['featureImageURL'] = $("#img_uploadFeatureImage").val();
 
 		var url = APIUrl + '/newPost';
 		$http.post(url, $scope.post).success(function(data, status) {
@@ -84,6 +90,23 @@ app.controller('postController', function($scope, $routeParams, $http,
 			});
 		}
 	};
+
+	$scope.editPost = function() {
+		if (postId != undefined) {
+			var fetchArticleUrl = APIUrl + "/fetchSingleContent/" + postId;
+			console.log("Area: " + postId);
+			console.log(fetchArticleUrl);
+			$scope.post = [];
+			$http.get(fetchArticleUrl).then(function(response) {
+				$scope.post = (response.data);
+				$("#img_uploadFeatureImage_src").attr('src', UPLOAD_PATH + $scope.post['featureImageURL']);
+				console.log($scope.post.postDetail);
+				$('#summernote').summernote('code', $scope.post.postDetail);
+			});
+		}
+	};
+
+	$scope.editPost();
 	$scope.showSinglePost();
 	$scope.categoryInDropDown();
 });

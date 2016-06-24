@@ -40,10 +40,10 @@
 						<!-- 				<div ng-bind-html="myArticle.postDetail | unsafe "></div> -->
 						<span hidden="true" id="{{'action-'+myArticle.objectId}}"
 							class="action-items">
-							<button class="btn btn-link btn-xs">
+							<a href="#/editPost/{{myArticle.objectId}}" class="btn btn-link btn-xs">
 								<i class="fa fa-pencil-square-o"></i> <span class="hidden-xs">Edit</span>
-							</button>
-							<button class="btn btn-link btn-xs">
+							</a>
+							<button style="display:none" class="btn btn-link btn-xs">
 								<i class="fa fa-times"></i> <span class="hidden-xs">Delete</span>
 							</button>
 						</span>
