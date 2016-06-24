@@ -43,7 +43,7 @@ app.controller('postController', function($scope, $routeParams, $http,
 		var url = APIUrl + '/newPost';
 		$http.post(url, $scope.post).success(function(data, status) {
 			console.log("Post insert data ==> " + data);
-			alert("Your content has been created successfully.");
+			alert("Your content has been created/updated successfully.");
 			$location.path('/');
 		}).error(function(err) {
 			console.log("Error" + err);
