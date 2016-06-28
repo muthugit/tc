@@ -32,7 +32,7 @@ foreach ( $articleList as $article ) {
 		<hr>
 		<?php
 	if (isset ( $article ['description'] )) {
-		echo '<p class="">' . $article ['description'] . '</p>';
+		echo '<p class="" style="padding-top:30px;">' . $article ['description'] . '</p>';
 	}
 	?>
 	</div>
