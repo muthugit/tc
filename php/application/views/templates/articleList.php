@@ -14,14 +14,19 @@ foreach ( $articleList as $article ) {
 	<div class="col-sm-8">
 		<h4>
 			<a
-				href="' . SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '"><?php echo $title;?></a>
+				href="<?php echo SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title );?>"><?php echo $title;?></a>
 		</h4>
 		<div class="circleImage col-sm-3" style="background-size: cover; background-image:
 				url('<?php echo SMALL_IMAGE_PATH . $article ['userItem'] ['profilePic'];?>')"></div>
 		<div class="col-sm-9">
 			By: <a
 				href='<?php echo SITE_PATH . 'author/' . $article ['userApi'];?>'><?php echo ($article ['userItem'] ['name']);?></a><br>
-			<abbr class="timeago" title="<?php echo $article ['createdAt'];?>"></abbr>
+			<abbr class="timeago" title="<?php echo $article ['createdAt'];?>"></abbr><br>
+			<?php 
+			if (isset ( $article ['description'] )) {
+				echo '<p class="well">' . $article ['description'] . '</p>';
+			}
+			?>
 		</div>
 	</div>
 </div>
