@@ -29,7 +29,7 @@ foreach ( $articleList as $article ) {
 	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 		$isImageExist = true;
 		if ($isImageExist == true){?>
-			<div class = "col-sm-3" style="height:200px; overflow:hidden;background-size: cover;background-position: center;background-image:
+			<div class = "col-sm-3" style="height:500px; overflow:hidden;background-size: cover;background-position: center;background-image:
 					url('<?php echo SMALL_IMAGE_PATH . $article ['featureImageURL'];?>')"></div>
 		<?php }
 	echo '<div class="col-sm-9  col-xs-12"  style="">';
