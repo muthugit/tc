@@ -55,13 +55,16 @@ body {
 				</label>
 			</form>
 			<br> <img ng-src="{{post.featureImage}}"
-				id="img_uploadFeatureImage_src" style="max-width: 100px"> <input
-				type="text" disabled="disabled" ng-model="post.featureImageURL"
-				id="img_uploadFeatureImage" class="form-control" name="featureImage"
+				id="img_uploadFeatureImage_src" style="max-width: 100px"> <br>
+			<button style="display: none" id="removeFeatureImageBtn"
+				onclick="removeFeatureImage()" class="btn btn-link">Remove</button>
+			<input type="text" onchange="showFeatureImage()" disabled="disabled"
+				ng-model="post.featureImageURL" id="img_uploadFeatureImage"
+				class="form-control" name="featureImage"
 				placeholder="Post Image URL">
 			<hr>
 		</div>
-		<div class="form-group">
+		<div style='display: none' class="form-group">
 			<label class="control-label" for="postTitle">Post video URL</label> <input
 				type="text" ng-model="post.video" name="postTitle"
 				class="form-control" placeholder="Post video URL">
@@ -76,12 +79,11 @@ body {
 
 		<div class="form-group">
 			<label class="control-label" for="postTitle">Tags</label> <input
-				type="text" name="postTitle" class="form-control" placeholder="tags"
-				value="">
+				type="text" name="postTitle" ng-model="post.tags"
+				class="form-control" placeholder="tags" value="">
 		</div>
-		<button class="btn btn-link">Draft</button>
 		<button ng-click="savePost()" onclick="getRichTextValue()"
-			class="btn btn-primary" id="btnPublish">Publish</button>
+			class="btn btn-primary" id="btnPublish">Submit for approval</button>
 		<hr>
 
 	</div>

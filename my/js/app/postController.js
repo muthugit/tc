@@ -87,6 +87,7 @@ app.controller('postController', function($scope, $routeParams, $http,
 			$scope[area] = [];
 			$http.get(fetchArticleUrl).then(function(response) {
 				$scope[area].push(response.data);
+				showFeatureImage();
 			});
 		}
 	};

@@ -83,3 +83,17 @@
 	</div>
 </div>
 
+<script>
+	function removeFeatureImage() {
+		$("#img_uploadFeatureImage").val("");
+		$("#img_uploadFeatureImage_src").hide();
+		$("#removeFeatureImageBtn").hide();
+	}
+
+	function showFeatureImage() {
+		if ($("#img_uploadFeatureImage").val() != "") {
+			$("#img_uploadFeatureImage_src").show();
+			$("#removeFeatureImageBtn").show();
+		}
+	}
+</script>

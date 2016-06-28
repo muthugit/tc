@@ -31,6 +31,8 @@ function sendFile(base64Content, url, editor, isSummerNote, pictureId) {
 				$("#" + editor).val(data);
 				$("#" + pictureId + "-btn").show();
 				$("#" + pictureId + "-loading").hide();
+				$("#removeFeatureImageBtn").show();
+				$("#img_uploadFeatureImage_src").show();
 			}
 		}
 	});
