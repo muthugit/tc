@@ -8,7 +8,7 @@ class Category extends CI_Controller {
 	public function index() {
 	}
 	public function lists($categoryId, $categoryTitle = false) {
-		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/' . $categoryId . '/1/1/' . POSTS_PER_PAGE . '/all/true', 0, null, null );
+		$latestArticles = file_get_contents ( API_PATH . 'getSiteContents/' . $categoryId . '/1/1/' . POSTS_PER_PAGE . '/all/false', 0, null, null );
 		$data ['articleList'] = json_decode ( $latestArticles, true );
 		
 		$featuredArticles = file_get_contents ( API_PATH . 'getSiteContents/' . $categoryId . '/2/1/' . POSTS_PER_PAGE . '/all/true', 0, null, null );
