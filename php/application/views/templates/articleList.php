@@ -1,5 +1,24 @@
-<?php
+<?php 
 foreach ( $articleList as $article ) {
+	$title = str_replace ( ',', '-', $article ['title'] );
+	$title = $title;
+	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
+		$featureImage=$article ['featureImageURL'];
+	else 
+		$featureImage="";
+	?>
+	<div class="col-sm-4" style=" background-position: center;height: 200px;overflow: hidden;background-size: cover; background-image:
+				url('<?php echo SMALL_IMAGE_PATH . $featureImage;?>')">
+	</div>
+	<div class="col-sm-8">
+		<h4><?php echo $title;?></h4>
+	</div>
+<?php }
+?>
+
+
+<?php
+/*foreach ( $articleList as $article ) {
 	
 	$title = str_replace ( ',', '-', $article ['title'] );
 	$title = $title;
@@ -21,5 +40,5 @@ foreach ( $articleList as $article ) {
 		echo '<p class="well">' . $article ['description'] . '</p>';
 	}
 	echo '<hr>';
-}
+}*/
 ?>
