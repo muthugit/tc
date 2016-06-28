@@ -1,4 +1,5 @@
 <?php
+ini_set("memory_limit","30M");
 $target_dir = "/var/www/html/tc/php/uploads/";
 $thumbnail_dir = "/var/www/html/tc/php/uploads/small/";
 
@@ -35,7 +36,7 @@ function compress($source, $destination, $quality) {
 	elseif ($info ['mime'] == 'image/png')
 		$image = imagecreatefrompng ( $source );
 	
-	//imagejpeg ( $image, $destination, $quality );
+	imagejpeg ( $image, $destination, $quality );
 	
 	return $destination;
 }
