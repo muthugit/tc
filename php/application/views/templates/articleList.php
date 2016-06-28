@@ -3,13 +3,13 @@ foreach ( $articleList as $article ) {
 	$title = str_replace ( ',', '-', $article ['title'] );
 	$title = $title;
 	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
-		$featureImage=$article ['featureImageURL'];
+		$featureImage=SMALL_IMAGE_PATH.$article ['featureImageURL'];
 	else 
 		$featureImage="http://www.padaippaligalulagam.com/logo.png";
 	?>
 	<div class="col-sm-12">
 	<div class="col-sm-4" style=" background-position: center;height: 200px;overflow: hidden;background-size: cover; background-image:
-				url('<?php echo SMALL_IMAGE_PATH . $featureImage;?>')">
+				url('<?php echo $featureImage;?>')">
 	</div>
 	<div class="col-sm-8">
 		<h4><?php echo $title;?></h4>
