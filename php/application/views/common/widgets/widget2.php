@@ -16,16 +16,16 @@
 			$title = $title;
 			?>
 	<div class="col-sm-2">
-		<div class="col-sm-12" style="padding: 0px;">
+		<div class="col-sm-12" style="padding: 0px;overflow: hidden;height: 100px">
 		<?php
 			$isImageExist = false;
 			if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 				$isImageExist = true;
 			if ($isImageExist == true) {
 				?>
-			<img src="<?php echo SMALL_IMAGE_PATH.$article['featureImageURL'];?>">
+			<img style="height: 100%" src="<?php echo SMALL_IMAGE_PATH.$article['featureImageURL'];?>">
 			<?php }else{?>
-			<img src="http://www.padaippaligalulagam.com/logo.png">
+			<img style="height: 100%" src="http://www.padaippaligalulagam.com/logo.png">
 			<?php }?>
 		</div>
 		<div class="col-sm-12" style="padding: 0px;">
