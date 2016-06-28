@@ -35,8 +35,10 @@ foreach ( $articleList as $article ) {
 	$featureImageUrl = SMALL_IMAGE_PATH . $article ['featureImageURL'];
 	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 		$isImageExist = true;
-	if ($isImageExist == true)
-		echo '<img src="' . IMAGE_PATH . $article ['featureImageURL'] . '">';
+	if ($isImageExist == true){?>
+		<div class = "col-sm-12" style="width:100%; height:300px; overflow:hidden;background-size: cover;background-position: center;background-image:
+				url('<?php echo SMALL_IMAGE_PATH . $article ['featureImageURL'];?>')"></div>
+	<?php }
 	if (isset ( $article ['description'] )) {
 		echo '<p class="well">' . $article ['description'] . '</p>';
 	}
