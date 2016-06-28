@@ -7,11 +7,13 @@ foreach ( $articleList as $article ) {
 	else 
 		$featureImage="";
 	?>
+	<div class="col-sm-12">
 	<div class="col-sm-4" style=" background-position: center;height: 200px;overflow: hidden;background-size: cover; background-image:
 				url('<?php echo SMALL_IMAGE_PATH . $featureImage;?>')">
 	</div>
 	<div class="col-sm-8">
 		<h4><?php echo $title;?></h4>
+	</div>
 	</div>
 <?php }
 ?>
