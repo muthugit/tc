@@ -12,7 +12,7 @@ $imageFileType = pathinfo ( $target_file, PATHINFO_EXTENSION );
 $check = getimagesize ( $_FILES ["file"] ["tmp_name"] );
 if ($check !== false) {
 	if (move_uploaded_file ( $_FILES ["file"] ["tmp_name"], $target_file )) {
-		//compress ( $target_file, $thumbnail_file, 10 );
+		compress ( $target_file, $thumbnail_file, 10 );
 		compress ( $target_file, $target_file, 60 );
 		echo $newFileName;
 	} else {
@@ -35,7 +35,7 @@ function compress($source, $destination, $quality) {
 	elseif ($info ['mime'] == 'image/png')
 		$image = imagecreatefrompng ( $source );
 	
-	imagejpeg ( $image, $destination, $quality );
+	//imagejpeg ( $image, $destination, $quality );
 	
 	return $destination;
 }
