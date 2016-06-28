@@ -1,21 +1,25 @@
-<?php 
+<?php
 foreach ( $articleList as $article ) {
 	$title = str_replace ( ',', '-', $article ['title'] );
 	$title = $title;
 	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
-		$featureImage=SMALL_IMAGE_PATH.$article ['featureImageURL'];
-	else 
-		$featureImage="http://www.padaippaligalulagam.com/logo.png";
+		$featureImage = SMALL_IMAGE_PATH . $article ['featureImageURL'];
+	else
+		$featureImage = "http://www.padaippaligalulagam.com/logo.png";
 	?>
-	<div class="col-sm-12">
+<div class="col-sm-12" style="border-bottom: 1px grey solid; padding-bottom: 15px;padding-top:15px;">
 	<div class="col-sm-4" style=" background-position: center;height: 200px;overflow: hidden;background-size: cover; background-image:
-				url('<?php echo $featureImage;?>')">
-	</div>
+				url('<?php echo $featureImage;?>')"></div>
 	<div class="col-sm-8">
-		<h4><?php echo $title;?></h4>
+		<h4>
+			<a
+				href="' . SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '"><?php echo $title;?></a>
+		</h4>
 	</div>
-	</div>
-<?php }
+</div>
+<?php
+
+}
 
 /*
 foreach ( $articleList as $article ) {
