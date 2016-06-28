@@ -1,5 +1,5 @@
 <?php 
-/*foreach ( $articleList as $article ) {
+foreach ( $articleList as $article ) {
 	$title = str_replace ( ',', '-', $article ['title'] );
 	$title = $title;
 	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
@@ -17,8 +17,8 @@
 	</div>
 <?php }
 ?>
-*/
 
+/*
 foreach ( $articleList as $article ) {
 	
 	$title = str_replace ( ',', '-', $article ['title'] );
@@ -46,5 +46,5 @@ foreach ( $articleList as $article ) {
 		echo '<p class="well">' . $article ['description'] . '</p>';
 	}
 	echo '</div><hr>';
-}
+}*/
 ?>
