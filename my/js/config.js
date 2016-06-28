@@ -66,6 +66,10 @@ app.config([ '$routeProvider', '$locationProvider',
 				templateUrl : "core/resetPassword.html",
 				controller : "profileController",
 				resetPwd : "true"
+			}).when("/changePassword", {
+				templateUrl : "core/changePassword.html",
+				controller : "profileController",
+				resetPwd : "true"
 			})
 			// else 404
 			.otherwise("/404", {
@@ -74,5 +78,3 @@ app.config([ '$routeProvider', '$locationProvider',
 			});
 			$locationProvider.html5Mode(false);
 		} ]);
-
-

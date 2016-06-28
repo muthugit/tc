@@ -58,5 +58,40 @@ app.controller('profileController', function($scope, $http, $location) {
 		});
 	};
 
+	$scope.resetPassword = function() {
+		if ($("#newPassword").val() != $("#confirmPassword").val())
+			alert("New password & Confirm password not matched");
+		else {
+			if ($("#newPassword").val() != "") {
+				var loginUrl = APIUrl + "/login/" + $scope.profile.email + "/"
+						+ $scope.profile.oldPassword;
+				$http.get(loginUrl).then(function(response) {
+					if (response.data == "failed")
+						alert("Current password not correct");
+					else {
+						$scope.changePassword();
+					}
+				});
+			} else {
+				alert("Password can not be empty");
+			}
+		}
+	};
+
+	$scope.changePassword = function() {
+		var url = APIUrl + '/changePassword';
+		profileScope = $scope.profile;
+		$http.post(url, $scope.profile).success(function(data, status) {
+			if ((data) == "1") {
+				alert("Password changed successfully");
+				$location.path('');
+			} else {
+				alert("Can not reset password");
+			}
+		}).error(function(err) {
+			console.log("Error" + err);
+		});
+	}
+
 	$scope.getProfile();
 });

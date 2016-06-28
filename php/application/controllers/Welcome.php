@@ -20,7 +20,7 @@ class Welcome extends CI_Controller {
 		$data ['widget8'] = $this->createWidgetContents ( "widget-8", "grey", "white", "no" );
 		$data ['widget9'] = $this->createWidgetContents ( "widget-9", "grey", "white", "no" );
 		
-// 		$data ['widget9'] = $this->createWidgetContents ( "widget-9", "grey", "white", "no", "2" );
+		// $data ['widget9'] = $this->createWidgetContents ( "widget-9", "grey", "white", "no", "2" );
 		
 		$this->header ( "Home", "Home" );
 		$this->load->view ( 'index', $data );
@@ -87,7 +87,6 @@ class Welcome extends CI_Controller {
 		
 		$featuredArticles = file_get_contents ( API_PATH . 'getSiteContents/any/2/1/10/all/true', 0, null, null );
 		$data ['allFeatureArticles'] = json_decode ( $featuredArticles, true );
-		
 		
 		$this->load->view ( 'common/header', $data );
 	}

@@ -14,7 +14,8 @@
 				<hr>
 				<a href="#/profile" class="btn btn-info"><i class="fa fa-user"></i>
 					Edit Profile</a> <a href="#/new-post" class="btn btn-primary"><i
-					class="fa fa-pencil"></i> Write article</a>
+					class="fa fa-pencil"></i> Write article</a> <a href="#/changePassword"
+					class="btn btn-link">Change password</a>
 			</div>
 			<div class="col-sm-4 pull-right circleImage"
 				style='height: 200px; width: 200px; background-size: cover; background-image: url({{imagePath}}{{profile.profilePic}})'></div>
@@ -39,11 +40,12 @@
 						<span class="label label-primary">{{myArticle.status}}</span>
 						<!-- 				<div ng-bind-html="myArticle.postDetail | unsafe "></div> -->
 						<span hidden="true" id="{{'action-'+myArticle.objectId}}"
-							class="action-items">
-							<a href="#/editPost/{{myArticle.objectId}}" class="btn btn-link btn-xs">
-								<i class="fa fa-pencil-square-o"></i> <span class="hidden-xs">Edit</span>
-							</a>
-							<button style="display:none" class="btn btn-link btn-xs">
+							class="action-items"> <a
+							href="#/editPost/{{myArticle.objectId}}"
+							class="btn btn-link btn-xs"> <i class="fa fa-pencil-square-o"></i>
+								<span class="hidden-xs">Edit</span>
+						</a>
+							<button style="display: none" class="btn btn-link btn-xs">
 								<i class="fa fa-times"></i> <span class="hidden-xs">Delete</span>
 							</button>
 						</span>

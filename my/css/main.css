@@ -676,3 +676,10 @@ html,body {
 }
 
 }
+
+.form-control{
+	height: 0px;
+}
+.form-group{
+padding-top: 30px;
+}
