@@ -296,9 +296,13 @@ html,body {
 }
 
 .navbar-fixed-top {
-	background-color: white;
+	background-color: black;
 	opacity: 0.8;
 	/* 	border-bottom: thin solid #F2F2F2; */
+}
+.navbar-brand{
+	padding:0px;
+	padding-left: 30px;
 }
 
 .top-menu-item {
