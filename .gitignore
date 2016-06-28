@@ -8,3 +8,5 @@
 /officeNetwork/*
 /homeNetwork/*
 /php/uploads/*
+/bin
+/*.~
