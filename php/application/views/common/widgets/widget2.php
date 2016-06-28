@@ -19,7 +19,7 @@
 		<div class="col-sm-12" style="padding: 0px;">
 		<?php
 			$isImageExist = false;
-			if (is_array ( getimagesize ( IMAGE_PATH . $article ['featureImageURL'] ) ) && isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
+			if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 				$isImageExist = true;
 			if ($isImageExist == true) {
 				?>

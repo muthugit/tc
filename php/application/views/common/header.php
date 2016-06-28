@@ -27,6 +27,10 @@
 <link rel="stylesheet"
 	href="<?php echo SITE_PATH;?>assets/css/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo SITE_PATH;?>assets/css/main.css">
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript"
+	src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52b49de11b25726b"></script>
+
 <div class="col-sm-12 col-xs-12" style="background-color: black;">
 	<center>
 		<a class=" col-sm-3 col-xs-12" href="<?php echo SITE_PATH;?>"><b><img
@@ -38,5 +42,4 @@
 		?>
 </div>
 <?php $this->load->view ( 'common/topNav' );?>
-<div class="container"
-	style="">
+<div class="container" style="">
