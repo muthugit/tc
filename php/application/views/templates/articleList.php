@@ -24,6 +24,7 @@ foreach ( $articleList as $article ) {
 			<abbr class="timeago" title="<?php echo $article ['createdAt'];?>"></abbr><br>
 
 		</div>
+		<hr>
 		<?php
 	if (isset ( $article ['description'] )) {
 		echo '<p class="well">' . $article ['description'] . '</p>';
