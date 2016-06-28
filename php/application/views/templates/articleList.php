@@ -1,3 +1,8 @@
+<style>
+.articleSection:hover {
+	background-color: #E6E6E6;
+}
+</style>
 <?php
 foreach ( $articleList as $article ) {
 	$title = str_replace ( ',', '-', $article ['title'] );
@@ -7,7 +12,7 @@ foreach ( $articleList as $article ) {
 	else
 		$featureImage = "http://www.padaippaligalulagam.com/logo.png";
 	?>
-<div class="col-sm-12"
+<div class="col-sm-12 articleSection"
 	style="border-bottom: 1px grey solid; padding-bottom: 15px; padding-top: 15px;">
 	<div class="col-sm-4" style=" background-position: center;height: 200px;overflow: hidden;background-size: cover; background-image:
 				url('<?php echo $featureImage;?>')"></div>
