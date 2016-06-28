@@ -5,7 +5,7 @@ foreach ( $articleList as $article ) {
 	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 		$featureImage=$article ['featureImageURL'];
 	else 
-		$featureImage="";
+		$featureImage="http://www.padaippaligalulagam.com/logo.png";
 	?>
 	<div class="col-sm-12">
 	<div class="col-sm-4" style=" background-position: center;height: 200px;overflow: hidden;background-size: cover; background-image:
