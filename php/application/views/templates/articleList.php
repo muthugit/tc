@@ -13,7 +13,7 @@ foreach ( $articleList as $article ) {
 					</div></div>';
 	$isImageExist = false;
 	$featureImageUrl = IMAGE_PATH . $article ['featureImageURL'];
-	if (is_array ( getimagesize ( ($featureImageUrl) ) ) && isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
+	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 		$isImageExist = true;
 	if ($isImageExist == true)
 		echo '<img src="' . IMAGE_PATH . $article ['featureImageURL'] . '">';
