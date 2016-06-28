@@ -7,7 +7,8 @@ foreach ( $articleList as $article ) {
 	else
 		$featureImage = "http://www.padaippaligalulagam.com/logo.png";
 	?>
-<div class="col-sm-12" style="border-bottom: 1px grey solid; padding-bottom: 15px;padding-top:15px;">
+<div class="col-sm-12"
+	style="border-bottom: 1px grey solid; padding-bottom: 15px; padding-top: 15px;">
 	<div class="col-sm-4" style=" background-position: center;height: 200px;overflow: hidden;background-size: cover; background-image:
 				url('<?php echo $featureImage;?>')"></div>
 	<div class="col-sm-8">
@@ -15,10 +16,16 @@ foreach ( $articleList as $article ) {
 			<a
 				href="' . SITE_PATH . 'post/show/' . $article ['objectId'] . '/' . urlencode ( $title ) . '"><?php echo $title;?></a>
 		</h4>
+		<div class="circleImage col-sm-3" style="background-size: cover; background-image:
+				url('<?php echo SMALL_IMAGE_PATH . $article ['userItem'] ['profilePic'];?>')"></div>
+		<div class="col-sm-9">
+			By: <a
+				href='<?php echo SITE_PATH . 'author/' . $article ['userApi'];?>'><?php echo ($article ['userItem'] ['name']);?></a><br>
+			<abbr class="timeago" title="<?php echo $article ['createdAt'];?>"></abbr>
+		</div>
 	</div>
 </div>
 <?php
-
 }
 
 /*
