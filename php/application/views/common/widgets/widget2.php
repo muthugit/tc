@@ -23,7 +23,7 @@
 				$isImageExist = true;
 			if ($isImageExist == true) {
 				?>
-			<img src="<?php echo IMAGE_PATH.$article['featureImageURL'];?>">
+			<img src="<?php echo SMALL_IMAGE_PATH.$article['featureImageURL'];?>">
 			<?php }else{?>
 			<img src="http://www.padaippaligalulagam.com/logo.png">
 			<?php }?>
