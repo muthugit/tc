@@ -12,7 +12,7 @@ foreach ( $articleList as $article ) {
 					 @ <abbr class="timeago" title="' . $article ['createdAt'] . '"></abbr><br>
 					</div></div>';
 	$isImageExist = false;
-	$featureImageUrl = IMAGE_PATH . $article ['featureImageURL'];
+	$featureImageUrl = SMALL_IMAGE_PATH . $article ['featureImageURL'];
 	if (isset ( $article ['featureImageURL'] ) && $article ['featureImageURL'] != '')
 		$isImageExist = true;
 	if ($isImageExist == true)
