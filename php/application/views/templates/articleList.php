@@ -16,7 +16,6 @@ foreach ( $articleList as $article ) {
 	</div>
 	</div>
 <?php }
-?>
 
 /*
 foreach ( $articleList as $article ) {
