@@ -3,22 +3,32 @@
 	background-color: white;
 	color: black
 }
+.alert-things:HOVER {
+	background-color: #A9E2F3;
+}
 </style>
 <div class="container" ng-app="cmsApp">
 	<div class="col-lg-12 well">
 		<div class="col-lg-8">
-			<h3 style="color: grey">Users</h3>
+			<h3 style="color: grey">Authors</h3>
 		</div>
 		<div class="col-lg-2"></div>
 	</div>
 
 	<div class="col-lg-12">
 		<div ng-repeat="user in allUsers">
-			<div class="bs-component col-lg-3"">
-				<div class="alert alert-dismissible alert-things">
-					<h5>{{user.name}}</h5>
-					<br>{{user.email}} <br>{{user.authorGroup}}
-					<hr>
+			<div class="bs-component col-lg-3">
+				<div class="alert alert-dismissible alert-things"
+					style="height: 200px; overflow: hidden;">
+					<div class="mainInner"
+						style="height: 130px; overflow: hidden; border-bottom: 1px solid grey;">
+						<p>{{user.name}}</p>
+						{{user.authorGroup}} <br>{{user.email}}
+					</div>
+					<div class="secondInner" style='padding-top: 10px'>
+						<button class="btn btn-primary  btn-sm"><i class="fa fa-plus"></i> Follow</button>
+						<button class="btn btn-link  btn-sm">Disapprove</button>
+					</div>
 				</div>
 			</div>
 		</div>
