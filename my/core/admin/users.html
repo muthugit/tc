@@ -3,6 +3,7 @@
 	background-color: white;
 	color: black
 }
+
 .alert-things:HOVER {
 	background-color: #A9E2F3;
 }
@@ -26,8 +27,14 @@
 						{{user.authorGroup}} <br>{{user.email}}
 					</div>
 					<div class="secondInner" style='padding-top: 10px'>
-						<button class="btn btn-primary  btn-sm"><i class="fa fa-plus"></i> Follow</button>
-						<button class="btn btn-link  btn-sm">Disapprove</button>
+						<button ng-click="followUser(user.objectId)"
+							class="btn btn-primary  btn-sm">
+							<i class="fa fa-plus"></i> Follow
+						</button>
+						<button ng-click="unFollowUser(user.objectId)"
+							class="btn btn-primary  btn-sm">
+							<i class="fa fa-plus"></i> Follow
+						</button>
 					</div>
 				</div>
 			</div>

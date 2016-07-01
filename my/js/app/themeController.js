@@ -5,9 +5,9 @@ app.controller('themeController', function($scope, $routeParams, $http,
 
 	if (isStatic == 'true') {
 		$scope.totalHtmlBlocks = [ 'about-us', 'header', 'top-navigation',
-				'contact-us', 'social', 'widget-1', 'widget-2', 'widget-3',
-				'widget-4', 'widget-5', 'widget-6', 'widget-7', 'widget-8',
-				'widget-9', 'widget-10' ];
+				'footer', 'contact-us', 'social', 'widget-1', 'widget-2',
+				'widget-3', 'widget-4', 'widget-5', 'widget-6', 'widget-7',
+				'widget-8', 'widget-9', 'widget-10' ];
 		$scope.redirectUrl = "#/themeSettings/staticContents/true/";
 	} else {
 		$scope.totalHtmlBlocks = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,

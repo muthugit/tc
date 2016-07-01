@@ -14,10 +14,10 @@ tr>td {
 <?php $this->load->view ( 'common/htmlBlocksSet1' );?>
 <br>
 <div class="col-sm-12 well">
-	<div class="col-sm-3" style="padding:0px;">
-		<span class="col-sm-12 col-xs-12" style="background-color: blue;"><h5 class=''
-				style='color: white'>
-				<a href="authors"><b style="color:white">Authors</b></a>
+	<div class="col-sm-3" style="padding: 0px;">
+		<span class="col-sm-12 col-xs-12" style="background-color: blue;"><h5
+				class='' style='color: white'>
+				<a href="authors"><b style="color: white">Authors</b></a>
 			</h5></span>
 		<div id="demo1" class="scroll-text"
 			style="width: 100%; height: 400px; overflow: hidden;">
@@ -30,7 +30,7 @@ tr>td {
 				echo '<span class="circleImage col-sm-3  col-xs-3" style="background-size: cover; background-image:
 				url(' . SMALL_IMAGE_PATH . $author ['profilePic'] . ')"></span>';
 				echo '<span class="col-sm-9 col-xs-9"><a href="' . SITE_PATH . 'author/' . $author ['objectId'] . '">' . ($author ['name']) . '</a>';
-				if (isset($author ['uniqueName'])) {
+				if (isset ( $author ['uniqueName'] )) {
 					echo '<br>' . $author ['uniqueName'];
 				}
 				echo '</span></li>';
@@ -67,8 +67,7 @@ tr>td {
 <?php $this->load->view ( 'common/widgets/widget2',$widget7);?>
 <?php $this->load->view ( 'common/widgets/widget2',$widget8);?>
 <?php $this->load->view ( 'common/widgets/widget2',$widget9);?>
-
-<?php $this->load->view ( 'common/footer' );?>
+</div><?php $this->load->view ( 'common/footer',$footer );?>
 <script>
 <?php if(!isset($currentCategory)) $currentCategory="any"; ?>
 <?php if(!isset($currentAuthor)) $currentAuthor="all"; ?>
@@ -79,8 +78,4 @@ $('#demo1').scrollbox({
 	  delay: 0,
 	  speed: 80
 	});
-
-
-
-
 	</script>

@@ -51,16 +51,26 @@ app.controller('userController',
 							if (response.data == "failed")
 								alert(loginFailedErrorMessage);
 							else {
-								localStorage.setItem("userApiKey",
-										response.data.objectId);
+								var userId = (response.data.objectId);
+								localStorage.setItem("userApiKey", userId);
 								localStorage.setItem("currentUser", JSON
 										.stringify(response.data));
+								$scope.fetchFollowersList(userId);
 								alert(welcomeMessage);
 								$location.path('/');
 								$scope.checkUser();
 							}
 						});
 			};
+
+			$scope.fetchFollowersList = function(userId) {
+				var followerUrl = APIUrl + "/getUserFollowingList/" + userId;
+				$http.get(followerUrl).then(
+						function(followingList) {
+							localStorage.setItem("followingList", JSON
+									.stringify(followingList));
+						});
+			}
 
 			$scope.resetPassword = function() {
 				var loginUrl = APIUrl + "/resetPassword/"

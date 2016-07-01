@@ -1,3 +1,6 @@
+<div class="col-sm-12 well">
+<?php echo $footer ['htmlContent']; ?>
+</div>
 <!-- CLOSING FIRST CONTAINER WHICH IS IN HEADER.PHP -->
 
 <script src="<?php echo SITE_PATH;?>assets/js/jquery.min.js"></script>

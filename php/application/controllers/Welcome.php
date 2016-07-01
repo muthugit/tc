@@ -73,6 +73,7 @@ class Welcome extends CI_Controller {
 			$data ['metaImage'] = $metaImage;
 		}
 		$data = $this->getHtmlContent ( $data, "top-navigation", "topNav" );
+		$data = $this->getHtmlContent ( $data, "footer", "footer" );
 		for($i = 0; $i <= 20; $i ++)
 			$data = $this->getHtmlContent ( $data, $i, "htmlContent" . $i );
 		$headerContent = file_get_contents ( API_PATH . 'getHtmlBlocks/header', 0, null, null );
