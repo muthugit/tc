@@ -1,4 +1,5 @@
-<div class="col-sm-12 well">
+<div class="col-sm-12" style="padding: 20px;">
+	<hr>
 <?php echo $footer ['htmlContent']; ?>
 </div>
 <!-- CLOSING FIRST CONTAINER WHICH IS IN HEADER.PHP -->
