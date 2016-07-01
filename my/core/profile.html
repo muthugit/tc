@@ -1,5 +1,4 @@
 <style>
-
 </style>
 <div class="container" ng-controller="profileController">
 	<div class="col-sm-1"></div>
@@ -67,6 +66,33 @@
 					<textarea class="form-control" rows="3" id="aboutMe"
 						ng-model="profile.aboutAuthor" maxlength="150"
 						placeHolder="Brief about the Author"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="col-lg-2 control-label">Website
+					URL</label>
+				<div class="col-lg-10">
+					<input type="text" ng-model="profile.website" value=""
+						class="form-control" id="website"
+						placeholder="http://www.padaipaligal.com">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="col-lg-2 control-label">Facebook
+					URL</label>
+				<div class="col-lg-10">
+					<input type="text" ng-model="profile.fb" value=""
+						class="form-control" id="fb"
+						placeholder="http://facebook.com/padaipaligal">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="col-lg-2 control-label">Twitter
+					URL</label>
+				<div class="col-lg-10">
+					<input type="text" ng-model="profile.twitter" value=""
+						class="form-control" id="twitter"
+						placeholder="http://twitter.com/padaipaligal">
 				</div>
 			</div>
 

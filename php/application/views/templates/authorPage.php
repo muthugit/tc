@@ -17,10 +17,25 @@ td {
 	<div class="col-sm-9" style="">
 		<div class="col-sm-2 col-xs-12" style="padding-top: 50px;">
 			<center>
-				<span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:100px;width:100px;background-size: cover; background-image:
+				<div class="">
+					<span class=" circleImage col-sm-12  col-xs-12" style="text-align:center;height:100px;width:100px;background-size: cover; background-image:
 				url('<?php echo IMAGE_PATH.$author['profilePic'];?>')"></span>
+
+				</div>
 			</center>
+			<div class="col-sm-12">
+				<hr>
+			<?php
+			if (isset ( $author ['fb'] ))
+				echo '<a style="padding:3px" class="" target="blank" href="' . $author ['fb'] . '"><i style="font-size: 25px;" class="fa fa-lg fa-facebook"></i></a>';
+			if (isset ( $author ['twitter'] ))
+				echo '<a style="padding:3px" class="" target="blank" href="' . $author ['twitter'] . '"><i style="font-size: 25px;" class="fa fa-twitter fa-lg"></i></a>';
+			if (isset ( $author ['website'] ))
+				echo '<a style="padding:3px" class="" target="blank" href="' . $author ['website'] . '"><i style="font-size: 25px;" class="fa fa-globe fa-lg"></i></a>';
+			?>
+			</div>
 		</div>
+
 		<div class="col-sm-10" style="border-left: 1px solid #EBEBEB">
 			<h4><?php echo $author['name'];?></h4>
 			<?php
@@ -53,12 +68,27 @@ td {
 				<?php }?>
 				
 				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				<tr>
 					<td><b>Member since</b></td>
 					<td><?php echo $date;?></td>
 				</tr>
-
-
 
 			</table>
 
