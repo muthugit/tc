@@ -11,12 +11,17 @@
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
-
+	<div class="col-sm-12 well">
+		<a href="#/contents/all" class="btn btn-primary">All</a> <a
+			href="#/contents/Approved" class="btn btn-primary">Approved</a> <a
+			href="#/contents/Pending" class="btn btn-primary">Pending</a>
+	</div>
 	<div class="col-sm-12">
 		<div ng-repeat="content in allContents">
 			<div class="col-sm-12 well">
-				<a href="#/singlePost/{{content.objectId}}"><b class="bs-component col-sm-6 col-xs-12">{{content.title}}</b></a>
-				<span class="bs-component col-sm-3 col-xs-12">{{content.userItem.name}}<br>
+				<a href="#/singlePost/{{content.objectId}}"><b
+					class="bs-component col-sm-6 col-xs-12">{{content.title}}</b></a> <span
+					class="bs-component col-sm-3 col-xs-12">{{content.userItem.name}}<br>
 					<small>{{content.userItem.email}}</small></span> <span
 					class="bs-component col-sm-1" id="staus_{{content.objectId}}"><i><small>Status
 					</small></i>{{content.status}}</span>

@@ -96,7 +96,7 @@ app.controller('userController',
 				console.log("Fetching");
 				var userApi = localStorage.getItem("userApiKey");
 				var fetchArticleUrl = APIUrl + "/getMyContents/any/1/1/100/"
-						+ userApi;
+						+ userApi + "/all";
 				console.log(fetchArticleUrl);
 				$scope.myArticles = [];
 				$http.get(fetchArticleUrl).then(function(response) {

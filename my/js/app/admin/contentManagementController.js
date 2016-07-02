@@ -1,8 +1,13 @@
-app.controller('contentManagementController', function($scope, $http,
-		$location, cmsService) {
-	$scope.listContents = function() {
+app.controller('contentManagementController', function($scope, $routeParams,
+		$http, $location, cmsService) {
+
+	var postStatus = $routeParams.postStatus;
+
+	$scope.listContents = function(postStatus) {
 		var userApi = localStorage.getItem("userApiKey");
-		var fetchContentsUrl = APIUrl + "/fetchContents/" + userApi;
+
+		var fetchContentsUrl = APIUrl + "/getMyContents/any/1/1/100/all/"
+				+ postStatus;
 		$scope.allContents = [];
 		$http.get(fetchContentsUrl).then(function(response) {
 			$.each(response.data, function(i, l) {
@@ -31,5 +36,5 @@ app.controller('contentManagementController', function($scope, $http,
 		});
 	};
 
-	$scope.listContents();
+	$scope.listContents(postStatus);
 });

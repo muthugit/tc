@@ -1,4 +1,5 @@
-var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize','angular.filter' ]);
+var app = angular.module('cmsApp',
+		[ 'ngRoute', 'ngSanitize', 'angular.filter' ]);
 
 app.config([ '$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {
@@ -22,6 +23,9 @@ app.config([ '$routeProvider', '$locationProvider',
 				templateUrl : "core/admin/users.html",
 				controller : "userManagementController"
 			}).when("/contents", {
+				templateUrl : "core/admin/contents.html",
+				controller : "contentManagementController"
+			}).when("/contents/:postStatus", {
 				templateUrl : "core/admin/contents.html",
 				controller : "contentManagementController"
 			}).when("/media", {
