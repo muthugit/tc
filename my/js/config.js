@@ -25,7 +25,7 @@ app.config([ '$routeProvider', '$locationProvider',
 			}).when("/contents", {
 				templateUrl : "core/admin/contents.html",
 				controller : "contentManagementController"
-			}).when("/contents/:postStatus", {
+			}).when("/contents/:postStatus/:isFeatured", {
 				templateUrl : "core/admin/contents.html",
 				controller : "contentManagementController"
 			}).when("/media", {

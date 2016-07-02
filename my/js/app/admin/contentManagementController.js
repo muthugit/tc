@@ -2,12 +2,21 @@ app.controller('contentManagementController', function($scope, $routeParams,
 		$http, $location, cmsService) {
 
 	var postStatus = $routeParams.postStatus;
+	var isFeatured = $routeParams.isFeatured;
 
-	$scope.listContents = function(postStatus) {
+	$scope.listContents = function(postStatus, isFeatured) {
 		var userApi = localStorage.getItem("userApiKey");
-
-		var fetchContentsUrl = APIUrl + "/getMyContents/any/1/1/100/all/"
-				+ postStatus;
+		currentPostStatus = postStatus;
+		if(postStatus=="all")
+			currentPostStatus="All";
+		if (isFeatured == 'true')
+			currentPostStatus = "Featured";
+		$scope.currentStatus = currentPostStatus;
+		contentType = '1';
+		if (isFeatured == "true")
+			contentType = '2';
+		var fetchContentsUrl = APIUrl + "/getMyContents/any/" + contentType
+				+ "/1/100/all/" + postStatus;
 		$scope.allContents = [];
 		$http.get(fetchContentsUrl).then(function(response) {
 			$.each(response.data, function(i, l) {
@@ -36,5 +45,5 @@ app.controller('contentManagementController', function($scope, $routeParams,
 		});
 	};
 
-	$scope.listContents(postStatus);
+	$scope.listContents(postStatus, isFeatured);
 });
