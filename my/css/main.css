@@ -297,11 +297,12 @@ html,body {
 
 .navbar-fixed-top {
 	background-color: black;
-	opacity: 0.8;
+	/* 	opacity: 0.8; */
 	/* 	border-bottom: thin solid #F2F2F2; */
 }
-.navbar-brand{
-	padding:0px;
+
+.navbar-brand {
+	padding: 0px;
 	padding-left: 30px;
 }
 
@@ -676,10 +677,20 @@ html,body {
 }
 
 }
-
-.form-control{
+.form-control {
 	height: 0px;
 }
-.form-group{
-padding-top: 30px;
+
+.form-group {
+	padding-top: 30px;
+}
+
+.notification {
+	position: fixed;
+	top: 0;
+	right: 25%;
+	z-index: 9999;
+	width: 50%;
+	opacity: 1;
+}
 }

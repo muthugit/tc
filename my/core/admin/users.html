@@ -7,7 +7,16 @@
 .alert-things:HOVER {
 	background-color: #A9E2F3;
 }
+
+.hide {
+	display: none;
+}
+
+.approved {
+	color: red;
+}
 </style>
+
 <div class="container" ng-app="cmsApp">
 	<div class="col-lg-12 well">
 		<div class="col-lg-8">
@@ -15,9 +24,9 @@
 		</div>
 		<div class="col-lg-2"></div>
 	</div>
-
 	<div class="col-lg-12">
-		<div ng-repeat="user in allUsers">
+		<div ng-repeat="user in allUsers"
+			ng-init="$last ? showFollowBtn() : null">
 			<div class="bs-component col-lg-3">
 				<div class="alert alert-dismissible alert-things"
 					style="height: 200px; overflow: hidden;">
@@ -26,14 +35,23 @@
 						<p>{{user.name}}</p>
 						{{user.authorGroup}} <br>{{user.email}}
 					</div>
+
 					<div class="secondInner" style='padding-top: 10px'>
-						<button ng-click="followUser(user.objectId)"
+						<button id="followBtn_{{user.objectId}}"
+							ng-click="followUser(user.objectId,user.name)"
 							class="btn btn-primary  btn-sm">
 							<i class="fa fa-plus"></i> Follow
 						</button>
-						<button ng-click="unFollowUser(user.objectId)"
-							class="btn btn-primary  btn-sm">
-							<i class="fa fa-plus"></i> Follow
+
+					</div>
+
+					<div
+						ng-repeat="obj in allUsers.followingProfiles | where:{objectId: user.objectId}"
+						ng-init='$last ? showFollowBtn() : null'>
+						<button id="unFollowBtn_{{user.objectId}}"
+							ng-click="unFollowUser(user.objectId,user.name)"
+							class="btn btn-link  btn-sm">
+							<b>X</b> Un Follow
 						</button>
 					</div>
 				</div>

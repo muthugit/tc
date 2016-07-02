@@ -1,4 +1,5 @@
-app.controller('profileController', function($scope, $http, $location) {
+app.controller('profileController', function($scope, $http, $location,
+		cmsService) {
 	var userApi = localStorage.getItem("userApiKey");
 	$scope.profile = {};
 	var profileScope = $scope.profile;
@@ -49,11 +50,13 @@ app.controller('profileController', function($scope, $http, $location) {
 		console.log(url);
 		profileScope = $scope.profile;
 		profileScope.profilePic = $("#img_profilePic").val();
-		$http.post(url, $scope.profile).success(function(data, status) {
-			localStorage.setItem("currentUser", JSON.stringify(data));
-			alert("Profile updated successfully");
-			$location.path('');
-		}).error(function(err) {
+		$http.post(url, $scope.profile).success(
+				function(data, status) {
+					localStorage.setItem("currentUser", JSON.stringify(data));
+					cmsService.notification("success", "Profile Updated",
+							"Profile updated successfully");
+					$location.path('');
+				}).error(function(err) {
 			console.log("Error" + err);
 		});
 	};

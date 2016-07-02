@@ -1,5 +1,20 @@
 app.service('cmsService',
 		function($http, $rootScope, $window) {
+
+			this.notification = function(type, title, message) {
+				$rootScope.notificationType = type;
+				$rootScope.notificationTitle = title;
+				$rootScope.notificationMessage = message;
+				$(".notification").show();
+				this.hideNotification();
+			};
+
+			this.hideNotification = function() {
+				window.setTimeout(function() {
+					$(".notification").hide('blind', {}, 500);
+				}, 2000);
+			};
+
 			this.checkUser = function($scope) {
 				console.log("Checking");
 				if (localStorage.getItem("userApiKey") == null) {
@@ -25,7 +40,7 @@ app.service('cmsService',
 			};
 
 			this.getUniqueNameStatus = function($scope) {
-				
+
 			};
 		});
 

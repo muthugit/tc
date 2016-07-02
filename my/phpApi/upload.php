@@ -1,14 +1,11 @@
 <?php
-ini_set ( "memory_limit", "30M" );
 $target_dir = "/var/www/html/tc/php/uploads/";
 $thumbnail_dir = "/var/www/html/tc/php/uploads/small/";
-$medium_dir = "/var/www/html/tc/php/uploads/medium/";
 
 $timeStamp = $_POST ['timeStamp'];
 $newFileName = $timeStamp . '-' . basename ( $_FILES ["file"] ["name"] );
 $target_file = $target_dir . $newFileName;
 $thumbnail_file = $thumbnail_dir . $newFileName;
-$medium_file = $medium_dir . $newFileName;
 
 $uploadOk = 1;
 $imageFileType = pathinfo ( $target_file, PATHINFO_EXTENSION );
@@ -16,8 +13,7 @@ $check = getimagesize ( $_FILES ["file"] ["tmp_name"] );
 if ($check !== false) {
 	if (move_uploaded_file ( $_FILES ["file"] ["tmp_name"], $target_file )) {
 		compress ( $target_file, $thumbnail_file, 10 );
-		compress ( $target_file, $medium_file, 60 );
-		compress ( $target_file, $target_file, 80 );
+		compress ( $target_file, $target_file, 60 );
 		echo $newFileName;
 	} else {
 		echo "400";

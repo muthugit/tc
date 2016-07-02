@@ -1,4 +1,4 @@
-var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize' ]);
+var app = angular.module('cmsApp', [ 'ngRoute', 'ngSanitize','angular.filter' ]);
 
 app.config([ '$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {

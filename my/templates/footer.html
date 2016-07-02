@@ -61,13 +61,13 @@
 			ng-click="logout()" ng-controller="userController">
 			<i class="fa fa-sign-out"></i> <span class="hidden-xs"> Logout</span>
 		</button>
-		<span class="admin-area"> <a class="btn btn-link footer-btn"
-			ng-app="cmsApp" ng-click="" href="#/users"
-			ng-controller="userController"> <i class="fa fa-users"></i> <span
-				class="hidden-xs"> Users</span>
-		</a> <a class="btn btn-link footer-btn" ng-app="cmsApp" ng-click=""
-			href="#/contents" ng-controller="userController"> <i
-				class="fa fa-rss"></i> <span class="hidden-xs"> Contents</span>
+		<a class="btn btn-link footer-btn" ng-app="cmsApp" ng-click=""
+			href="#/users" ng-controller="userController"> <i
+			class="fa fa-users"></i> <span class="hidden-xs"> Authors</span>
+		</a> <span class="admin-area"><a class="btn btn-link footer-btn"
+			ng-app="cmsApp" ng-click="" href="#/contents"
+			ng-controller="userController"> <i class="fa fa-rss"></i> <span
+				class="hidden-xs"> Contents</span>
 		</a> <a class="btn btn-link footer-btn" ng-app="cmsApp"
 			href="#/categories" ng-controller="postController"> <i
 				class="fa fa-bars"></i> <span class="hidden-xs"> Categories</span>
@@ -75,8 +75,7 @@
 			href="#/themeSettings" ng-controller="userController"> <i
 				class="fa fa-cogs"></i> <span class="hidden-xs"> Theme
 					Settings</span>
-		</a>
-		</span>
+		</a> </span>
 	</div>
 	<div class="generalFooter">
 		<center>Admin - Portal</center>

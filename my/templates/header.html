@@ -1,12 +1,34 @@
+
 <nav class="navbar navbar-fixed-top is-visible">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#"><img src="http://www.padaippaligalulagam.com/logo.png" style="width:170px;"></a>
-	
+			<a class="navbar-brand" href="#"><img
+				src="http://www.padaippaligalulagam.com/logo.png"
+				style="width: 170px;"></a>
+
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a target="blank" href="http://www.padaippaligalulagam.com/">Goto
 					Site</a></li>
 		</ul>
+		<center>
+			<div id="notification" style="display: none"
+				class="bs-component notification">
+				<div
+					class="alert fade in alert-dismissible alert-{{notificationType}}">
+					<a type="button" class="close" onclick="hideNotification()">×</a>
+					<h4>{{notificationTitle}}</h4>
+					<span>{{notificationMessage}}</span]>
+				</div>
+				<div id="source-button" class="btn btn-primary btn-xs"
+					style="display: none;">&lt; &gt;</div>
+			</div>
+		</center>
 	</div>
 </nav>
+<script>
+	function hideNotification() {
+		$("#notification").hide();
+	}
+</script>
+

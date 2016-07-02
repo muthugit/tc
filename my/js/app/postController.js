@@ -1,5 +1,5 @@
 app.controller('postController', function($scope, $routeParams, $http,
-		$location) {
+		$location, cmsService) {
 	var userApi = localStorage.getItem("userApiKey");
 	$scope.post = {};
 	$scope.category = {};
@@ -16,17 +16,21 @@ app.controller('postController', function($scope, $routeParams, $http,
 	};
 
 	$scope.savePost = function() {
+		var successMsg = "Your content has been created/updated successfully.";
 		$('input[type="submit"]').prop('disabled', true);
 		if ($("#postTitle").val() == "") {
-			alert("Please enter post title.");
+			cmsService.notification("danger", "Error",
+					"Please enter post title.");
 			return;
 		}
 		if ($("#postDescription").val() == "") {
-			alert("Please enter post description.");
+			cmsService.notification("danger", "Error",
+					"Please enter post description.");
 			return;
 		}
 		if ($("#postCategory").val() == "") {
-			alert("Please select the post category.");
+			cmsService.notification("danger", "Error",
+					"Please select post category.");
 			return;
 		}
 		$("#btnPublish").hide();
@@ -43,7 +47,7 @@ app.controller('postController', function($scope, $routeParams, $http,
 		var url = APIUrl + '/newPost';
 		$http.post(url, $scope.post).success(function(data, status) {
 			console.log("Post insert data ==> " + data);
-			alert("Your content has been created/updated successfully.");
+			cmsService.notification("success", "Successful", successMsg);
 			$location.path('/');
 		}).error(function(err) {
 			console.log("Error" + err);
@@ -98,12 +102,15 @@ app.controller('postController', function($scope, $routeParams, $http,
 			console.log("Area: " + postId);
 			console.log(fetchArticleUrl);
 			$scope.post = [];
-			$http.get(fetchArticleUrl).then(function(response) {
-				$scope.post = (response.data);
-				$("#img_uploadFeatureImage_src").attr('src', UPLOAD_PATH + $scope.post['featureImageURL']);
-				console.log($scope.post.postDetail);
-				$('#summernote').summernote('code', $scope.post.postDetail);
-			});
+			$http.get(fetchArticleUrl).then(
+					function(response) {
+						$scope.post = (response.data);
+						$("#img_uploadFeatureImage_src").attr('src',
+								UPLOAD_PATH + $scope.post['featureImageURL']);
+						console.log($scope.post.postDetail);
+						$('#summernote').summernote('code',
+								$scope.post.postDetail);
+					});
 		}
 	};
 

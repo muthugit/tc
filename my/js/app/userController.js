@@ -56,7 +56,8 @@ app.controller('userController',
 								localStorage.setItem("currentUser", JSON
 										.stringify(response.data));
 								$scope.fetchFollowersList(userId);
-								alert(welcomeMessage);
+								cmsService.notification("success", "Welcome",
+										welcomeMessage);
 								$location.path('/');
 								$scope.checkUser();
 							}
@@ -68,9 +69,9 @@ app.controller('userController',
 				$http.get(followerUrl).then(
 						function(followingList) {
 							localStorage.setItem("followingList", JSON
-									.stringify(followingList));
+									.stringify(followingList.data));
 						});
-			}
+			};
 
 			$scope.resetPassword = function() {
 				var loginUrl = APIUrl + "/resetPassword/"
@@ -86,7 +87,8 @@ app.controller('userController',
 
 			$scope.logout = function() {
 				localStorage.removeItem("userApiKey");
-				alert("Thank you for your visit. Logout successfully!");
+				cmsService.notification("info", "Thank you",
+						"Thank you for your visit. Logout successfully!");
 				$scope.checkUser();
 			};
 
