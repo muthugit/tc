@@ -1,5 +1,5 @@
 app.controller('userManagementController', function($scope, $rootScope, $http,
-		$location, cmsService) {
+		$location, cmsService, $timeout) {
 	$scope.listUsers = function(from, to) {
 		var userApi = localStorage.getItem("userApiKey");
 		var fetchUsersUrl = APIUrl + "/fetchUsers/" + userApi;
@@ -8,7 +8,22 @@ app.controller('userManagementController', function($scope, $rootScope, $http,
 			$.each(response.data, function(i, l) {
 				$scope.allUsers.push(l);
 			});
+			$timeout(function() {
+				cmsService.checkUser($scope);
+			},2000);
+
 			console.log(response.data);
+		});
+	};
+
+	$scope.changeUserType = function(userId) {
+		var newUserType = $("#userType" + userId + " option:selected").val();
+		var userApi = localStorage.getItem("userApiKey");
+		var fetchUsersUrl = APIUrl + "/changeUserType/" + userApi + "/"
+				+ userId + "/" + newUserType;
+		console.log(fetchUsersUrl);
+		$http.get(fetchUsersUrl).then(function(response) {
+			cmsService.notification("success", "Changed user type", "");
 		});
 	};
 
@@ -60,4 +75,5 @@ app.controller('userManagementController', function($scope, $rootScope, $http,
 	$scope.listUsers(1, 10);
 	$scope.allUsers.followingProfiles = JSON.parse(localStorage
 			.getItem("followingList"));
+
 });

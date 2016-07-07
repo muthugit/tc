@@ -33,7 +33,14 @@
 					<div class="mainInner"
 						style="height: 130px; overflow: hidden; border-bottom: 1px solid grey;">
 						<p>{{user.name}}</p>
-						{{user.authorGroup}} <br>{{user.email}}
+						{{user.authorGroup}} <br>{{user.email}} <br> <select
+							class="form-control admin-area" style="display:none" id="userType{{user.objectId}}"
+							ng-model="user.userType"
+							ng-change="changeUserType(user.objectId)">
+							<option value="author">Author</option>
+							<option value="admin">Admin</option>
+							<option value="superAdmin">Super Admin</option>
+						</select>
 					</div>
 
 					<div class="secondInner" style='padding-top: 10px'>
@@ -42,7 +49,6 @@
 							class="btn btn-primary  btn-sm">
 							<i class="fa fa-plus"></i> Follow
 						</button>
-
 					</div>
 
 					<div

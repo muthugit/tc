@@ -90,6 +90,7 @@ app.controller('userController',
 				cmsService.notification("info", "Thank you",
 						"Thank you for your visit. Logout successfully!");
 				$scope.checkUser();
+				$location.path('/login');
 			};
 
 			$scope.fetchUserArticles = function() {
@@ -132,8 +133,7 @@ app.controller('userController',
 				var isUserLoggedIn = cmsService.checkUser($scope);
 				if (isUserLoggedIn == false) {
 					if ($scope.resetPwd == true)
-						console.log("IS RRRRRRRRR = " + $scope.resetPwd);
-					$location.path('/login');
+						$location.path('/login');
 				} else {
 					$scope.fetchUserArticles();
 				}

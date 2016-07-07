@@ -74,6 +74,8 @@ app.config([ '$routeProvider', '$locationProvider',
 				templateUrl : "core/changePassword.html",
 				controller : "profileController",
 				resetPwd : "true"
+			}).when("/logout", {
+				controller : "userController"
 			})
 			// else 404
 			.otherwise("/404", {

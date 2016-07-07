@@ -12,7 +12,7 @@ app.service('cmsService',
 			this.hideNotification = function() {
 				window.setTimeout(function() {
 					$(".notification").hide('blind', {}, 500);
-				}, 2000);
+				}, 1000);
 			};
 
 			this.checkUser = function($scope) {
